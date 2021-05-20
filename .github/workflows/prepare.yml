@@ -1,3 +1,5 @@
+name: Prepare
+
 on: [push]
 
 jobs:
