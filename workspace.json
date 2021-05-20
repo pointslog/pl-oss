@@ -1,6 +1,32 @@
 {
   "version": 2,
-  "projects": {},
+  "projects": {
+    "domain-core": {
+      "root": "libs/domain-core",
+      "sourceRoot": "libs/domain-core/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/domain-core/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/domain-core"
+          ],
+          "options": {
+            "jestConfig": "libs/domain-core/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
   "cli": {
     "defaultCollection": "@nrwl/workspace"
   }

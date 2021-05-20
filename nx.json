@@ -1,7 +1,7 @@
 {
   "npmScope": "pl-oss",
   "affected": {
-    "defaultBase": "master"
+    "defaultBase": "main"
   },
   "implicitDependencies": {
     "package.json": {
@@ -23,5 +23,9 @@
       }
     }
   },
-  "projects": {}
+  "projects": {
+    "domain-core": {
+      "tags": []
+    }
+  }
 }

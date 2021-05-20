@@ -17,7 +17,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@pl-oss/domain-core": [
+        "libs/domain-core/src/index.ts"
+      ]
+    }
   },
   "exclude": [
     "node_modules",
