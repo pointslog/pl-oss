@@ -1,0 +1,76 @@
+{
+  "env": {
+    "es2020": true,
+    "jest": true
+  },
+  "extends": [
+    "plugin:@nrwl/nx/javascript",
+    "plugin:@nrwl/nx/typescript",
+    "airbnb-base",
+    "plugin:import/typescript"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.js"
+      ],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off"
+      }
+    }
+  ],
+  "plugins": [
+    "@nrwl/nx"
+  ],
+  "root": true,
+  "rules": {
+    "@nrwl/nx/enforce-module-boundaries": [
+      "error",
+      {
+        "allow": [],
+        "depConstraints": [
+          {
+            "onlyDependOnLibsWithTags": [
+              "*"
+            ],
+            "sourceTag": "*"
+          }
+        ],
+        "enforceBuildableLibDependency": true
+      }
+    ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "ts": "never",
+        "vue": "never"
+      }
+    ],
+    "import/no-extraneous-dependencies": "off",
+    "import/prefer-default-export": "off",
+    "lines-between-class-members": [
+      "error",
+      "always",
+      {
+        "exceptAfterSingleLine": true
+      }
+    ],
+    "no-empty-function": "off",
+    "@typescript-eslint/no-empty-function": [
+      "error"
+    ],
+    "no-useless-constructor": "off",
+    "@typescript-eslint/no-useless-constructor": [
+      "error"
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "project": "tsconfig.*.json"
+      }
+    }
+  }
+}

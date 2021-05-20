@@ -23,5 +23,9 @@
       }
     }
   },
-  "projects": {}
+  "projects": {
+    "domain-core": {
+      "tags": []
+    }
+  }
 }
