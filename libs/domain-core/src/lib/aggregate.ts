@@ -11,12 +11,12 @@ export class Aggregate {
     this.revision += 1;
   }
 
-  raiseEvent(event: Event): void {
+  raiseEvent(event: Event) {
     this.applyEvent(event);
     this.changes.push(event);
   }
 
-  resetChanges(): void {
+  resetChanges() {
     this.changes = [];
   }
 }
