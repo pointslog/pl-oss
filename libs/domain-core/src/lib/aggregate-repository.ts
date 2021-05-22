@@ -10,7 +10,9 @@ export abstract class AggregateRepository<T extends Aggregate> {
     const aggregate = this.getNewInstance();
     const stream = `${aggregate.constructor.name}-${id}`;
     const events = await this.eventStore.read(stream);
-    events.forEach((event) => { aggregate.applyEvent(event); });
+    events.forEach((event) => {
+      aggregate.applyEvent(event);
+    });
     return aggregate;
   }
 
