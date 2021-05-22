@@ -18,7 +18,7 @@ export class TestEvent implements Event {
   }
 }
 
-class TestAggregate extends Aggregate {
+export class TestAggregate extends Aggregate {
   // eslint-disable-next-line
   applyTestEvent(testEvent: TestEvent) {}
 }
