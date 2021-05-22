@@ -35,13 +35,13 @@ describe('AggregateRepository', () => {
   let testEventStore: EventStore;
 
   beforeEach(() => {
-    testAggregate = new TestAggregate();
     testEvent = new TestEvent('id');
+    testAggregate = new TestAggregate();
     testEventStore = new TestEventStore();
     testAggregateRepository = new TestAggregateRepository(testEventStore);
   });
 
-  afterEach(() => {
+  afterAll(() => {
     jest.clearAllMocks();
   });
 
@@ -51,7 +51,7 @@ describe('AggregateRepository', () => {
       const stream = `TestAggregate-${id}`;
       const testEvents: Event[] = [testEvent];
 
-      jest.spyOn(testAggregateRepository, 'getNewInstance');
+      jest.spyOn(testAggregateRepository, 'getNewInstance').mockReturnValueOnce(testAggregate);
       jest.spyOn(testEventStore, 'read').mockResolvedValueOnce(testEvents);
       jest.spyOn(testAggregate, 'applyEvent');
 
