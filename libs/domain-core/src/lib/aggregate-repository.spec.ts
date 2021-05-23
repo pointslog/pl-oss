@@ -1,8 +1,8 @@
 /* eslint-disable max-classes-per-file */
 import { AggregateRepository } from './aggregate-repository';
+import { Event } from './event';
 import { EventStore } from './event-store';
 import { TestAggregate, TestEvent } from './aggregate.spec';
-import { Event } from './event';
 
 class TestEventStore implements EventStore {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars,class-methods-use-this
@@ -41,13 +41,13 @@ describe('AggregateRepository', () => {
     testAggregateRepository = new TestAggregateRepository(testEventStore);
   });
 
-  afterAll(() => {
+  afterEach(() => {
     jest.clearAllMocks();
   });
 
   describe('getById', () => {
     it('should return TestAggregate', async () => {
-      const id = 'abc';
+      const id = 'id';
       const stream = `TestAggregate-${id}`;
       const testEvents: Event[] = [testEvent];
 
@@ -55,11 +55,44 @@ describe('AggregateRepository', () => {
       jest.spyOn(testEventStore, 'read').mockResolvedValueOnce(testEvents);
       jest.spyOn(testAggregate, 'applyEvent');
 
-      await testAggregateRepository.getById(id);
+      const aggregate = await testAggregateRepository.getById(id);
 
       expect(testAggregateRepository.getNewInstance).toHaveBeenCalledTimes(1);
       expect(testEventStore.read).toHaveBeenNthCalledWith(1, stream);
       expect(testAggregate.applyEvent).toHaveBeenNthCalledWith(1, testEvent);
+      expect(aggregate.revision).toBeGreaterThan(-1);
+    });
+  });
+
+  describe('save', () => {
+    it('should handle save with applyEvent call', async () => {
+      const id = 'id';
+      testAggregate.id = id;
+      const stream = `TestAggregate-${id}`;
+
+      jest.spyOn(testEventStore, 'append');
+      jest.spyOn(testAggregate, 'resetChanges');
+
+      testAggregate.applyEvent(testEvent);
+      await testAggregateRepository.save(testAggregate);
+
+      expect(testEventStore.append).toHaveBeenNthCalledWith(1, stream, [], 0);
+      expect(testEventStore.append).toHaveBeenCalledTimes(1);
+    });
+
+    it('should handle save with raiseEvent call', async () => {
+      const id = 'id';
+      testAggregate.id = id;
+      const stream = `TestAggregate-${id}`;
+
+      jest.spyOn(testEventStore, 'append');
+      jest.spyOn(testAggregate, 'resetChanges');
+
+      testAggregate.raiseEvent(testEvent);
+      await testAggregateRepository.save(testAggregate);
+
+      expect(testEventStore.append).toHaveBeenCalledTimes(1);
+      expect(testEventStore.append).toHaveBeenNthCalledWith(1, stream, [testEvent], -1);
     });
   });
 });
