@@ -60,21 +60,6 @@ describe('AggregateRepository', () => {
   });
 
   describe('save', () => {
-    it('should handle save with applyEvent call', async () => {
-      const id = 'id';
-      testAggregate.id = id;
-      const stream = `TestAggregate-${id}`;
-
-      jest.spyOn(testEventStore, 'append');
-      jest.spyOn(testAggregate, 'resetChanges');
-
-      testAggregate.applyEvent(testEvent);
-      await testAggregateRepository.save(testAggregate);
-
-      expect(testEventStore.append).toHaveBeenNthCalledWith(1, stream, [], 0);
-      expect(testEventStore.append).toHaveBeenCalledTimes(1);
-    });
-
     it('should handle save with raiseEvent call', async () => {
       const id = 'id';
       testAggregate.id = id;
@@ -86,8 +71,8 @@ describe('AggregateRepository', () => {
       testAggregate.raiseEvent(testEvent);
       await testAggregateRepository.save(testAggregate);
 
-      expect(testEventStore.append).toHaveBeenCalledTimes(1);
       expect(testEventStore.append).toHaveBeenNthCalledWith(1, stream, [testEvent], -1);
+      expect(testAggregate.resetChanges).toHaveBeenCalledTimes(1);
     });
   });
 });
