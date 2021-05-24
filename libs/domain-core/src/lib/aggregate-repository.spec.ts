@@ -17,11 +17,6 @@ class TestEventStore implements EventStore {
 }
 
 class TestAggregateRepository extends AggregateRepository<TestAggregate> {
-  // eslint-disable-next-line @typescript-eslint/no-useless-constructor
-  constructor(eventStore: EventStore) {
-    super(eventStore);
-  }
-
   // eslint-disable-next-line class-methods-use-this
   getNewInstance(): TestAggregate {
     return new TestAggregate();
