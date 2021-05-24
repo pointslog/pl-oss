@@ -1,3 +1,6 @@
 module.exports = {
-  projects: ['<rootDir>/libs/domain-core'],
+  projects: [
+    '<rootDir>/libs/adapters',
+    '<rootDir>/libs/domain-core',
+  ],
 };
