@@ -5,7 +5,7 @@ export class MongoDBRepository<T extends { id: string }> {
 
   async getById(id: string): Promise<T> {
     const filter = { _id: id };
-    return this.collection.findOne(filterQuery);
+    return this.collection.findOne(filter);
   }
 
   async save(entity: T): Promise<void> {
