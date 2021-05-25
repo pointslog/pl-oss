@@ -18,7 +18,7 @@ async function* generateEvents() {
 
 jest.mock('@eventstore/db-client', () => ({
   ...(jest.requireActual('@eventstore/db-client')),
-  EventStoreDBClient: { connectionString: () => ({ subscribeToAll: () => ({}) }) },
+  EventStoreDBClient: { connectionString: () => ({ subscribeToAll: jest.fn() }) },
 }));
 
 describe('EventStoreDBEventSubscription', () => {
