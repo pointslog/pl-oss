@@ -50,8 +50,9 @@ describe('MongoDBRepository', () => {
 
       await testEntityMongoDBRepository.save(testEntity);
 
-      expect(testCollection.findOne).toHaveBeenCalledTimes(1);
-      expect(testCollection.findOne).toHaveBeenNthCalledWith(1, filterQuery, testEntity, options);
+      expect(testCollection.findOnaAndReplace).toHaveBeenCalledTimes(1);
+      expect(testCollection.findOnaAndReplace)
+        .toHaveBeenNthCalledWith(1, filterQuery, testEntity, options);
     });
   });
 });
