@@ -24,6 +24,9 @@
     }
   },
   "projects": {
+    "adapter": {
+      "tags": []
+    },
     "domain-core": {
       "tags": []
     }
