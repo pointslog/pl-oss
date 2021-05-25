@@ -29,7 +29,7 @@ describe('MongoDBRepository', () => {
 
   describe('getById', () => {
     it('should call findOne with id', async () => {
-      const filterQuery = { _id: id };
+      const filter = { _id: id };
 
       jest.spyOn(testCollection, 'findOne').mockResolvedValue(testEntity);
 
@@ -37,13 +37,13 @@ describe('MongoDBRepository', () => {
 
       expect(entity).toMatchObject(testEntity);
       expect(testCollection.findOne).toHaveBeenCalledTimes(1);
-      expect(testCollection.findOne).toHaveBeenNthCalledWith(1, filterQuery);
+      expect(testCollection.findOne).toHaveBeenNthCalledWith(1, filter);
     });
   });
 
   describe('save', () => {
     it('should call findOneAndReplace with entity', async () => {
-      const filterQuery = { _id: id };
+      const filter = { _id: id };
       const options = { upsert: true };
 
       jest.spyOn(testCollection, 'findOneAndReplace').mockResolvedValue(undefined);
@@ -52,7 +52,7 @@ describe('MongoDBRepository', () => {
 
       expect(testCollection.findOneAndReplace).toHaveBeenCalledTimes(1);
       expect(testCollection.findOneAndReplace)
-        .toHaveBeenNthCalledWith(1, filterQuery, testEntity, options);
+        .toHaveBeenNthCalledWith(1, filter, testEntity, options);
     });
   });
 });
