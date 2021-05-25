@@ -4,7 +4,7 @@ export class MongoDBRepository<T extends { id: string }> {
   constructor(private readonly collection: Collection) {}
 
   async getById(id: string): Promise<T> {
-    const filterQuery = { _id: id };
+    const filter = { _id: id };
     return this.collection.findOne(filterQuery);
   }
 
