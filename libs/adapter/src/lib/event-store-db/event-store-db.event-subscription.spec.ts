@@ -50,7 +50,7 @@ describe('EventStoreDBEventSubscription', () => {
       await testEventStoreDBEventSubscription.register(testEventListener);
 
       expect(testEventStoreDBClient.subscribeToAll).toHaveBeenCalledTimes(1);
-      expect(testEventStoreDBClient.subscribeToAll).toHaveBeenCalledWith({ filter });
+      expect(testEventStoreDBClient.subscribeToAll).toHaveBeenNthCalledWith(1, { filter });
       expect(testEventListener.on).toHaveBeenCalledTimes(2);
       expect(testEventListener.on).toHaveBeenNthCalledWith(1, 'first');
       expect(testEventListener.on).toHaveBeenNthCalledWith(2, 'second');
