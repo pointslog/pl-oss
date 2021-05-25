@@ -11,6 +11,6 @@ export class MongoDBRepository<T extends { id: string }> {
   async save(entity: T): Promise<void> {
     const filter = { _id: entity.id };
     const options = { upsert: true };
-    await this.collection.findOneAndReplace(filterQuery, entity, options);
+    await this.collection.findOneAndReplace(filter, entity, options);
   }
 }
