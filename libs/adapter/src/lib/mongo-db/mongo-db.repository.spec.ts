@@ -52,7 +52,7 @@ describe('MongoDBRepository', () => {
 
       expect(testCollection.findOneAndReplace).toHaveBeenCalledTimes(1);
       expect(testCollection.findOneAndReplace)
-        .toHaveBeenNthCalledWith(1, filterQuery, testEntity, options);
+        .toHaveBeenNthCalledWith(1, filter, testEntity, options);
     });
   });
 });
