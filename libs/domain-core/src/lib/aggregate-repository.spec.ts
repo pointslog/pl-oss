@@ -24,6 +24,9 @@ class TestAggregateRepository extends AggregateRepository<TestAggregate> {
 }
 
 describe('AggregateRepository', () => {
+  const id = 'id';
+  const stream = `TestAggregate-${id}`;
+
   let testAggregate: TestAggregate;
   let testAggregateRepository: TestAggregateRepository;
   let testEvent: TestEvent;
@@ -42,8 +45,6 @@ describe('AggregateRepository', () => {
 
   describe('getById', () => {
     it('should return TestAggregate', async () => {
-      const id = 'id';
-      const stream = `TestAggregate-${id}`;
       const testEvents: Event[] = [testEvent];
 
       jest.spyOn(testAggregateRepository, 'getNewInstance').mockReturnValueOnce(testAggregate);
@@ -61,9 +62,7 @@ describe('AggregateRepository', () => {
 
   describe('save', () => {
     it('should handle save with raiseEvent call', async () => {
-      const id = 'id';
       testAggregate.id = id;
-      const stream = `TestAggregate-${id}`;
 
       jest.spyOn(testEventStore, 'append');
       jest.spyOn(testAggregate, 'resetChanges');
