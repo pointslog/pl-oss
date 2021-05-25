@@ -29,7 +29,7 @@ describe('MongoDBRepository', () => {
 
   describe('getById', () => {
     it('should call findOne with id', async () => {
-      const filterQuery = { _id: id };
+      const filter = { _id: id };
 
       jest.spyOn(testCollection, 'findOne').mockResolvedValue(testEntity);
 
