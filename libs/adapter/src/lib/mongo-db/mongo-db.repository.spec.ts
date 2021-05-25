@@ -37,7 +37,7 @@ describe('MongoDBRepository', () => {
 
       expect(entity).toMatchObject(testEntity);
       expect(testCollection.findOne).toHaveBeenCalledTimes(1);
-      expect(testCollection.findOne).toHaveBeenNthCalledWith(1, filterQuery);
+      expect(testCollection.findOne).toHaveBeenNthCalledWith(1, filter);
     });
   });
 
