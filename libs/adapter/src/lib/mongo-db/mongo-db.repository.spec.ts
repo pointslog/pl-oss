@@ -43,7 +43,7 @@ describe('MongoDBRepository', () => {
 
   describe('save', () => {
     it('should call findOneAndReplace with entity', async () => {
-      const filterQuery = { _id: id };
+      const filter = { _id: id };
       const options = { upsert: true };
 
       jest.spyOn(testCollection, 'findOneAndReplace').mockResolvedValue(undefined);
