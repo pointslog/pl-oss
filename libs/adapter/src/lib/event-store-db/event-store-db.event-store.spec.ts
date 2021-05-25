@@ -41,6 +41,7 @@ describe('EventStoreDBEventStore', () => {
   describe('append', () => {
     it('should call appendToStream', async () => {
       await testEventStoreDBEventStore.append(stream, domainEvents, -1);
+
       expect(testEventStoreDBClient.appendToStream).toHaveBeenCalledTimes(1);
       expect(testEventStoreDBClient.appendToStream)
         .toHaveBeenNthCalledWith(1, stream, jsonEvents, { expectedRevision: NO_STREAM });
