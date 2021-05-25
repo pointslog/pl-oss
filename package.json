@@ -27,6 +27,7 @@
   },
   "private": true,
   "dependencies": {
+    "@eventstore/db-client": "^1.2.1",
     "tslib": "^2.0.0"
   },
   "devDependencies": {
