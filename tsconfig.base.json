@@ -18,8 +18,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@pl-oss/adapters": [
-        "libs/adapters/src/index.ts"
+      "@pl-oss/adapter": [
+        "libs/adapter/src/index.ts"
       ],
       "@pl-oss/domain-core": [
         "libs/domain-core/src/index.ts"

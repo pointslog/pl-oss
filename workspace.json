@@ -1,26 +1,26 @@
 {
   "version": 2,
   "projects": {
-    "adapters": {
-      "root": "libs/adapters",
-      "sourceRoot": "libs/adapters/src",
+    "adapter": {
+      "root": "libs/adapter",
+      "sourceRoot": "libs/adapter/src",
       "projectType": "library",
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/adapters/**/*.ts"
+              "libs/adapter/**/*.ts"
             ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
           "outputs": [
-            "coverage/libs/adapters"
+            "coverage/libs/adapter"
           ],
           "options": {
-            "jestConfig": "libs/adapters/jest.config.js",
+            "jestConfig": "libs/adapter/jest.config.js",
             "passWithNoTests": true
           }
         }
