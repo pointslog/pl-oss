@@ -13,7 +13,7 @@ class TestEventListener implements EventListener {
 
 async function* generateEvents() {
   const events = ['first', 'second'];
-  for (let i = 0; i < 2; i += 1) yield { event: events[i] };
+  for (let i = 0; i < events.length; i += 1) yield { event: events[i] };
 }
 
 jest.mock('@eventstore/db-client', () => ({
