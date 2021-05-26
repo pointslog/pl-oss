@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PLDialog should match the snapshot 1`] = `
+<v-dialog-stub
+  closedelay="0"
+  contentclass=""
+  maxwidth="600"
+  opendelay="0"
+  origin="center center"
+  persistent="true"
+  retainfocus="true"
+  transition="dialog-transition"
+  width="auto"
+/>
+`;
