@@ -12,10 +12,10 @@ module.exports = {
   snapshotSerializers: ['jest-serializer-vue'],
   globals: {
     'ts-jest': {
-      tsConfig: '<rootDir>/tsconfig.spec.json',
+      tsconfig: '<rootDir>/tsconfig.spec.json',
     },
     'vue-jest': {
-      tsConfig: `${__dirname}/tsconfig.spec.json`,
+      tsconfig: `${__dirname}/tsconfig.spec.json`,
     },
   },
 };

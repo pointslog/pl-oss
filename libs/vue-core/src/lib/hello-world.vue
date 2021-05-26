@@ -1,5 +1,5 @@
-<template>
-  <h1>{{ 'Welcome to Your Vue.js + TypeScript Library' }}</h1>
+<template lang="pug">
+  h1 Welcome to Your Vue.js + TypeScript Library
 </template>
 
 <script lang="ts">
