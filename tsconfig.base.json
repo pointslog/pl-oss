@@ -23,6 +23,9 @@
       ],
       "@pl-oss/domain-core": [
         "libs/domain-core/src/index.ts"
+      ],
+      "@pl-oss/vue-core": [
+        "libs/vue-core/src/index.ts"
       ]
     }
   },

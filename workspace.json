@@ -50,6 +50,31 @@
           }
         }
       }
+    },
+    "vue-core": {
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/vue-core/**/*.{ts,tsx,vue}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/vue-core"
+          ],
+          "options": {
+            "jestConfig": "libs/vue-core/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "root": "libs/vue-core",
+      "sourceRoot": "libs/vue-core/src"
     }
   },
   "cli": {
