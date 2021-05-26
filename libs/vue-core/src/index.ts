@@ -1,1 +1,1 @@
-export * from './lib/plugins/pl-components';
+export * from './lib/plugins/pl-components.plugin';
