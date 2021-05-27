@@ -23,6 +23,21 @@
             "jestConfig": "libs/adapter/jest.config.js",
             "passWithNoTests": true
           }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/libs/adapter",
+            "tsConfig": "libs/adapter/tsconfig.lib.json",
+            "packageJson": "libs/adapter/package.json",
+            "main": "libs/adapter/src/index.ts",
+            "assets": [
+              "libs/adapter/*.md"
+            ]
+          }
         }
       }
     },
@@ -47,6 +62,21 @@
           "options": {
             "jestConfig": "libs/domain-core/jest.config.js",
             "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/libs/domain-core",
+            "tsConfig": "libs/domain-core/tsconfig.lib.json",
+            "packageJson": "libs/domain-core/package.json",
+            "main": "libs/domain-core/src/index.ts",
+            "assets": [
+              "libs/domain-core/*.md"
+            ]
           }
         }
       }
