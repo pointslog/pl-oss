@@ -2,6 +2,6 @@ import { EventMetadata } from './event-metadata';
 
 export interface Event {
   readonly type: string
-  readonly data: unknown
+  readonly data: Record<string | number, unknown>
   readonly metadata: EventMetadata
 }
