@@ -92,6 +92,14 @@
             ]
           }
         },
+        "build": {
+          "executor": "@nx-plus/vue:library",
+          "options": {
+            "dest": "dist/libs/vue-core",
+            "entry": "libs/vue-core/src/index.ts",
+            "tsConfig": "libs/vue-core/tsconfig.lib.json"
+          }
+        },
         "test": {
           "executor": "@nrwl/jest:jest",
           "outputs": [
