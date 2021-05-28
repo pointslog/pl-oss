@@ -29,6 +29,9 @@
     },
     "domain-core": {
       "tags": []
+    },
+    "vue-core": {
+      "tags": []
     }
   }
 }

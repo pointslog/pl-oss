@@ -23,6 +23,21 @@
             "jestConfig": "libs/adapter/jest.config.js",
             "passWithNoTests": true
           }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/libs/adapter",
+            "tsConfig": "libs/adapter/tsconfig.lib.json",
+            "packageJson": "libs/adapter/package.json",
+            "main": "libs/adapter/src/index.ts",
+            "assets": [
+              "libs/adapter/*.md"
+            ]
+          }
         }
       }
     },
@@ -48,8 +63,56 @@
             "jestConfig": "libs/domain-core/jest.config.js",
             "passWithNoTests": true
           }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/libs/domain-core",
+            "tsConfig": "libs/domain-core/tsconfig.lib.json",
+            "packageJson": "libs/domain-core/package.json",
+            "main": "libs/domain-core/src/index.ts",
+            "assets": [
+              "libs/domain-core/*.md"
+            ]
+          }
         }
       }
+    },
+    "vue-core": {
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/vue-core/**/*.{ts,tsx,vue}"
+            ]
+          }
+        },
+        "build": {
+          "executor": "@nx-plus/vue:library",
+          "options": {
+            "dest": "dist/libs/vue-core",
+            "entry": "libs/vue-core/src/index.ts",
+            "tsConfig": "libs/vue-core/tsconfig.lib.json"
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/vue-core"
+          ],
+          "options": {
+            "jestConfig": "libs/vue-core/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "root": "libs/vue-core",
+      "sourceRoot": "libs/vue-core/src"
     }
   },
   "cli": {
