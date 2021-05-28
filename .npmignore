@@ -1,0 +1,14 @@
+.idea
+.nuxt
+.vercel
+.vscode
+# dist @see https://stackoverflow.com/a/31642553
+logs
+node_modules
+test-coverage
+test-report
+.DS_Store
+.env
+.env.test
+*.log*
+*sw.js
