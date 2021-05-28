@@ -6,7 +6,7 @@ import {
   ResolvedEvent,
   START,
 } from '@eventstore/db-client';
-import { Event } from '@pl-oss/domain-core';
+import { Event as DomainEvent } from '@pl-oss/domain-core';
 import { EventStoreDBEventStore } from './event-store-db.event-store';
 
 jest.mock('@eventstore/db-client', () => ({
@@ -21,7 +21,7 @@ jest.mock('@eventstore/db-client', () => ({
 
 describe('EventStoreDBEventStore', () => {
   const id = 'id';
-  const domainEvents: Event[] = [];
+  const domainEvents: DomainEvent[] = [];
   const jsonEvents: JSONEventData[] = [];
   const resolvedEvents: ResolvedEvent[] = [];
   const stream = `TestAggregate-${id}`;
@@ -36,6 +36,34 @@ describe('EventStoreDBEventStore', () => {
 
   afterEach(() => {
     jest.clearAllMocks();
+  });
+
+  describe('determineExpectedRevision', () => {
+    it('should return NO_STREAM if revision is -1', async () => {
+      const revision = -1;
+      const expectedRevision = EventStoreDBEventStore.determineExpectedRevision(revision);
+      expect(expectedRevision).toStrictEqual(NO_STREAM);
+    });
+
+    it('should return BigInt if revision is anything but -1', async () => {
+      const revision = 1;
+      const expectedRevision = EventStoreDBEventStore.determineExpectedRevision(revision);
+      expect(expectedRevision).toStrictEqual(BigInt(revision));
+    });
+  });
+
+  describe('mapEventToJsonEvent', () => {
+    it('should map domain event to json event', async () => {
+      const mappedJsonEvents = domainEvents.map(EventStoreDBEventStore.mapEventToJsonEvent);
+      expect(mappedJsonEvents).toStrictEqual(jsonEvents);
+    });
+  });
+
+  describe('mapResolvedEventToEvent', () => {
+    it('should map resolved event to domain event', async () => {
+      const mappedDomainEvents = resolvedEvents.map(EventStoreDBEventStore.mapResolvedEventToEvent);
+      expect(mappedDomainEvents).toStrictEqual(domainEvents);
+    });
   });
 
   describe('append', () => {
