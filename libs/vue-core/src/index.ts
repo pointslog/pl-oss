@@ -1,3 +1,1 @@
-import HelloWorld from './lib/hello-world.vue';
-
-export { HelloWorld };
+export * from './lib/plugins/pl-components.plugin';

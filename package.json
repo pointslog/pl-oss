@@ -31,7 +31,8 @@
     "@eventstore/db-client": "^1.2.1",
     "mongodb": "^3.6.8",
     "tslib": "^2.0.0",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vuetify": "^2.5.1"
   },
   "devDependencies": {
     "@nrwl/cli": "12.3.4",
