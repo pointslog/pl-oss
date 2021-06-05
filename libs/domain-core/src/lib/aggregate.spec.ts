@@ -32,9 +32,7 @@ describe('Aggregate', () => {
     testEvent = new TestEvent('id');
   });
 
-  afterEach(() => {
-    jest.clearAllMocks();
-  });
+  afterEach(jest.clearAllMocks);
 
   describe('applyEvent', () => {
     it('should call apply{EventName} and increment revision', async () => {
