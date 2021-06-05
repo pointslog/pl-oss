@@ -32,9 +32,7 @@ describe('EventStoreDBEventSubscription', () => {
     testEventStoreDBEventSubscription = new EventStoreDBEventSubscription(testEventStoreDBClient);
   });
 
-  afterEach(() => {
-    jest.clearAllMocks();
-  });
+  afterEach(jest.clearAllMocks);
 
   describe('register', () => {
     it('should register and call listener.on', async () => {
@@ -49,6 +47,7 @@ describe('EventStoreDBEventSubscription', () => {
 
       expect(testEventStoreDBClient.subscribeToAll).toHaveBeenCalledTimes(1);
       expect(testEventStoreDBClient.subscribeToAll).toHaveBeenNthCalledWith(1, { filter });
+
       expect(testEventListener.on).toHaveBeenCalledTimes(2);
       expect(testEventListener.on).toHaveBeenNthCalledWith(1, 'first');
       expect(testEventListener.on).toHaveBeenNthCalledWith(2, 'second');

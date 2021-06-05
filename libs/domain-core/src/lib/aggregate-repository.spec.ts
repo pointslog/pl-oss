@@ -39,9 +39,7 @@ describe('AggregateRepository', () => {
     testAggregateRepository = new TestAggregateRepository(testEventStore);
   });
 
-  afterEach(() => {
-    jest.clearAllMocks();
-  });
+  afterEach(jest.clearAllMocks);
 
   describe('getById', () => {
     it('should return TestAggregate', async () => {
@@ -54,7 +52,12 @@ describe('AggregateRepository', () => {
       const aggregate = await testAggregateRepository.getById(id);
 
       expect(testAggregateRepository.getNewInstance).toHaveBeenCalledTimes(1);
+      expect(testAggregateRepository.getNewInstance).toHaveBeenNthCalledWith(1);
+
+      expect(testEventStore.read).toHaveBeenCalledTimes(1);
       expect(testEventStore.read).toHaveBeenNthCalledWith(1, stream);
+
+      expect(testAggregate.applyEvent).toHaveBeenCalledTimes(1);
       expect(testAggregate.applyEvent).toHaveBeenNthCalledWith(1, testEvent);
       expect(aggregate.revision).toBeGreaterThan(-1);
     });
@@ -70,8 +73,11 @@ describe('AggregateRepository', () => {
       testAggregate.raiseEvent(testEvent);
       await testAggregateRepository.save(testAggregate);
 
-      expect(testEventStore.append).toHaveBeenNthCalledWith(1, stream, [testEvent], -1);
       expect(testAggregate.resetChanges).toHaveBeenCalledTimes(1);
+      expect(testAggregate.resetChanges).toHaveBeenNthCalledWith(1);
+
+      expect(testEventStore.append).toHaveBeenCalledTimes(1);
+      expect(testEventStore.append).toHaveBeenNthCalledWith(1, stream, [testEvent], -1);
     });
   });
 });
