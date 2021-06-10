@@ -29,11 +29,9 @@ describe('AggregateRepository', () => {
 
   let testAggregate: TestAggregate;
   let testAggregateRepository: TestAggregateRepository;
-  let testEvent: TestEvent;
   let testEventStore: EventStore;
 
   beforeEach(() => {
-    testEvent = new TestEvent('id');
     testAggregate = new TestAggregate();
     testEventStore = new TestEventStore();
     testAggregateRepository = new TestAggregateRepository(testEventStore);
@@ -42,9 +40,11 @@ describe('AggregateRepository', () => {
   afterEach(jest.clearAllMocks);
 
   describe('getById', () => {
-    it('should return TestAggregate', async () => {
-      const testEvents: Event[] = [testEvent];
+    const testEventFirst = new TestEvent('first');
+    const testEventSecond = new TestEvent('second');
+    const testEvents = [testEventFirst, testEventSecond];
 
+    it('should return TestAggregat', async () => {
       jest.spyOn(testAggregateRepository, 'getNewInstance').mockReturnValueOnce(testAggregate);
       jest.spyOn(testEventStore, 'read').mockResolvedValueOnce(testEvents);
       jest.spyOn(testAggregate, 'applyEvent');
@@ -57,8 +57,9 @@ describe('AggregateRepository', () => {
       expect(testEventStore.read).toHaveBeenCalledTimes(1);
       expect(testEventStore.read).toHaveBeenNthCalledWith(1, stream);
 
-      expect(testAggregate.applyEvent).toHaveBeenCalledTimes(1);
-      expect(testAggregate.applyEvent).toHaveBeenNthCalledWith(1, testEvent);
+      expect(testAggregate.applyEvent).toHaveBeenCalledTimes(2);
+      expect(testAggregate.applyEvent).toHaveBeenNthCalledWith(1, testEventFirst);
+      expect(testAggregate.applyEvent).toHaveBeenNthCalledWith(2, testEventSecond);
       expect(aggregate.revision).toBeGreaterThan(-1);
     });
   });
@@ -66,6 +67,7 @@ describe('AggregateRepository', () => {
   describe('save', () => {
     it('should handle save with raiseEvent call', async () => {
       testAggregate.id = id;
+      const testEvent = new TestEvent('id');
 
       jest.spyOn(testEventStore, 'append');
       jest.spyOn(testAggregate, 'resetChanges');
