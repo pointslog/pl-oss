@@ -60,7 +60,7 @@ describe('AggregateRepository', () => {
       expect(testAggregate.applyEvent).toHaveBeenCalledTimes(2);
       expect(testAggregate.applyEvent).toHaveBeenNthCalledWith(1, testEventFirst);
       expect(testAggregate.applyEvent).toHaveBeenNthCalledWith(2, testEventSecond);
-      expect(aggregate.revision).toBeGreaterThan(-1);
+      expect(aggregate.revision).toStrictEqual(1);
     });
   });
 
