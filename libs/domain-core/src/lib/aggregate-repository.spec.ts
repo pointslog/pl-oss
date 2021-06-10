@@ -44,7 +44,7 @@ describe('AggregateRepository', () => {
     const testEventSecond = new TestEvent('second');
     const testEvents = [testEventFirst, testEventSecond];
 
-    it('should return TestAggregat', async () => {
+    it('should return TestAggregate', async () => {
       jest.spyOn(testAggregateRepository, 'getNewInstance').mockReturnValueOnce(testAggregate);
       jest.spyOn(testEventStore, 'read').mockResolvedValueOnce(testEvents);
       jest.spyOn(testAggregate, 'applyEvent');
