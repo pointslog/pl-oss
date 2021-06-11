@@ -1,27 +1,8 @@
-/* eslint-disable max-classes-per-file */
-import { AggregateRepository } from './aggregate-repository';
-import { Event } from './event';
+import { mock } from 'jest-mock-extended';
+import { TestAggregateRepository } from '../test-domain/test.aggregate-repository';
+import { TestAggregate } from '../test-domain/test.aggregate';
+import { TestEvent } from '../test-domain/test.event';
 import { EventStore } from './event-store';
-import { TestAggregate, TestEvent } from './aggregate.spec';
-
-class TestEventStore implements EventStore {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars,class-methods-use-this
-  append(stream: string, events: Event[], expectedRevision: number): Promise<void> {
-    return Promise.resolve(undefined);
-  }
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars,class-methods-use-this
-  read(stream: string): Promise<Event[]> {
-    return Promise.resolve([]);
-  }
-}
-
-class TestAggregateRepository extends AggregateRepository<TestAggregate> {
-  // eslint-disable-next-line class-methods-use-this
-  getNewInstance(): TestAggregate {
-    return new TestAggregate();
-  }
-}
 
 describe('AggregateRepository', () => {
   const id = 'id';
@@ -33,7 +14,7 @@ describe('AggregateRepository', () => {
 
   beforeEach(() => {
     testAggregate = new TestAggregate();
-    testEventStore = new TestEventStore();
+    testEventStore = mock<EventStore>();
     testAggregateRepository = new TestAggregateRepository(testEventStore);
   });
 

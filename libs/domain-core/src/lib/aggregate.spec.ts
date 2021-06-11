@@ -1,27 +1,5 @@
-/* eslint-disable max-classes-per-file */
-import { Aggregate } from './aggregate';
-import { EventMetadata } from './event-metadata';
-import { Event } from './event';
-
-export class TestEvent implements Event {
-  readonly type = 'TestEvent'
-
-  readonly data: {
-    readonly id: string
-  }
-
-  readonly metadata: EventMetadata
-
-  constructor(id: string) {
-    this.data = { id };
-    this.metadata = { timestamp: new Date() };
-  }
-}
-
-export class TestAggregate extends Aggregate {
-  // eslint-disable-next-line
-  applyTestEvent(testEvent: TestEvent) {}
-}
+import { TestAggregate } from '../test-domain/test.aggregate';
+import { TestEvent } from '../test-domain/test.event';
 
 describe('Aggregate', () => {
   let testAggregate: TestAggregate;
