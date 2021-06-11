@@ -61,6 +61,7 @@
     "eslint-plugin-import": "^2.23.2",
     "eslint-plugin-vue": "^7.8.0",
     "jest": "26.2.2",
+    "jest-mock-extended": "^1.0.15",
     "jest-serializer-vue": "^2.0.2",
     "jest-transform-stub": "^2.0.0",
     "prettier": "2.2.1",
