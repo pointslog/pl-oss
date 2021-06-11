@@ -1,4 +1,4 @@
-import { TestEventListener } from '../test-domain/test.event-listener';
+import { TestEventListener } from '../test-domain';
 import { Event } from './event';
 
 describe('EventListener', () => {

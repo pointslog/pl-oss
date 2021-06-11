@@ -1,5 +1,4 @@
-import { TestAggregate } from '../test-domain/test.aggregate';
-import { TestEvent } from '../test-domain/test.event';
+import { TestAggregate, TestEvent } from '../test-domain';
 
 describe('Aggregate', () => {
   let testAggregate: TestAggregate;
