@@ -1,6 +1,10 @@
 import { Event } from './event';
 
-export interface EventListener {
-  eventTypePrefixes: string[]
-  on(event: Event): Promise<void>
+export abstract class EventListener {
+  abstract getEventTypePrefixes(): string[]
+
+  async on(event: Event): Promise<void> {
+    const methodName = `on${event.type}`;
+    if (this[methodName]) await this[methodName](event);
+  }
 }
