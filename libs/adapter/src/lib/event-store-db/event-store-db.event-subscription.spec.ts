@@ -34,7 +34,7 @@ describe('EventStoreDBEventSubscription', () => {
 
   describe('register', () => {
     it('should register and call listener.on', async () => {
-      const prefixes = testEventListener.eventTypePrefixes;
+      const prefixes = testEventListener.getEventTypePrefixes();
       const filter = streamNameFilter({ prefixes });
       const events = generateEvents();
 
