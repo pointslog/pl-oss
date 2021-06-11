@@ -34,9 +34,7 @@ describe('EventStoreDBEventStore', () => {
     testEventStoreDBEventStore = new EventStoreDBEventStore(testEventStoreDBClient);
   });
 
-  afterEach(() => {
-    jest.clearAllMocks();
-  });
+  afterEach(jest.clearAllMocks);
 
   describe('determineExpectedRevision', () => {
     it('should return NO_STREAM if revision is -1', async () => {
