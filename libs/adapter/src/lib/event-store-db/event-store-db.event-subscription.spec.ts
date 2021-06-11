@@ -1,13 +1,11 @@
 import { AllStreamSubscription, EventStoreDBClient, streamNameFilter } from '@eventstore/db-client';
-import { EventListener, Event } from '@pl-oss/domain-core';
+import { EventListener } from '@pl-oss/domain-core';
 import { EventStoreDBEventSubscription } from './event-store-db.event-subscription';
 
-class TestEventListener implements EventListener {
-  eventTypePrefixes: string[];
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars,class-methods-use-this
-  on(event: Event): Promise<void> {
-    return Promise.resolve(undefined);
+class TestEventListener extends EventListener {
+  // eslint-disable-next-line class-methods-use-this
+  getEventTypePrefixes(): string[] {
+    return [];
   }
 }
 
@@ -17,7 +15,7 @@ async function* generateEvents() {
 }
 
 jest.mock('@eventstore/db-client', () => ({
-  ...(jest.requireActual('@eventstore/db-client')),
+  ...jest.requireActual('@eventstore/db-client') as Record<string, unknown>,
   EventStoreDBClient: { connectionString: () => ({ subscribeToAll: jest.fn() }) },
 }));
 
@@ -36,7 +34,7 @@ describe('EventStoreDBEventSubscription', () => {
 
   describe('register', () => {
     it('should register and call listener.on', async () => {
-      const prefixes = testEventListener.eventTypePrefixes;
+      const prefixes = testEventListener.getEventTypePrefixes();
       const filter = streamNameFilter({ prefixes });
       const events = generateEvents();
 
