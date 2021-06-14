@@ -10,3 +10,5 @@ export * from './lib/event-metadata';
 export * from './lib/event-store';
 export * from './lib/event-subscription';
 export * from './lib/event';
+export * from './lib/query-handler';
+export * from './lib/query';
