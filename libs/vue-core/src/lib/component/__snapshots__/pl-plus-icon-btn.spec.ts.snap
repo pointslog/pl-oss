@@ -3,7 +3,6 @@
 exports[`PLPlusIconBtn should match the snapshot 1`] = `
 <v-btn-stub
   activeclass=""
-  color="primary"
   icon="true"
   tag="button"
   type="button"
