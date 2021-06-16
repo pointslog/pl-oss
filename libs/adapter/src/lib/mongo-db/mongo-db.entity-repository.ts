@@ -1,9 +1,14 @@
 import { Collection } from 'mongodb';
+import { EntityRepository, Entity } from '@pl-oss/domain-core';
 
-export class MongoDBRepository<T extends { id: string }> {
+export class MongoDBRepository<T extends Entity> implements EntityRepository<T> {
   constructor(private readonly collection: Collection) {}
 
-  async getById(id: string): Promise<T> {
+  getAll(): Promise<T[]> {
+    return this.collection.find().toArray();
+  }
+
+  getById(id: string): Promise<T> {
     const filter = { _id: id };
     return this.collection.findOne(filter);
   }
