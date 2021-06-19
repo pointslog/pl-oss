@@ -1,5 +1,5 @@
-import { Collection } from 'mongodb';
 import { EntityRepository, Entity } from '@pl-oss/domain-core';
+import { Collection } from 'mongodb';
 
 export class MongoDBRepository<T extends Entity> implements EntityRepository<T> {
   constructor(private readonly collection: Collection) {}
