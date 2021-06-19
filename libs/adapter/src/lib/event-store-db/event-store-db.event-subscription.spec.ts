@@ -3,9 +3,10 @@ import { EventListener } from '@pl-oss/domain-core';
 import { EventStoreDBEventSubscription } from './event-store-db.event-subscription';
 
 class TestEventListener extends EventListener {
-  // eslint-disable-next-line class-methods-use-this
+  eventTypePrefixes = []
+
   getEventTypePrefixes(): string[] {
-    return [];
+    return this.eventTypePrefixes;
   }
 }
 
@@ -15,7 +16,7 @@ async function* generateEvents() {
 }
 
 jest.mock('@eventstore/db-client', () => ({
-  ...jest.requireActual('@eventstore/db-client') as Record<string, unknown>,
+  ...jest.requireActual<Record<string, unknown>>('@eventstore/db-client'),
   EventStoreDBClient: { connectionString: () => ({ subscribeToAll: jest.fn() }) },
 }));
 

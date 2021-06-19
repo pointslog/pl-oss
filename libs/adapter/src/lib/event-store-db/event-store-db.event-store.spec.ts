@@ -10,7 +10,7 @@ import { Event as DomainEvent } from '@pl-oss/domain-core';
 import { EventStoreDBEventStore } from './event-store-db.event-store';
 
 jest.mock('@eventstore/db-client', () => ({
-  ...(jest.requireActual('@eventstore/db-client')),
+  ...jest.requireActual<Record<string, unknown>>('@eventstore/db-client'),
   EventStoreDBClient: {
     connectionString: () => ({
       appendToStream: jest.fn(),
