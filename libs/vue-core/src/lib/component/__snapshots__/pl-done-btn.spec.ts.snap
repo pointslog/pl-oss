@@ -3,7 +3,6 @@
 exports[`PLDoneBtn should match the snapshot 1`] = `
 <v-btn-stub
   activeclass=""
-  color="primary"
   tag="button"
   text="true"
   type="submit"
