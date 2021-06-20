@@ -4,5 +4,5 @@
     v-bind="$attrs"
     v-on="$listeners"
   )
-    v-icon {{ 'mdi-pencil' }}
+    v-icon mdi-pencil
 </template>

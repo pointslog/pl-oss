@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-form(@submit.prevent="formSubmitHandler")
+  v-form(@submit.prevent="$emit('submit')")
     v-card
       v-card-title {{ title }}
 
@@ -12,29 +12,17 @@
 
       v-card-actions
         v-spacer
-        pl-cancel-btn(@click="cancelBtnClickHandler")
+        pl-cancel-btn(@click="$emit('cancel')")
         pl-done-btn(:loading="loading")
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import Component from 'vue-class-component';
 
-const TextFormProps = Vue.extend({
+export default Vue.extend({
   props: {
     loading: { type: Boolean },
-    title: { type: String, required: true },
+    title: { type: String, default: '' },
   },
 });
-
-@Component
-export default class PLTextForm extends TextFormProps {
-  formSubmitHandler() {
-    this.$emit('submit');
-  }
-
-  cancelBtnClickHandler() {
-    this.$emit('cancel');
-  }
-}
 </script>

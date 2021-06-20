@@ -4,5 +4,5 @@
     type="submit"
     v-bind="$attrs"
     v-on="$listeners"
-  ) {{ 'Done' }}
+  ) Done
 </template>
