@@ -1,7 +1,7 @@
 ## 0.0.18
 
 ### Added
-- `pl-plus-fab-form`
+- `pl-plus-fab`
 
 ---
 
