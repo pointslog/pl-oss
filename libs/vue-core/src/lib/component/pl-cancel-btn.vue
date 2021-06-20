@@ -3,5 +3,5 @@
     text
     v-bind="$attrs"
     v-on="$listeners"
-  ) {{ 'Cancel' }}
+  ) Cancel
 </template>

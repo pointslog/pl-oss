@@ -7,6 +7,7 @@ import PLEditIconBtn from '../component/pl-edit-icon-btn.vue';
 import PLMaxWidth from '../component/pl-max-width.vue';
 import PLPlusIconBtn from '../component/pl-plus-icon-btn.vue';
 import PLTextField from '../component/pl-text-field.vue';
+import PLTextForm from '../component/pl-text-form.vue';
 
 function install(Vue: VueConstructor): void {
   Vue.component('pl-archive-icon-btn', PLArchiveIconBtn);
@@ -17,6 +18,7 @@ function install(Vue: VueConstructor): void {
   Vue.component('pl-max-width', PLMaxWidth);
   Vue.component('pl-plus-icon-btn', PLPlusIconBtn);
   Vue.component('pl-text-field', PLTextField);
+  Vue.component('pl-text-form', PLTextForm);
 }
 
 export const PLComponentsPlugin = { install };

@@ -11,6 +11,7 @@ export default Vue.extend({
     threshold: {
       default: 'sm',
       type: String,
+
       validator(value) {
         return ['xs', 'sm', 'md', 'lg'].includes(value);
       },
