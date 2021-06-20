@@ -1,9 +1,15 @@
+## 0.0.20
+
+### Changed
+- Package `domain-core` renamed to `domain`
+- Package `vue-core` renamed to `vue`
+
+---
+
 ## 0.0.19
 
 ### Changed
 - `domain-context` now has an `aggregateRepositoryMap` as well.
-- Package `domain-core` renamed to `domain`
-- Package `vue-core` renamed to `vue`
 
 ---
 
