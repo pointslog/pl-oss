@@ -1,3 +1,10 @@
+## 0.0.19
+
+### Changed
+- `domain-context` now has an `aggregateRepositoryMap` as well.
+
+---
+
 ## 0.0.18
 
 ### Added
