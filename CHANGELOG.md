@@ -2,6 +2,8 @@
 
 ### Changed
 - `domain-context` now has an `aggregateRepositoryMap` as well.
+- Package `domain-core` renamed to `domain`
+- Package `vue-core` renamed to `vue`
 
 ---
 
