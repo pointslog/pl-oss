@@ -30,7 +30,7 @@
     "domain": {
       "tags": []
     },
-    "vue-core": {
+    "vue": {
       "tags": []
     }
   }
