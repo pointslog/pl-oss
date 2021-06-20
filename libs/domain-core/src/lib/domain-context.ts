@@ -9,7 +9,7 @@ import { Aggregate } from './aggregate';
 
 export interface DomainContext {
   readonly aggregateRepositoryMap: Record<string, AggregateRepository<Aggregate>>
-  readonly entityRepositoryMap: Record<string, EntityRepository<Entity>>
   readonly commandHandlerMap: Record<string, CommandHandler<Command>>
+  readonly entityRepositoryMap: Record<string, EntityRepository<Entity>>
   readonly queryHandlerMap: Record<string, QueryHandler<Query>>
 }
