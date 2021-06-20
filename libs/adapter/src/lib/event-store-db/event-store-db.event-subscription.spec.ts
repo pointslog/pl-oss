@@ -1,5 +1,5 @@
 import { AllStreamSubscription, EventStoreDBClient, streamNameFilter } from '@eventstore/db-client';
-import { EventListener } from '@pl-oss/domain-core';
+import { EventListener } from '@pl-oss/domain';
 import { EventStoreDBEventSubscription } from './event-store-db.event-subscription';
 
 class TestEventListener extends EventListener {
