@@ -5,6 +5,7 @@ import PLDialog from '../component/pl-dialog.vue';
 import PLDoneBtn from '../component/pl-done-btn.vue';
 import PLEditIconBtn from '../component/pl-edit-icon-btn.vue';
 import PLMaxWidth from '../component/pl-max-width.vue';
+import PLPlusFab from '../component/pl-plus-fab.vue';
 import PLPlusIconBtn from '../component/pl-plus-icon-btn.vue';
 import PLTextField from '../component/pl-text-field.vue';
 import PLTextForm from '../component/pl-text-form.vue';
@@ -15,6 +16,7 @@ function install(Vue: VueConstructor): void {
   Vue.component('pl-dialog', PLDialog);
   Vue.component('pl-done-btn', PLDoneBtn);
   Vue.component('pl-edit-icon-btn', PLEditIconBtn);
+  Vue.component('pl-plus-fab', PLPlusFab);
   Vue.component('pl-max-width', PLMaxWidth);
   Vue.component('pl-plus-icon-btn', PLPlusIconBtn);
   Vue.component('pl-text-field', PLTextField);
