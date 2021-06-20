@@ -1,7 +1,7 @@
 ## 0.0.16
 
 ### Added
-- `pl-text-field`
+- `pl-text-form`
 
 ---
 
