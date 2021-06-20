@@ -41,26 +41,26 @@
         }
       }
     },
-    "domain-core": {
-      "root": "libs/domain-core",
-      "sourceRoot": "libs/domain-core/src",
+    "domain": {
+      "root": "libs/domain",
+      "sourceRoot": "libs/domain/src",
       "projectType": "library",
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/domain-core/**/*.ts"
+              "libs/domain/**/*.ts"
             ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
           "outputs": [
-            "coverage/libs/domain-core"
+            "coverage/libs/domain"
           ],
           "options": {
-            "jestConfig": "libs/domain-core/jest.config.js",
+            "jestConfig": "libs/domain/jest.config.js",
             "passWithNoTests": true
           }
         },
@@ -70,49 +70,49 @@
             "{options.outputPath}"
           ],
           "options": {
-            "outputPath": "dist/libs/domain-core",
-            "tsConfig": "libs/domain-core/tsconfig.lib.json",
-            "packageJson": "libs/domain-core/package.json",
-            "main": "libs/domain-core/src/index.ts",
+            "outputPath": "dist/libs/domain",
+            "tsConfig": "libs/domain/tsconfig.lib.json",
+            "packageJson": "libs/domain/package.json",
+            "main": "libs/domain/src/index.ts",
             "assets": [
-              "libs/domain-core/*.md"
+              "libs/domain/*.md"
             ]
           }
         }
       }
     },
-    "vue-core": {
+    "vue": {
       "projectType": "library",
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/vue-core/**/*.{ts,tsx,vue}"
+              "libs/vue/**/*.{ts,tsx,vue}"
             ]
           }
         },
         "build": {
           "executor": "@nx-plus/vue:library",
           "options": {
-            "dest": "dist/libs/vue-core",
-            "entry": "libs/vue-core/src/index.ts",
-            "tsConfig": "libs/vue-core/tsconfig.lib.json"
+            "dest": "dist/libs/vue",
+            "entry": "libs/vue/src/index.ts",
+            "tsConfig": "libs/vue/tsconfig.lib.json"
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
           "outputs": [
-            "coverage/libs/vue-core"
+            "coverage/libs/vue"
           ],
           "options": {
-            "jestConfig": "libs/vue-core/jest.config.js",
+            "jestConfig": "libs/vue/jest.config.js",
             "passWithNoTests": true
           }
         }
       },
-      "root": "libs/vue-core",
-      "sourceRoot": "libs/vue-core/src"
+      "root": "libs/vue",
+      "sourceRoot": "libs/vue/src"
     }
   },
   "cli": {

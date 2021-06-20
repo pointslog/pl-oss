@@ -1,5 +1,5 @@
 import { EventStoreDBClient, streamNameFilter } from '@eventstore/db-client';
-import { EventListener, EventSubscription, Event } from '@pl-oss/domain-core';
+import { EventListener, EventSubscription, Event } from '@pl-oss/domain';
 
 export class EventStoreDBEventSubscription implements EventSubscription {
   constructor(private readonly client: EventStoreDBClient) {}

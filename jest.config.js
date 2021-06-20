@@ -1,7 +1,7 @@
 module.exports = {
   projects: [
     '<rootDir>/libs/adapter',
-    '<rootDir>/libs/domain-core',
-    '<rootDir>/libs/vue-core',
+    '<rootDir>/libs/domain',
+    '<rootDir>/libs/vue',
   ],
 };

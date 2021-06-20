@@ -1,4 +1,4 @@
-import { EntityRepository, Entity } from '@pl-oss/domain-core';
+import { EntityRepository, Entity } from '@pl-oss/domain';
 
 export class InMemoryEntityRepository<T extends Entity> implements EntityRepository<T> {
   constructor(private readonly entityMap: Record<string, T> = {}) {}
