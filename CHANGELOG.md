@@ -1,3 +1,10 @@
+## 0.0.21
+
+### Changed
+- Cleaned redundant hierarchy in `adapter`, `domain`, and `vue` packages.
+
+---
+
 ## 0.0.20
 
 ### Changed
