@@ -19,13 +19,13 @@
     "baseUrl": ".",
     "paths": {
       "@pl-oss/adapter": [
-        "libs/adapter/src/index.ts"
+        "libs/adapter/index.ts"
       ],
       "@pl-oss/domain": [
-        "libs/domain/src/index.ts"
+        "libs/domain/index.ts"
       ],
       "@pl-oss/vue": [
-        "libs/vue/src/index.ts"
+        "libs/vue/index.ts"
       ]
     }
   },
