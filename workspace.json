@@ -3,7 +3,7 @@
   "projects": {
     "adapter": {
       "root": "libs/adapter",
-      "sourceRoot": "libs/adapter/src",
+      "sourceRoot": "libs/adapter",
       "projectType": "library",
       "targets": {
         "lint": {
@@ -33,7 +33,7 @@
             "outputPath": "dist/libs/adapter",
             "tsConfig": "libs/adapter/tsconfig.lib.json",
             "packageJson": "libs/adapter/package.json",
-            "main": "libs/adapter/src/index.ts",
+            "main": "libs/adapter/index.ts",
             "assets": [
               "libs/adapter/*.md"
             ]
@@ -43,7 +43,7 @@
     },
     "domain": {
       "root": "libs/domain",
-      "sourceRoot": "libs/domain/src",
+      "sourceRoot": "libs/domain",
       "projectType": "library",
       "targets": {
         "lint": {
@@ -73,7 +73,7 @@
             "outputPath": "dist/libs/domain",
             "tsConfig": "libs/domain/tsconfig.lib.json",
             "packageJson": "libs/domain/package.json",
-            "main": "libs/domain/src/index.ts",
+            "main": "libs/domain/index.ts",
             "assets": [
               "libs/domain/*.md"
             ]
@@ -96,7 +96,7 @@
           "executor": "@nx-plus/vue:library",
           "options": {
             "dest": "dist/libs/vue",
-            "entry": "libs/vue/src/index.ts",
+            "entry": "libs/vue/index.ts",
             "tsConfig": "libs/vue/tsconfig.lib.json"
           }
         },
@@ -112,7 +112,7 @@
         }
       },
       "root": "libs/vue",
-      "sourceRoot": "libs/vue/src"
+      "sourceRoot": "libs/vue"
     }
   },
   "cli": {
