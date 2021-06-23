@@ -33,6 +33,7 @@
     "tslib": "^2.0.0",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.6",
+    "vue-router": "^3.5.2",
     "vuetify": "^2.5.1"
   },
   "devDependencies": {
