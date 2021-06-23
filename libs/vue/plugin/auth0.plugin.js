@@ -26,8 +26,10 @@ function useAuth0({ onRedirect, ...options }) {
       });
 
       try {
-        const locationIncludes = window.location.search.includes;
-        if (locationIncludes('code=') && locationIncludes('state=')) {
+        if (
+          window.location.search.includes("code=") &&
+          window.location.search.includes("state=")
+        ) {
           const { appState } = await this.auth0Client.handleRedirectCallback();
           this.error = null;
           onRedirect(appState);
