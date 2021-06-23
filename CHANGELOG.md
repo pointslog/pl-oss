@@ -1,3 +1,11 @@
+## 0.0.23
+
+### Changed
+- Auth0 Guard
+- Auth0 Plugin
+
+---
+
 ## 0.0.22
 
 ### Added
