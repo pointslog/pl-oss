@@ -1,6 +1,6 @@
 /* eslint-disable */
-import Vue from "vue";
-import createAuth0Client from "@auth0/auth0-spa-js";
+import Vue from 'vue';
+import createAuth0Client from '@auth0/auth0-spa-js';
 
 let instance;
 
@@ -27,7 +27,7 @@ function useAuth0({ onRedirect, ...options }) {
 
       try {
         const locationIncludes = window.location.search.includes;
-        if (locationIncludes("code=") && locationIncludes("state=")) {
+        if (locationIncludes('code=') && locationIncludes('state=')) {
           const { appState } = await this.auth0Client.handleRedirectCallback();
           this.error = null;
           onRedirect(appState);
@@ -79,7 +79,7 @@ function useAuth0({ onRedirect, ...options }) {
   });
 
   return instance;
-};
+}
 
 export function getInstance() {
   return instance;
@@ -88,5 +88,5 @@ export function getInstance() {
 export const Auth0Plugin = {
   install(Vue, options) {
     Vue.prototype.$auth = useAuth0(options);
-  }
+  },
 };
