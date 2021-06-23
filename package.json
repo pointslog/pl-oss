@@ -28,6 +28,7 @@
   },
   "private": true,
   "dependencies": {
+    "@auth0/auth0-spa-js": "^1.15.0",
     "@eventstore/db-client": "^1.2.1",
     "mongodb": "^3.6.8",
     "tslib": "^2.0.0",
