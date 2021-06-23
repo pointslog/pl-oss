@@ -1,6 +1,7 @@
 ## 0.0.22
 
 ### Added
+- `AppContext`
 - Auth0 Guard
 - Auth0 Plugin
 
