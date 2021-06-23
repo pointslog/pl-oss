@@ -17,6 +17,5 @@ export function AuthGuard(to: Route, _: Route, next: NavigationGuardNext<Vue>): 
   });
 
   if (!authService.loading) return fn();
-
   return undefined;
 }
