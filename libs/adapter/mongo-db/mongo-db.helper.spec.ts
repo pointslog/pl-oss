@@ -12,14 +12,14 @@ describe('MongoDBHelper', () => {
     jest.clearAllMocks();
   });
 
-  describe('getMongoDBClient', () => {
+  describe('getClient', () => {
     it('should instantiate mongoClient and call connect', async () => {
       const url = 'url';
       const useNewUrlParser = true;
       const useUnifiedTopology = true;
       const config = { useNewUrlParser, useUnifiedTopology };
 
-      const client = await MongoDBHelper.getMongoDBClient(url);
+      const client = await MongoDBHelper.getClient(url);
 
       expect(client).toMatchObject(mongoClient);
       expect(MongoClient).toHaveBeenCalledTimes(1);
