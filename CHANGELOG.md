@@ -1,3 +1,10 @@
+## 0.0.24
+
+### Added
+- `MongoDBHelper`
+
+---
+
 ## 0.0.23
 
 ### Changed
