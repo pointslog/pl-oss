@@ -1,6 +1,13 @@
 ## 0.0.26
 
 ### Added
+- `MessageModule`
+
+---
+
+## 0.0.26
+
+### Added
 - `HandlerMap`
 - `MessageController`
 
