@@ -1,3 +1,10 @@
+## 0.0.28
+
+### Changed
+- `MessageModule`
+
+---
+
 ## 0.0.27
 
 ### Added
