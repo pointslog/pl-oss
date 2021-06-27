@@ -6,9 +6,9 @@ import { MessageController } from './message.controller';
   controllers: [MessageController],
   providers: [Logger],
 })
-export class AppModule {
+export class MessageModule {
   static register(handlerMap: HandlerMap): DynamicModule {
     const providers = [{ provide: 'HandlerMap', useValue: handlerMap }];
-    return { module: AppModule, providers };
+    return { module: MessageModule, providers };
   }
 }
