@@ -1,3 +1,1 @@
-export interface Query {
-  type: string
-}
+export interface Query { type: string }

@@ -1,3 +1,11 @@
+## 0.0.26
+
+### Added
+- `HandlerMap`
+- `MessageController`
+
+---
+
 ## 0.0.25
 
 ### Added

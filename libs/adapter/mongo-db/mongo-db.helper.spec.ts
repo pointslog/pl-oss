@@ -8,9 +8,7 @@ jest.mock('mongodb', () => ({
 }));
 
 describe('MongoDBHelper', () => {
-  afterEach(() => {
-    jest.clearAllMocks();
-  });
+  afterEach(jest.clearAllMocks);
 
   describe('getClient', () => {
     it('should instantiate mongoClient and call connect', async () => {

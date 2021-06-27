@@ -1,3 +1,1 @@
-export interface Command {
-  type: string
-}
+export interface Command { type: string }
