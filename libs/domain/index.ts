@@ -7,7 +7,6 @@ export * from './lib/command';
 export * from './lib/entity-repository';
 export * from './lib/entity';
 export * from './lib/event-listener';
-export * from './lib/event-metadata';
 export * from './lib/event-store';
 export * from './lib/event-subscription';
 export * from './lib/event';
