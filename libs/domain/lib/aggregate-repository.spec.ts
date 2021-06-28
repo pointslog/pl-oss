@@ -8,12 +8,12 @@ describe('AggregateRepository', () => {
 
   let testAggregate: TestAggregate;
   let testAggregateRepository: TestAggregateRepository;
-  let testEventStore: EventStore;
+  let eventStore: EventStore;
 
   beforeEach(() => {
     testAggregate = new TestAggregate();
-    testEventStore = mock<EventStore>();
-    testAggregateRepository = new TestAggregateRepository(testEventStore);
+    eventStore = mock<EventStore>();
+    testAggregateRepository = new TestAggregateRepository(eventStore);
   });
 
   afterEach(jest.clearAllMocks);
@@ -25,7 +25,7 @@ describe('AggregateRepository', () => {
 
     it('should return TestAggregate', async () => {
       jest.spyOn(testAggregateRepository, 'getNewInstance').mockReturnValueOnce(testAggregate);
-      jest.spyOn(testEventStore, 'read').mockResolvedValueOnce(testEvents);
+      jest.spyOn(eventStore, 'read').mockResolvedValueOnce(testEvents);
       jest.spyOn(testAggregate, 'applyEvent');
 
       const aggregate = await testAggregateRepository.getById(id);
@@ -33,8 +33,8 @@ describe('AggregateRepository', () => {
       expect(testAggregateRepository.getNewInstance).toHaveBeenCalledTimes(1);
       expect(testAggregateRepository.getNewInstance).toHaveBeenNthCalledWith(1);
 
-      expect(testEventStore.read).toHaveBeenCalledTimes(1);
-      expect(testEventStore.read).toHaveBeenNthCalledWith(1, stream);
+      expect(eventStore.read).toHaveBeenCalledTimes(1);
+      expect(eventStore.read).toHaveBeenNthCalledWith(1, stream);
 
       expect(testAggregate.applyEvent).toHaveBeenCalledTimes(2);
       expect(testAggregate.applyEvent).toHaveBeenNthCalledWith(1, testEventFirst);
@@ -48,7 +48,7 @@ describe('AggregateRepository', () => {
       testAggregate.id = id;
       const testEvent = new TestEvent('id');
 
-      jest.spyOn(testEventStore, 'append');
+      jest.spyOn(eventStore, 'append');
       jest.spyOn(testAggregate, 'resetChanges');
 
       testAggregate.raiseEvent(testEvent);
@@ -57,8 +57,8 @@ describe('AggregateRepository', () => {
       expect(testAggregate.resetChanges).toHaveBeenCalledTimes(1);
       expect(testAggregate.resetChanges).toHaveBeenNthCalledWith(1);
 
-      expect(testEventStore.append).toHaveBeenCalledTimes(1);
-      expect(testEventStore.append).toHaveBeenNthCalledWith(1, stream, [testEvent], -1);
+      expect(eventStore.append).toHaveBeenCalledTimes(1);
+      expect(eventStore.append).toHaveBeenNthCalledWith(1, stream, [testEvent], -1);
     });
   });
 });
