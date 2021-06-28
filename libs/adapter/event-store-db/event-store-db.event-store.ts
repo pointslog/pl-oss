@@ -17,10 +17,9 @@ export class EventStoreDBEventStore implements EventStore {
   }
 
   static mapEventToJsonEvent(event: DomainEvent): JSONEventData {
-    return jsonEvent({
-      type: event.type,
-      data: event as unknown as Record<string, unknown>,
-    });
+    const { type } = event;
+    const data = event as unknown as Record<string, unknown>;
+    return jsonEvent({ type, data });
   }
 
   static mapResolvedEventToEvent(event: ResolvedEvent): DomainEvent {
