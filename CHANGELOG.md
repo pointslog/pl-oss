@@ -1,7 +1,7 @@
 ## 0.0.30
 
-### Removed
-- `DomainContext`
+- add: `pl-list-card`
+- remove: `DomainContext`
 
 ---
 
