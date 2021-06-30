@@ -1,7 +1,6 @@
 export * from './lib/aggregate-exception';
 export * from './lib/aggregate-repository';
 export * from './lib/aggregate';
-export * from './lib/app-context';
 export * from './lib/command-handler';
 export * from './lib/command';
 export * from './lib/entity-repository';
