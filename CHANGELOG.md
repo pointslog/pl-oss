@@ -1,3 +1,10 @@
+## 0.0.30
+
+### Removed
+- `DomainContext`
+
+---
+
 ## 0.0.29
 
 ### Changed
