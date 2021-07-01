@@ -1,4 +1,11 @@
-## 0.0.30
+## 0.0.32
+
+- add `by: string` in `Command`
+- add `by: string` in `Query`
+
+---
+
+## 0.0.31
 
 - change: `Event`
 
