@@ -1,1 +1,4 @@
-export interface Command { readonly type: string }
+export interface Command {
+  readonly type: string
+  readonly by: string
+}
