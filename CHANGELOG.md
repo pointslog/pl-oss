@@ -1,5 +1,11 @@
 ## 0.0.30
 
+- change: `Event`
+
+---
+
+## 0.0.30
+
 - add: `pl-list-card`
 - remove: `DomainContext`
 
