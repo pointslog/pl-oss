@@ -1,3 +1,9 @@
+## 0.0.33
+
+- fix `data` nesting in `EventStoreDBEventStore`
+
+---
+
 ## 0.0.32
 
 - add `by: string` in `Command`

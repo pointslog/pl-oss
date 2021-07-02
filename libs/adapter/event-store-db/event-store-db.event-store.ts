@@ -23,7 +23,7 @@ export class EventStoreDBEventStore implements EventStore {
   }
 
   static mapResolvedEventToEvent(event: ResolvedEvent): DomainEvent {
-    return event.event as unknown as DomainEvent;
+    return event.event.data as unknown as DomainEvent;
   }
 
   async append(stream: string, events: DomainEvent[], expectedRevision: number): Promise<void> {
