@@ -11,7 +11,10 @@ class TestEventListener extends EventListener {
 }
 
 async function* generateEvents() {
-  const events = ['first', 'second'];
+  const events = [
+    { data: 'first' },
+    { data: 'second' },
+  ];
   for (let i = 0; i < events.length; i += 1) yield { event: events[i] };
 }
 
