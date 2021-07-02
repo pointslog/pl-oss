@@ -1,3 +1,9 @@
+## 0.0.34
+
+- fix `data` nesting in `EventStoreDBEventSubscription`
+
+---
+
 ## 0.0.33
 
 - fix `data` nesting in `EventStoreDBEventStore`
