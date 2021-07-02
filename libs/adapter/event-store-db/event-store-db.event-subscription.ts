@@ -11,7 +11,7 @@ export class EventStoreDBEventSubscription implements EventSubscription {
 
     // eslint-disable-next-line no-restricted-syntax
     for await (const { event } of subscription) {
-      await listener.on(event as unknown as Event);
+      await listener.on(event.data as unknown as Event);
     }
   }
 }
