@@ -1,6 +1,11 @@
-import { Feature, FeatureFlags, Runtime } from '@pl-oss/domain';
+import {
+  Feature,
+  FeatureFlags,
+  FeatureService,
+  Runtime,
+} from '@pl-oss/domain';
 
-export class InMemoryFeatureService {
+export class InMemoryFeatureService implements FeatureService {
   constructor(
     private readonly featureFlags: FeatureFlags,
     private readonly runtime: Runtime,

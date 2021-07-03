@@ -1,8 +1,14 @@
+## 0.0.38
+
+- fix `InMemoryFeatureService` adapter inheritance
+
+---
+
 ## 0.0.37
 
 - add `Feature`, `FeatureFlags` and `Runtime` types
 - add `FeatureService` interface
-- add `InMemoryFeatureFlag` adapter
+- add `InMemoryFeatureService` adapter
 - add `Context` interface
 
 ---
