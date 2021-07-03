@@ -11,4 +11,5 @@ test-report
 .env
 .env.test
 *.log*
+!*.logger-service.*
 *sw.js
