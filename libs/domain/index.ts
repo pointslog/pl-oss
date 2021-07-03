@@ -4,6 +4,7 @@ export * from './lib/aggregate';
 export * from './lib/command-handler';
 export * from './lib/command';
 export * from './lib/constant';
+export * from './lib/context';
 export * from './lib/entity-repository';
 export * from './lib/entity';
 export * from './lib/event-listener';
