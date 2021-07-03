@@ -1,12 +1,12 @@
-import { FeatureFlags, Runtime } from '@pl-oss/domain';
+import { Feature, FeatureFlags, Runtime } from '@pl-oss/domain';
 
 export class InMemoryFeatureService {
   constructor(
-    private readonly features: FeatureFlags,
+    private readonly featureFlags: FeatureFlags,
     private readonly runtime: Runtime,
   ) {}
 
-  getAll() {
-    return this.features[this.runtime];
+  getAll(): Feature {
+    return this.featureFlags[this.runtime];
   }
 }

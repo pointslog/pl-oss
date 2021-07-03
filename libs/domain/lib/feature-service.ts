@@ -1,5 +1,5 @@
-import { FeatureFlags } from './feature-flags';
+import { Feature } from './feature';
 
 export interface FeatureService {
-  getAll(): FeatureFlags;
+  getAll(): Feature;
 }
