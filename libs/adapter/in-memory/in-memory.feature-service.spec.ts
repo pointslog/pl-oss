@@ -1,5 +1,5 @@
-import { InMemoryFeatureService } from '@pl-oss/adapter';
 import { FeatureFlags } from '@pl-oss/domain';
+import { InMemoryFeatureService } from './in-memory.feature-service';
 
 describe('InMemoryFeatureService', () => {
   let service: InMemoryFeatureService;
