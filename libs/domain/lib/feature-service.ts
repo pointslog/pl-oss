@@ -1,3 +1,5 @@
+import { FeatureFlags } from './feature-flags';
+
 export interface FeatureService {
-  getAll(): Record<string, boolean>;
+  getAll(): FeatureFlags;
 }
