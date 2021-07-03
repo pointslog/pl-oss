@@ -11,5 +11,6 @@ export * from './lib/event-store';
 export * from './lib/event-subscription';
 export * from './lib/event';
 export * from './lib/handler-map';
+export * from './lib/logger-service';
 export * from './lib/query-handler';
 export * from './lib/query';
