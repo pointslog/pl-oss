@@ -1,5 +1,5 @@
-import { LoggerService } from './logger-service';
 import { FeatureService } from './feature-service';
+import { LoggerService } from './logger-service';
 
 export interface Context {
   featureService?: FeatureService
