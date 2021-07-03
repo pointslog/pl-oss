@@ -1,3 +1,9 @@
+## 0.0.35
+
+- add `LoggerService`
+
+---
+
 ## 0.0.34
 
 - fix `data` nesting in `EventStoreDBEventSubscription`
