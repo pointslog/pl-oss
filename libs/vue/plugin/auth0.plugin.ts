@@ -4,7 +4,7 @@ import createAuth0Client from '@auth0/auth0-spa-js';
 
 let instance;
 
-function useAuth0({ onRedirect, ...options }) {
+function useAuth0({ onRedirect, domain, ...options }) {
   if (instance) return instance;
 
   instance = new Vue({
@@ -22,6 +22,7 @@ function useAuth0({ onRedirect, ...options }) {
       this.auth0Client = await createAuth0Client({
         ...options,
         client_id: options.clientId,
+        domain,
         redirect_uri: window.location.origin,
       });
 

@@ -1,3 +1,35 @@
+## 0.0.34
+
+- fix `data` nesting in `EventStoreDBEventSubscription`
+
+---
+
+## 0.0.33
+
+- fix `data` nesting in `EventStoreDBEventStore`
+
+---
+
+## 0.0.32
+
+- add `by: string` in `Command`
+- add `by: string` in `Query`
+
+---
+
+## 0.0.31
+
+- change: `Event`
+
+---
+
+## 0.0.30
+
+- add: `pl-list-card`
+- remove: `DomainContext`
+
+---
+
 ## 0.0.29
 
 ### Changed
