@@ -1,3 +1,12 @@
+## 0.0.37
+
+- add `Feature`, `FeatureFlags` and `Runtime` types
+- add `FeatureService` interface
+- add `InMemoryFeatureFlag` adapter
+- add `Context` interface
+
+---
+
 ## 0.0.36
 
 - add `MongoDBLoggerService`
