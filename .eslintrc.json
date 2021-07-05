@@ -39,6 +39,16 @@
         "enforceBuildableLibDependency": true
       }
     ],
+    "class-methods-use-this": [
+      "error",
+      {
+        "exceptMethods": [
+          "getEventTypePrefixes",
+          "getNewInstance",
+          "getStreamPrefix"
+        ]
+      }
+    ],
     "import/extensions": [
       "error",
       "ignorePackages",

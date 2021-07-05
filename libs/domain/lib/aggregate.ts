@@ -1,9 +1,11 @@
 import { Event } from './event';
 
-export class Aggregate {
+export abstract class Aggregate {
   id: string
   changes: Event[] = []
   revision = -1
+
+  abstract getStreamPrefix(): string
 
   applyEvent(event: Event) {
     const methodName = `apply${event.type}`;
