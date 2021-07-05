@@ -43,8 +43,8 @@
       "error",
       {
         "exceptMethods": [
-          "getEventTypePrefixes",
           "getNewInstance",
+          "getStreamPrefixes",
           "getStreamPrefix"
         ]
       }

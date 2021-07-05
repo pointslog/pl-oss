@@ -3,11 +3,7 @@ import { EventListener } from '@pl-oss/domain';
 import { EventStoreDBEventSubscription } from './event-store-db.event-subscription';
 
 class TestEventListener extends EventListener {
-  eventTypePrefixes = []
-
-  getEventTypePrefixes(): string[] {
-    return this.eventTypePrefixes;
-  }
+  getStreamPrefixes(): string[] { return []; }
 }
 
 async function* generateEvents() {
@@ -38,7 +34,7 @@ describe('EventStoreDBEventSubscription', () => {
 
   describe('register', () => {
     it('should register and call listener.on', async () => {
-      const prefixes = testEventListener.getEventTypePrefixes();
+      const prefixes = testEventListener.getStreamPrefixes();
       const filter = streamNameFilter({ prefixes });
       const events = generateEvents();
 

@@ -1,3 +1,11 @@
+## 0.0.39
+
+- add `timestamp` to `Query` and `Command`
+- add `getStreamPrefx` to `Aggregate`
+- add `getStreamPrefixes` to `EventListener`
+
+---
+
 ## 0.0.38
 
 - fix `InMemoryFeatureService` adapter inheritance
