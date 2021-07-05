@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-form(@submit.prevent="$emit('submit', file)")
+  v-form(@submit.prevent="submitHandler")
     v-card
       v-card-title {{ title }}
 
@@ -14,7 +14,7 @@
 
       v-card-actions
         v-spacer
-        pl-cancel-btn(@click="$emit('cancel')")
+        pl-cancel-btn(@click="cancelBtnClickHandler")
         pl-done-btn(:loading="loading")
 </template>
 
@@ -28,5 +28,17 @@ export default Vue.extend({
   },
 
   data() { return { file: null }; },
+
+  methods: {
+    cancelBtnClickHandler() {
+      this.$emit('cancel');
+      this.file = null;
+    },
+
+    submitHandler() {
+      this.$emit('submit', this.file);
+      this.file = null;
+    },
+  },
 });
 </script>
