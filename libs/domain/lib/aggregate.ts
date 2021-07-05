@@ -5,7 +5,7 @@ export abstract class Aggregate {
   changes: Event[] = []
   revision = -1
 
-  abstract getStreamPrefix(): string
+  abstract getStreamNamePrefix(): string
 
   applyEvent(event: Event) {
     const methodName = `apply${event.type}`;

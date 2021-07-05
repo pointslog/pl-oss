@@ -5,7 +5,7 @@ export class EventStoreDBEventSubscription implements EventSubscription {
   constructor(private readonly client: EventStoreDBClient) {}
 
   async register(listener: EventListener): Promise<void> {
-    const prefixes = listener.getStreamPrefixes();
+    const prefixes = listener.getStreamNamePrefixes();
     const filter = streamNameFilter({ prefixes });
     const subscription = this.client.subscribeToAll({ filter });
 

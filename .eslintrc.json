@@ -44,8 +44,8 @@
       {
         "exceptMethods": [
           "getNewInstance",
-          "getStreamPrefixes",
-          "getStreamPrefix"
+          "getStreamNamePrefixes",
+          "getStreamNamePrefix"
         ]
       }
     ],

@@ -1,8 +1,8 @@
 ## 0.0.39
 
 - add `timestamp` to `Query` and `Command`
-- add `getStreamPrefx` to `Aggregate`
-- add `getStreamPrefixes` to `EventListener`
+- add `getStreamNamePrefx` to `Aggregate`
+- add `getStreamNamePrefixes` to `EventListener`
 - fix `pl-file-form` #66
 
 ---
