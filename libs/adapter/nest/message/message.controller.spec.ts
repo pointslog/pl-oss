@@ -23,7 +23,7 @@ describe('MessageController', () => {
 
   describe('postMessage', () => {
     it('should call handle of handler', async () => {
-      const message = { type: 'Test', by: 'by' };
+      const message = { type: 'Test', by: 'by', timestamp: 'timestamp' };
       await controller.postMessage(message);
 
       expect(logger.log).toHaveBeenCalledTimes(1);
