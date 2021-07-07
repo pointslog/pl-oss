@@ -3,5 +3,5 @@ import { LoggerService } from './logger-service';
 
 export interface Context {
   featureService?: FeatureService
-  loggerService?: LoggerService,
+  loggingService?: LoggingService,
 }
