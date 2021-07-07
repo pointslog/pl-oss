@@ -1,6 +1,6 @@
 import { mock } from 'jest-mock-extended';
 import { Collection } from 'mongodb';
-import { MongoDBLoggerService } from './mongo-db.logger-service';
+import { MongoDBLoggingService } from './mongo-db.logging-service';
 
 jest.mock('mongodb', () => ({
   Collection: { insertOne: jest.fn() },
@@ -8,11 +8,11 @@ jest.mock('mongodb', () => ({
 
 describe('MongoDBLoggingService', () => {
   let collection: Collection;
-  let service: MongoDBLoggerService;
+  let service: MongoDBLoggingService;
 
   beforeEach(() => {
     collection = mock<Collection>();
-    service = new MongoDBLoggerService(collection);
+    service = new MongoDBLoggingService(collection);
   });
 
   afterEach(jest.clearAllMocks);
