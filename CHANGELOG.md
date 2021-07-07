@@ -1,3 +1,9 @@
+## 0.0.41
+
+- rename `LoggerService` to `LoggingService`
+
+---
+
 ## 0.0.40
 
 - add `timestamp` to `Query` and `Command`
