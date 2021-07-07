@@ -1,6 +1,7 @@
 ## 0.0.41
 
 - rename `LoggerService` to `LoggingService`
+- rename `MongoDBLoggerService` to `MongoDBLoggingService`
 
 ---
 
@@ -36,7 +37,7 @@
 
 ## 0.0.36
 
-- add `MongoDbLoggingService`
+- add `MongoDBLoggerService`
 
 ---
 
