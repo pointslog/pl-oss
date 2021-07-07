@@ -30,7 +30,7 @@
 
 ## 0.0.36
 
-- add `MongoDBLoggerService`
+- add `MongoDbLoggingService`
 
 ---
 
