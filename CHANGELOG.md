@@ -1,3 +1,10 @@
+## 0.0.42
+
+- use `LoggingService` in message module
+- fix: `timestamp: string` in Event
+
+---
+
 ## 0.0.41
 
 - rename `LoggerService` to `LoggingService`

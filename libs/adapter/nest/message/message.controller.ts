@@ -1,21 +1,23 @@
 import {
-  Body, Controller, HttpCode, HttpStatus, Inject, Logger, Post,
+  Body, Controller, HttpCode, HttpStatus, Inject, Post,
 } from '@nestjs/common';
-import { Command, HandlerMap, Query } from '@pl-oss/domain';
+import {
+  Command, Context, HandlerMap, Query,
+} from '@pl-oss/domain';
 
 type Message = Command | Query;
 
 @Controller()
 export class MessageController {
   constructor(
+    @Inject('Context') private readonly context: Context,
     @Inject('HandlerMap') private readonly handlerMap: HandlerMap,
-    @Inject('Logger') private readonly logger: Logger,
   ) {}
 
   @Post('message')
   @HttpCode(HttpStatus.OK)
-  postMessage(@Body() message: Message) {
-    this.logger.log(message);
+  async postMessage(@Body() message: Message) {
+    await this.context.loggingService.log('message', message);
     return this.execute(message);
   }
 

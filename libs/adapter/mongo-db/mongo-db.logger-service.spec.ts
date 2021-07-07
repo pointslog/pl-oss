@@ -6,7 +6,7 @@ jest.mock('mongodb', () => ({
   Collection: { insertOne: jest.fn() },
 }));
 
-describe('MongoDBLoggerService', () => {
+describe('MongoDBLoggingService', () => {
   let collection: Collection;
   let service: MongoDBLoggingService;
 

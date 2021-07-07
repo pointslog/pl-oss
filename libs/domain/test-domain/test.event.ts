@@ -7,6 +7,6 @@ export class TestEvent implements Event {
   constructor(
     readonly id: string,
     readonly by = SYSTEM,
-    readonly timestamp = new Date(),
+    readonly timestamp = new Date().toISOString(),
   ) {}
 }
