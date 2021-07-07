@@ -1,7 +1,7 @@
 import { Collection } from 'mongodb';
-import { LoggerService } from '@pl-oss/domain';
+import { LoggingService } from '@pl-oss/domain';
 
-export class MongoDBLoggerService implements LoggerService {
+export class MongoDBLoggingService implements LoggingService {
   constructor(private readonly collection: Collection) {}
 
   async log(message: string, payload?: unknown, timestamp = new Date()): Promise<void> {

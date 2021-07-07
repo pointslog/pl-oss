@@ -15,7 +15,7 @@ export * from './lib/feature-flags';
 export * from './lib/feature-service';
 export * from './lib/feature';
 export * from './lib/handler-map';
-export * from './lib/logger-service';
+export * from './lib/logging-service';
 export * from './lib/query-handler';
 export * from './lib/query';
 export * from './lib/runtime';

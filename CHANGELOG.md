@@ -1,3 +1,10 @@
+## 0.0.41
+
+- rename `LoggerService` to `LoggingService`
+- rename `MongoDBLoggerService` to `MongoDBLoggingService`
+
+---
+
 ## 0.0.40
 
 - add `timestamp` to `Query` and `Command`
