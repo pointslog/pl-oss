@@ -1,14 +1,9 @@
-## 0.0.42
-
-- use `LoggingService` in message module
-- fix: `timestamp: string` in Event
-
----
-
 ## 0.0.41
 
-- rename `LoggerService` to `LoggingService`
-- rename `MongoDBLoggerService` to `MongoDBLoggingService`
+- feat: use `LoggingService` in message module
+- fix: `timestamp: string` in Event
+- refactor: rename `LoggerService` to `LoggingService`
+- refactor: rename `MongoDBLoggerService` to `MongoDBLoggingService`
 
 ---
 
