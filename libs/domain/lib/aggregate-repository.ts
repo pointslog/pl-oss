@@ -8,14 +8,14 @@ export abstract class AggregateRepository<T extends Aggregate> {
 
   async getById(id: string): Promise<T> {
     const aggregate = this.getNewInstance();
-    const stream = `${aggregate.constructor.name}-${id}`;
+    const stream = `${aggregate.getStreamNamePrefix()}-${id}`;
     const events = await this.eventStore.read(stream);
     events.forEach((event) => { aggregate.applyEvent(event); });
     return aggregate;
   }
 
   async save(aggregate: T): Promise<void> {
-    const stream = `${aggregate.constructor.name}-${aggregate.id}`;
+    const stream = `${aggregate.getStreamNamePrefix()}-${aggregate.id}`;
     const expectedRevision = aggregate.revision - aggregate.changes.length;
     await this.eventStore.append(stream, aggregate.changes, expectedRevision);
     aggregate.resetChanges();
