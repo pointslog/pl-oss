@@ -2,7 +2,7 @@
 
 - feat: add `slot` in `pl-text-form`
 - feat: add `slot` in `pl-file-form`
-- feat: add `graphQLPubSub` in context
+- feat: add `graphQlService` in context
 
 ---
 
