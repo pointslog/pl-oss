@@ -1,3 +1,8 @@
+## 0.0.43
+
+- fix: typo in `graphQLService`
+
+---
 ## 0.0.42
 
 - feat: add `slot` in `pl-text-form`
