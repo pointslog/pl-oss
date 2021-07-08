@@ -10,6 +10,8 @@
           v-on="$listeners"
         )
 
+      slot
+
       v-card-actions
         v-spacer
         pl-cancel-btn(@click="$emit('cancel')")

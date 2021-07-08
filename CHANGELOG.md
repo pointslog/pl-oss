@@ -1,3 +1,11 @@
+## 0.0.42
+
+- feat: add `slot` in `pl-text-form`
+- feat: add `slot` in `pl-file-form`
+- feat: add `graphQlService` in context
+
+---
+
 ## 0.0.41
 
 - feat: use `LoggingService` in message module
