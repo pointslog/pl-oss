@@ -4,6 +4,6 @@ import { LoggingService } from './logging-service';
 
 export interface Context {
   featureService?: FeatureService,
-  graphQlService?: PubSub,
+  graphQLService?: PubSub,
   loggingService?: LoggingService,
 }
