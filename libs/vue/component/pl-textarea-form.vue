@@ -24,8 +24,6 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  inheritAttrs: false,
-
   props: {
     componentClass: { type: [Array, Object, String] },
     loading: { type: Boolean },
