@@ -23,7 +23,7 @@ export default Vue.extend({
   props: {
     items: { type: Array as PropType<Item[]>, default: () => [] },
     loading: { type: Boolean },
-    routeName: { required: true, type: String },
+    routeName: { type: String, required: true },
   },
 });
 </script>
