@@ -1,3 +1,9 @@
+## 0.0.44
+
+- feat: default prop in `pl-list-card`
+
+---
+
 ## 0.0.43
 
 - fix: typo in `graphQLService`
