@@ -11,18 +11,14 @@ export default Vue.extend({
     threshold: {
       default: 'sm',
       type: String,
-
-      validator(value) {
-        return ['xs', 'sm', 'md', 'lg'].includes(value);
-      },
+      validator(value) { return ['xs', 'sm', 'md', 'lg'].includes(value); },
     },
   },
 
   computed: {
     style() {
       const threshold = this.$vuetify.breakpoint.thresholds[this.threshold];
-      const maxWidth = `${threshold}px`;
-      return { maxWidth };
+      return { maxWidth: `${threshold}px` };
     },
   },
 });
