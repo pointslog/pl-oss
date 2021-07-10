@@ -1,3 +1,9 @@
+## 0.0.46
+
+- fix: extend `pl-textarea-form` style and class
+
+---
+
 ## 0.0.45
 
 - feat: add `pl-textarea`
