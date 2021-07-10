@@ -11,6 +11,8 @@ import PLPlusFab from '../component/pl-plus-fab.vue';
 import PLPlusIconBtn from '../component/pl-plus-icon-btn.vue';
 import PLTextField from '../component/pl-text-field.vue';
 import PLTextForm from '../component/pl-text-form.vue';
+import PLTextarea from '../component/pl-textarea.vue';
+import PLTextareaForm from '../component/pl-textarea-form.vue';
 
 function install(Vue: VueConstructor): void {
   Vue.component('pl-archive-icon-btn', PLArchiveIconBtn);
@@ -25,6 +27,8 @@ function install(Vue: VueConstructor): void {
   Vue.component('pl-plus-icon-btn', PLPlusIconBtn);
   Vue.component('pl-text-field', PLTextField);
   Vue.component('pl-text-form', PLTextForm);
+  Vue.component('pl-textarea', PLTextarea);
+  Vue.component('pl-textarea-form', PLTextareaForm);
 }
 
 export const PLComponentsPlugin = { install };

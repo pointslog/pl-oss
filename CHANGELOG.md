@@ -1,3 +1,10 @@
+## 0.0.45
+
+- feat: add `pl-textarea`
+- feat: add `pl-textarea-form`
+
+---
+
 ## 0.0.44
 
 - feat: default prop in `pl-list-card`
@@ -9,6 +16,7 @@
 - fix: typo in `graphQLService`
 
 ---
+
 ## 0.0.42
 
 - feat: add `slot` in `pl-text-form`
