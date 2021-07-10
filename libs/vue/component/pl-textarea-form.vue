@@ -27,7 +27,7 @@ export default Vue.extend({
   props: {
     componentClass: { type: [Array, Object, String] },
     loading: { type: Boolean },
-    componentStyle: { type: Object },
+    componentStyle: { type: [Object, String] },
     title: { type: String, default: '' },
   },
 });
