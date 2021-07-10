@@ -6,6 +6,8 @@
       v-card-text
         pl-textarea(
           autofocus
+          :class="componentClass"
+          :style="componentStyle"
           v-bind="$attrs"
           v-on="$listeners"
         )
@@ -23,7 +25,9 @@ import Vue from 'vue';
 
 export default Vue.extend({
   props: {
+    componentClass: { type: [Array, Object, String] },
     loading: { type: Boolean },
+    componentStyle: { type: [Object, String] },
     title: { type: String, default: '' },
   },
 });
