@@ -21,7 +21,7 @@ interface Item {
 
 export default Vue.extend({
   props: {
-    items: { required: true, type: Array as PropType<Item[]> },
+    items: { type: Array as PropType<Item[]>, default: () => [] },
     loading: { type: Boolean },
     routeName: { required: true, type: String },
   },
