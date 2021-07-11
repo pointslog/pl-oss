@@ -1,3 +1,9 @@
+## 0.0.48
+
+- add: `asyncIterator` to `GraphQLService`
+
+---
+
 ## 0.0.47
 
 - fix: remove `PubSub` dep
