@@ -1,3 +1,9 @@
+## 0.0.49
+
+- remove: `AggregateRepository`
+
+---
+
 ## 0.0.48
 
 - add: `asyncIterator` to `GraphQLService`

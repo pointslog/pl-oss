@@ -2,8 +2,9 @@ import { Aggregate } from '../lib/aggregate';
 import { TestEvent } from './test.event';
 
 export class TestAggregate extends Aggregate {
-  getStreamNamePrefix(): string { return 'TestAggregate'; }
+  streamNamePrefix = 'TestAggregate'
 
-  // eslint-disable-next-line
-  applyTestEvent(testEvent: TestEvent) {}
+  raise(by: string, timestamp: string) {
+    this.raiseEvent(new TestEvent(this.id, by, timestamp));
+  }
 }
