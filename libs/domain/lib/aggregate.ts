@@ -17,6 +17,7 @@ export abstract class Aggregate {
   async load(eventStore: EventStore) {
     const events = await eventStore.read(this.streamName);
     events.forEach((event) => { this.applyEvent(event); });
+    return this;
   }
 
   protected raiseEvent(event: Event) {
