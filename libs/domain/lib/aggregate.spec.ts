@@ -9,9 +9,6 @@ describe('Aggregate', () => {
   beforeEach(() => {
     eventStore = mock<EventStore>();
     aggregate = new TestAggregate('id');
-
-    jest.useFakeTimers();
-    jest.setSystemTime(new Date());
   });
 
   afterEach(jest.clearAllMocks);
@@ -20,17 +17,17 @@ describe('Aggregate', () => {
     it('should commit aggregate', async () => {
       jest.spyOn(eventStore, 'append').mockResolvedValueOnce();
 
-      aggregate.raise();
+      aggregate.raise('by', 'timestamp');
       await aggregate.commit(eventStore);
 
       expect(eventStore.append).toHaveBeenCalledTimes(1);
-      expect(eventStore.append).toHaveBeenNthCalledWith(1, 'TestAggregate-id', [new TestEvent('id')], -1);
+      expect(eventStore.append).toHaveBeenNthCalledWith(1, 'TestAggregate-id', [new TestEvent('id', 'by', 'timestamp')], -1);
     });
   });
 
   describe('load', () => {
     it('should load aggregate', async () => {
-      const events = [new TestEvent('id'), new TestEvent('id')];
+      const events = [new TestEvent('id', 'by', 'timestamp'), new TestEvent('id', 'by', 'timestamp')];
       jest.spyOn(eventStore, 'read').mockResolvedValueOnce(events);
 
       await aggregate.load(eventStore);

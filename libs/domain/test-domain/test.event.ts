@@ -1,4 +1,3 @@
-import { SYSTEM } from '../lib/constant';
 import { Event } from '../lib/event';
 
 export class TestEvent implements Event {
@@ -6,7 +5,7 @@ export class TestEvent implements Event {
 
   constructor(
     readonly id: string,
-    readonly by = SYSTEM,
+    readonly by: string,
     readonly timestamp = new Date().toISOString(),
   ) {}
 }

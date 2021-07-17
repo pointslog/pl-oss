@@ -4,7 +4,7 @@ import { TestEvent } from './test.event';
 export class TestAggregate extends Aggregate {
   streamNamePrefix = 'TestAggregate'
 
-  raise() {
-    this.raiseEvent(new TestEvent(this.id));
+  raise(by: string, timestamp: string) {
+    this.raiseEvent(new TestEvent(this.id, by, timestamp));
   }
 }
