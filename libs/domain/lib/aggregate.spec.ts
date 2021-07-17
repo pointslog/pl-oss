@@ -1,39 +1,44 @@
+import { mock } from 'jest-mock-extended';
 import { TestAggregate, TestEvent } from '../test-domain';
+import { EventStore } from './event-store';
 
 describe('Aggregate', () => {
-  let testAggregate: TestAggregate;
-  let testEvent: TestEvent;
+  let eventStore: EventStore;
+  let aggregate: TestAggregate;
 
   beforeEach(() => {
-    testAggregate = new TestAggregate();
-    testEvent = new TestEvent('id');
+    eventStore = mock<EventStore>();
+    aggregate = new TestAggregate('id');
+
+    jest.useFakeTimers();
+    jest.setSystemTime(new Date());
   });
 
   afterEach(jest.clearAllMocks);
 
-  describe('applyEvent', () => {
-    it('should call apply{EventName} and increment revision', async () => {
-      jest.spyOn(testAggregate, 'applyTestEvent');
-      testAggregate.applyEvent(testEvent);
-      expect(testAggregate.applyTestEvent).toHaveBeenNthCalledWith(1, testEvent);
-      expect(testAggregate.revision).toBe(0);
+  describe('commit', () => {
+    it('should commit aggregate', async () => {
+      jest.spyOn(eventStore, 'append').mockResolvedValueOnce();
+
+      aggregate.raise();
+      await aggregate.commit(eventStore);
+
+      expect(eventStore.append).toHaveBeenCalledTimes(1);
+      expect(eventStore.append).toHaveBeenNthCalledWith(1, 'TestAggregate-id', [new TestEvent('id')], -1);
     });
   });
 
-  describe('raiseEvent', () => {
-    it('should call applyEvent and push event to changes', async () => {
-      jest.spyOn(testAggregate, 'applyEvent');
-      testAggregate.raiseEvent(testEvent);
-      expect(testAggregate.applyEvent).toHaveBeenNthCalledWith(1, testEvent);
-      expect(testAggregate.changes.length).toBe(1);
-    });
-  });
+  describe('load', () => {
+    it('should load aggregate', async () => {
+      const events = [new TestEvent('id'), new TestEvent('id')];
+      jest.spyOn(eventStore, 'read').mockResolvedValueOnce(events);
 
-  describe('resetChanges', () => {
-    it('should reset changes', async () => {
-      testAggregate.raiseEvent(testEvent);
-      testAggregate.resetChanges();
-      expect(testAggregate.changes.length).toBe(0);
+      await aggregate.load(eventStore);
+
+      expect(eventStore.read).toHaveBeenCalledTimes(1);
+      expect(eventStore.read).toHaveBeenNthCalledWith(1, 'TestAggregate-id');
+
+      expect(aggregate.revision).toStrictEqual(1);
     });
   });
 });

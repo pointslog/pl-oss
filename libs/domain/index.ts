@@ -1,6 +1,5 @@
 export * from './lib/aggregate';
 export * from './lib/aggregate-exception';
-export * from './lib/aggregate-repository';
 export * from './lib/command';
 export * from './lib/command-handler';
 export * from './lib/constant';
