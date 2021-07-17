@@ -9,18 +9,19 @@ export abstract class Aggregate {
 
   constructor(readonly id: string) {}
 
-  async commit(eventStore: EventStore) {
+  async commit(eventStore: EventStore): Promise<this> {
     await eventStore.append(this.streamName, this.uncommitedEvents, this.expectedRevision);
     this.resetUncommitedEvents();
+    return this;
   }
 
-  async load(eventStore: EventStore) {
+  async load(eventStore: EventStore): Promise<this> {
     const events = await eventStore.read(this.streamName);
     events.forEach((event) => { this.applyEvent(event); });
     return this;
   }
 
-  protected raiseEvent(event: Event) {
+  protected raiseEvent(event: Event): void {
     this.applyEvent(event);
     this.uncommitedEvents.push(event);
   }
@@ -33,13 +34,13 @@ export abstract class Aggregate {
     return `${this.streamNamePrefix}-${this.id}`;
   }
 
-  private applyEvent(event: Event) {
+  private applyEvent(event: Event): void {
     const methodName = `on${event.type}`;
     if (this[methodName]) this[methodName](event);
     this.revision += 1;
   }
 
-  private resetUncommitedEvents() {
+  private resetUncommitedEvents(): void {
     this.uncommitedEvents = [];
   }
 }

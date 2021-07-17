@@ -1,3 +1,7 @@
+## 0.0.51
+
+- refactor: `Aggregate`
+
 ## 0.0.50
 
 - refactor: `Aggregate`
