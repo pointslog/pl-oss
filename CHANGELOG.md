@@ -1,6 +1,6 @@
 ## 0.0.50
 
-- change: `Aggregate`
+- refactor: `Aggregate`
 
 ---
 
