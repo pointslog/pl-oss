@@ -18,7 +18,9 @@ describe('Aggregate', () => {
       jest.spyOn(eventStore, 'append').mockResolvedValueOnce();
 
       aggregate.raise('by', 'timestamp');
-      await aggregate.commit(eventStore);
+      const result = await aggregate.commit(eventStore);
+
+      expect(result).toStrictEqual(aggregate);
 
       expect(eventStore.append).toHaveBeenCalledTimes(1);
       expect(eventStore.append).toHaveBeenNthCalledWith(1, 'TestAggregate-id', [new TestEvent('id', 'by', 'timestamp')], -1);
@@ -30,7 +32,9 @@ describe('Aggregate', () => {
       const events = [new TestEvent('id', 'by', 'timestamp'), new TestEvent('id', 'by', 'timestamp')];
       jest.spyOn(eventStore, 'read').mockResolvedValueOnce(events);
 
-      await aggregate.load(eventStore);
+      const result = await aggregate.load(eventStore);
+
+      expect(result).toStrictEqual(aggregate);
 
       expect(eventStore.read).toHaveBeenCalledTimes(1);
       expect(eventStore.read).toHaveBeenNthCalledWith(1, 'TestAggregate-id');
