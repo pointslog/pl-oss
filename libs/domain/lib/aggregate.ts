@@ -17,6 +17,7 @@ export abstract class Aggregate {
   async load(eventStore: EventStore) {
     const events = await eventStore.read(this.streamName);
     events.forEach((event) => { this.applyEvent(event); });
+    return this;
   }
 
   protected raiseEvent(event: Event) {
@@ -33,7 +34,7 @@ export abstract class Aggregate {
   }
 
   private applyEvent(event: Event) {
-    const methodName = `apply${event.type}`;
+    const methodName = `on${event.type}`;
     if (this[methodName]) this[methodName](event);
     this.revision += 1;
   }

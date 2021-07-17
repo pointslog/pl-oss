@@ -1,3 +1,9 @@
+## 0.0.50
+
+- refactor: `Aggregate`
+
+---
+
 ## 0.0.49
 
 - remove: `AggregateRepository`
