@@ -26,10 +26,16 @@ import Vue from 'vue';
 export default Vue.extend({
   props: {
     loading: { type: Boolean },
-    title: { type: String, default: '' },
+
+    title: {
+      type: String,
+      default: '',
+    },
   },
 
-  data() { return { file: null }; },
+  data() {
+    return { file: null };
+  },
 
   methods: {
     cancelBtnClickHandler() {

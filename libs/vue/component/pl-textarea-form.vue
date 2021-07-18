@@ -28,7 +28,11 @@ export default Vue.extend({
     componentClass: { type: [Array, Object, String] },
     loading: { type: Boolean },
     componentStyle: { type: [Object, String] },
-    title: { type: String, default: '' },
+
+    title: {
+      type: String,
+      default: '',
+    },
   },
 });
 </script>

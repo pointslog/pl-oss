@@ -1,7 +1,7 @@
 import { Event } from '../lib/event';
 
 export class TestEvent implements Event {
-  readonly type = 'TestEvent'
+  readonly type = 'TestEvent';
 
   constructor(
     readonly id: string,
