@@ -1,5 +1,5 @@
 export interface Event {
-  readonly type: string
-  readonly by: string
-  readonly timestamp: string
+  readonly type: string;
+  readonly by: string;
+  readonly timestamp: string;
 }

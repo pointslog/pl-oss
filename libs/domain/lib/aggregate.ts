@@ -2,10 +2,10 @@ import { Event } from './event';
 import { EventStore } from './event-store';
 
 export abstract class Aggregate {
-  abstract readonly streamNamePrefix: string
+  abstract readonly streamNamePrefix: string;
 
-  revision = -1
-  uncommitedEvents: Event[] = []
+  revision = -1;
+  uncommitedEvents: Event[] = [];
 
   constructor(readonly id: string) {}
 
