@@ -30,6 +30,9 @@
     "domain": {
       "tags": []
     },
+    "file-helper": {
+      "tags": []
+    },
     "vue": {
       "tags": []
     }

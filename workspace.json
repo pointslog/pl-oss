@@ -81,6 +81,31 @@
         }
       }
     },
+    "file-helper": {
+      "root": "libs/file-helper",
+      "sourceRoot": "libs/file-helper/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/file-helper/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/file-helper"
+          ],
+          "options": {
+            "jestConfig": "libs/file-helper/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "vue": {
       "projectType": "library",
       "targets": {
