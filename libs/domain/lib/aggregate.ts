@@ -4,10 +4,12 @@ import { EventStore } from './event-store';
 export abstract class Aggregate {
   abstract readonly streamNamePrefix: string;
 
-  revision = -1;
-  uncommitedEvents: Event[] = [];
+  revision: number;
+  uncommitedEvents: Event[];
 
-  constructor(readonly id: string) {}
+  constructor(readonly id: string) {
+    this.reset();
+  }
 
   async commit(eventStore: EventStore): Promise<this> {
     await eventStore.append(this.streamName, this.uncommitedEvents, this.expectedRevision);
@@ -16,6 +18,7 @@ export abstract class Aggregate {
   }
 
   async load(eventStore: EventStore): Promise<this> {
+    this.reset();
     const events = await eventStore.read(this.streamName);
     events.forEach((event) => { this.applyEvent(event); });
     return this;
@@ -42,5 +45,10 @@ export abstract class Aggregate {
 
   private resetUncommitedEvents(): void {
     this.uncommitedEvents = [];
+  }
+
+  private reset(): void {
+    this.revision = -1;
+    this.resetUncommitedEvents();
   }
 }
