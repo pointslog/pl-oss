@@ -1,3 +1,7 @@
+## 0.0.53
+
+- feat(vue): add ethers-plugin and ethers-guard
+
 ## 0.0.52
 
 - refactor: `Aggregate`

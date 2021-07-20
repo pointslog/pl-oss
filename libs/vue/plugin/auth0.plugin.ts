@@ -84,7 +84,7 @@ function useAuth0({ onRedirect, domain, ...options }) {
   return instance;
 }
 
-export function getInstance() {
+export function getAuth0Service() {
   return instance;
 }
 
