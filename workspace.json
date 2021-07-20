@@ -83,7 +83,7 @@
     },
     "file-helper": {
       "root": "libs/file-helper",
-      "sourceRoot": "libs/file-helper/src",
+      "sourceRoot": "libs/file-helper",
       "projectType": "library",
       "targets": {
         "lint": {
