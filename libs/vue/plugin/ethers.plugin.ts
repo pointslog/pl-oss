@@ -46,7 +46,7 @@ function useEthers(options: EthersPluginOptions): EthersService {
     },
 
     methods: {
-      getEthereum(): Promise<unknown> {
+      getEthereum(): unknown {
         const { ethereum } = window as never;
         if (!ethereum) throw new Error('metamask.does.not.exist');
         return ethereum;
