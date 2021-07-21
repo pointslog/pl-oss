@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'file-helper',
+  displayName: 'file-context',
   preset: '../../jest.preset.js',
   globals: {
     'ts-jest': {
@@ -7,8 +7,8 @@ module.exports = {
     },
   },
   transform: {
-    '^.+\\.[tj]sx?$': 'ts-jest',
+    '^.+\\.[tj]s?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'js'],
-  coverageDirectory: '../../coverage/libs/file-helper',
+  coverageDirectory: '../../coverage/libs/file-context',
 };

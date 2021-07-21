@@ -1,7 +1,7 @@
 import { Collection } from 'mongodb';
-import { FileEntity } from '../../file-helper/lib/file.entity';
+import { FileEntity } from './file.entity';
 import { MongoDBFileStore } from './mongo-db.file-store';
-import { IdShouldBeUniqueException } from '../../file-helper/lib/id-should-be-unique.exception';
+import { IdShouldBeUniqueException } from './id-should-be-unique.exception';
 
 jest.mock('mongodb', () => ({
   Collection: {
