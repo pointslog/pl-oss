@@ -1,6 +1,4 @@
-import { Entity } from '@pl-oss/domain';
-
-export class FileEntity implements Entity {
+export class FileEntity {
   constructor(
     readonly id: string,
     readonly data: string,

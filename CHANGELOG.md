@@ -1,3 +1,7 @@
+## 0.0.54
+
+- feat: add file-context lib
+
 ## 0.0.53
 
 - feat(vue): add ethers-plugin and ethers-guard
