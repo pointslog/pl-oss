@@ -3,14 +3,18 @@ import createAuth0Client from '@auth0/auth0-spa-js';
 import { VueConstructor } from 'vue/types/umd';
 
 interface Auth0PluginOptions {
-  onRedirect(appState: unknown): void;
-  domain: string;
   clientId: string;
+  domain: string;
+  onFailure(error: Error): Promise<void>;
+  onRedirect(appState: unknown): void;
 }
 
 interface Auth0Service extends Vue {
+  auth0Client: null,
   isAuthenticated: boolean;
   loading: boolean;
+  user: unknown;
+  loginWithRedirect(payload: unknown): void;
 }
 let instance;
 
@@ -26,7 +30,6 @@ function useAuth0({
         loading: true,
         isAuthenticated: false,
         user: {},
-        error: null,
       };
     },
 
@@ -44,11 +47,10 @@ function useAuth0({
           && window.location.search.includes('state=')
         ) {
           const { appState } = await this.auth0Client.handleRedirectCallback();
-          this.error = null;
           onRedirect(appState);
         }
       } catch (e) {
-        this.error = e;
+        await options.onFailure(e);
       } finally {
         this.isAuthenticated = await this.auth0Client.isAuthenticated();
         this.user = await this.auth0Client.getUser();
@@ -63,9 +65,8 @@ function useAuth0({
           await this.auth0Client.handleRedirectCallback();
           this.user = await this.auth0Client.getUser();
           this.isAuthenticated = true;
-          this.error = null;
         } catch (e) {
-          this.error = e;
+          await options.onFailure(e);
         } finally {
           this.loading = false;
         }
