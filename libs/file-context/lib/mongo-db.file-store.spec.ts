@@ -1,7 +1,6 @@
 import { Collection } from 'mongodb';
 import { FileEntity } from './file.entity';
 import { MongoDBFileStore } from './mongo-db.file-store';
-import { IdShouldBeUniqueException } from './id-should-be-unique.exception';
 
 jest.mock('mongodb', () => ({
   Collection: {
@@ -29,27 +28,11 @@ describe('MongoDBFileStore', () => {
 
   describe('append', () => {
     it('should call insertOne', async () => {
-      jest.spyOn(collection, 'insertOne').mockResolvedValue(undefined);
-
+      jest.spyOn(collection, 'insertOne');
       await mongoDBFileStore.append(entity);
 
       expect(collection.insertOne).toHaveBeenCalledTimes(1);
       expect(collection.insertOne).toHaveBeenNthCalledWith(1, { ...entity, _id: 'id' });
-    });
-
-    it('should throw IdShouldBeUniqueException', async () => {
-      jest.spyOn(collection, 'insertOne').mockImplementation(() => {
-        const error = new Error('message');
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        error.code = 11000;
-        throw error;
-      });
-
-      await mongoDBFileStore.append(entity);
-
-      expect(mongoDBFileStore.append.bind(mongoDBFileStore))
-        .toThrowError(new IdShouldBeUniqueException());
     });
   });
 
