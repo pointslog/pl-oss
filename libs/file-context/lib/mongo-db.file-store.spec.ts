@@ -39,7 +39,6 @@ describe('MongoDBFileStore', () => {
   describe('read', () => {
     it('should call findOne', async () => {
       jest.spyOn(collection, 'findOne').mockReturnValue(entity);
-
       const response = await mongoDBFileStore.read('id');
 
       expect(response).toMatchObject(entity);
