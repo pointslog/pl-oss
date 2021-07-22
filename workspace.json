@@ -81,6 +81,46 @@
         }
       }
     },
+    "file-context": {
+      "root": "libs/file-context",
+      "sourceRoot": "libs/file-context",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/file-context/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/file-context"
+          ],
+          "options": {
+            "jestConfig": "libs/file-context/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/libs/file-context",
+            "tsConfig": "libs/file-context/tsconfig.lib.json",
+            "packageJson": "libs/file-context/package.json",
+            "main": "libs/file-context/index.ts",
+            "assets": [
+              "libs/file-context/*.md"
+            ]
+          }
+        }
+      }
+    },
     "vue": {
       "projectType": "library",
       "targets": {

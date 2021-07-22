@@ -30,6 +30,9 @@
     "domain": {
       "tags": []
     },
+    "file-context": {
+      "tags": []
+    },
     "vue": {
       "tags": []
     }

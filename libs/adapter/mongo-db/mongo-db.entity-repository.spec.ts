@@ -23,9 +23,7 @@ describe('MongoDBRepository', () => {
     testEntityMongoDBRepository = new MongoDBRepository<TestEntity>(collection);
   });
 
-  afterEach(() => {
-    jest.clearAllMocks();
-  });
+  afterEach(jest.clearAllMocks);
 
   describe('getAll', () => {
     it('should call getAll', async () => {

@@ -24,6 +24,9 @@
       "@pl-oss/domain": [
         "libs/domain/index.ts"
       ],
+      "@pl-oss/file-context": [
+        "libs/file-context/index.ts"
+      ],
       "@pl-oss/vue": [
         "libs/vue/index.ts"
       ]
