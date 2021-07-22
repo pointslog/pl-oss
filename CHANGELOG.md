@@ -1,3 +1,9 @@
+## 0.0.55
+
+- feat(vue): add metamask-plugin and metamask-guard
+- remove: `EthersPlugin` and `EthersGuard`
+- remove: `ethers.js` dependency
+
 ## 0.0.54
 
 - feat: add file-context lib

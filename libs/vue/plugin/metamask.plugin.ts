@@ -1,20 +1,19 @@
 import Vue from 'vue';
-import { ethers } from 'ethers';
 import { VueConstructor } from 'vue/types/umd';
 
-interface EthersPluginOptions {
+interface MetamaskPluginOptions {
   onFailure(error: Error): Promise<void>;
   onSuccess(address: string): Promise<void>;
 }
 
-interface EthersService extends Vue {
+interface MetamaskService extends Vue {
   isAuthenticated: boolean;
   loading: boolean;
 }
 
-let instance: EthersService;
+let instance: MetamaskService;
 
-function useEthers(options: EthersPluginOptions): EthersService {
+function useMetamask(options: MetamaskPluginOptions): MetamaskService {
   if (instance) return instance;
 
   instance = new Vue({
@@ -35,7 +34,6 @@ function useEthers(options: EthersPluginOptions): EthersService {
       try {
         this.loading = true;
         const ethereum = this.getEthereum();
-        await this.requestPermission(ethereum);
         await this.setAddress(ethereum);
         await options.onSuccess(this.address);
       } catch (e) {
@@ -52,13 +50,10 @@ function useEthers(options: EthersPluginOptions): EthersService {
         return ethereum;
       },
 
-      async requestPermission(ethereum): Promise<void> {
-        await ethereum.request({ method: 'eth_requestAccounts' });
-      },
-
       async setAddress(ethereum): Promise<void> {
-        const signer = new ethers.providers.Web3Provider(ethereum).getSigner();
-        this.address = await signer.getAddress();
+        const addresses = await ethereum.request({ method: 'eth_requestAccounts' });
+        if (addresses.length > 1) throw new Error('metamask.multiple.addresses.not.supported');
+        [this.address] = addresses;
       },
     },
   });
@@ -66,13 +61,13 @@ function useEthers(options: EthersPluginOptions): EthersService {
   return instance;
 }
 
-export function getEthersService(): EthersService {
+export function getMetamaskService(): MetamaskService {
   return instance;
 }
 
-export const EthersPlugin = {
-  install(vue: VueConstructor, options: EthersPluginOptions): void {
+export const MetamaskPlugin = {
+  install(vue: VueConstructor, options: MetamaskPluginOptions): void {
     // eslint-disable-next-line no-param-reassign
-    vue.prototype.$ethers = useEthers(options);
+    vue.prototype.$ethers = useMetamask(options);
   },
 };
