@@ -1,3 +1,7 @@
+## 0.0.56
+
+- fix: `$ether` to `$metamask` in Vue Plugin
+
 ## 0.0.55
 
 - feat(vue): add metamask-plugin and metamask-guard
