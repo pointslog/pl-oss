@@ -1,10 +1,22 @@
-/* eslint-disable */
 import Vue from 'vue';
 import createAuth0Client from '@auth0/auth0-spa-js';
+import { VueConstructor } from 'vue/types/umd';
 
+interface Auth0PluginOptions {
+  onRedirect(appState: unknown): void;
+  domain: string;
+  clientId: string;
+}
+
+interface Auth0Service extends Vue {
+  isAuthenticated: boolean;
+  loading: boolean;
+}
 let instance;
 
-function useAuth0({ onRedirect, domain, ...options }) {
+function useAuth0({
+  clientId, domain, onRedirect, ...options
+}: Auth0PluginOptions): Auth0Service {
   if (instance) return instance;
 
   instance = new Vue({
@@ -21,15 +33,15 @@ function useAuth0({ onRedirect, domain, ...options }) {
     async created() {
       this.auth0Client = await createAuth0Client({
         ...options,
-        client_id: options.clientId,
+        client_id: clientId,
         domain,
         redirect_uri: window.location.origin,
       });
 
       try {
         if (
-          window.location.search.includes("code=") &&
-          window.location.search.includes("state=")
+          window.location.search.includes('code=')
+          && window.location.search.includes('state=')
         ) {
           const { appState } = await this.auth0Client.handleRedirectCallback();
           this.error = null;
@@ -84,12 +96,13 @@ function useAuth0({ onRedirect, domain, ...options }) {
   return instance;
 }
 
-export function getAuth0Service() {
+export function getAuth0Service(): Auth0Service {
   return instance;
 }
 
 export const Auth0Plugin = {
-  install(Vue, options) {
-    Vue.prototype.$auth = useAuth0(options);
+  install(vue: VueConstructor, options: Auth0PluginOptions): void {
+    // eslint-disable-next-line no-param-reassign
+    vue.prototype.$auth0 = useAuth0(options);
   },
 };

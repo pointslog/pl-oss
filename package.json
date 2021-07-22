@@ -31,7 +31,6 @@
     "@auth0/auth0-spa-js": "^1.15.0",
     "@eventstore/db-client": "^1.2.1",
     "@nestjs/common": "^7.6.18",
-    "ethers": "^5.4.1",
     "mongodb": "^3.6.8",
     "reflect-metadata": "^0.1.13",
     "tslib": "^2.0.0",
