@@ -68,6 +68,6 @@ export function getMetamaskService(): MetamaskService {
 export const MetamaskPlugin = {
   install(vue: VueConstructor, options: MetamaskPluginOptions): void {
     // eslint-disable-next-line no-param-reassign
-    vue.prototype.$ethers = useMetamask(options);
+    vue.prototype.$metamask = useMetamask(options);
   },
 };
