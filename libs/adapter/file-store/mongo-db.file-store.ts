@@ -1,7 +1,5 @@
+import { FileStore, FileEntity, IdShouldBeUniqueException } from '@pl-oss/domain';
 import { Collection } from 'mongodb';
-import { FileStore } from './file-store';
-import { FileEntity } from './file.entity';
-import { IdShouldBeUniqueException } from './id-should-be-unique.exception';
 
 export class MongoDBFileStore implements FileStore {
   constructor(private readonly collection: Collection) {}

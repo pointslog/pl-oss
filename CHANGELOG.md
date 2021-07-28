@@ -1,3 +1,10 @@
+## 0.0.57
+
+- feat(adapter): add URI FileStore
+- refactor(adapters): rearranged
+- refactor(file-context): remove file-context
+- feat(domain): add UnimplementedException
+
 ## 0.0.56
 
 - fix: `$ether` to `$metamask` in Vue Plugin
