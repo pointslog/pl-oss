@@ -19,3 +19,4 @@ export * from './lib/logging-service';
 export * from './lib/query';
 export * from './lib/query-handler';
 export * from './lib/runtime';
+export * from './lib/unimplemented.exception';
