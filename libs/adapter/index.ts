@@ -1,12 +1,17 @@
+export * from './entity-repository/in-memory.entity-repository';
+export * from './entity-repository/mongo-db.entity-repository';
+
 export * from './event-store-db/event-store-db.event-store';
 export * from './event-store-db/event-store-db.event-subscription';
 
-export * from './in-memory/in-memory.entity-repository';
-export * from './in-memory/in-memory.feature-service';
+export * from './feature-service/in-memory.feature-service';
 
-export * from './mongo-db/mongo-db.entity-repository';
+export * from './file-store/mongo-db.file-store';
+export * from './file-store/uri.file-store';
+
+export * from './logging-service/mongo-db.logging-service';
+
 export * from './mongo-db/mongo-db.helper';
-export * from './mongo-db/mongo-db.logging-service';
 
 export * from './nest/message/message.controller';
 export * from './nest/message/message.module';
