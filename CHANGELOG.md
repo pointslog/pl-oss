@@ -1,3 +1,7 @@
+## 0.0.58
+
+- fix: add `node-fetch` dependency
+
 ## 0.0.57
 
 - feat(adapter): add URI FileStore
