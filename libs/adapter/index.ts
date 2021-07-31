@@ -7,6 +7,7 @@ export * from './event-subscription/event-store-db.event-subscription';
 export * from './feature-service/in-memory.feature-service';
 
 export * from './file-store/mongo-db.file-store';
+export * from './file-store/s3.file-store';
 export * from './file-store/uri.file-store';
 
 export * from './logging-service/mongo-db.logging-service';
