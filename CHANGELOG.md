@@ -1,3 +1,7 @@
+## 0.0.59
+
+- fix: add `S3FileStore`
+
 ## 0.0.58
 
 - fix: add `node-fetch` dependency
