@@ -1,5 +1,5 @@
 import { mock } from 'jest-mock-extended';
-import { TestAggregate, TestEvent } from '../test-domain';
+import { TestAggregate, TestEvent } from '../test-core';
 import { EventStore } from './event-store';
 
 describe('Aggregate', () => {

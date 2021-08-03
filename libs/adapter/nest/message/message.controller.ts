@@ -3,7 +3,7 @@ import {
 } from '@nestjs/common';
 import {
   Command, Context, HandlerMap, Query,
-} from '@pl-oss/domain';
+} from '@pl-oss/core';
 
 type Message = Command | Query;
 

@@ -1,4 +1,4 @@
-import { FileEntity } from '@pl-oss/domain';
+import { FileEntity } from '@pl-oss/core';
 import { Collection } from 'mongodb';
 import { MongoDBFileStore } from './mongo-db.file-store';
 

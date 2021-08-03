@@ -1,4 +1,4 @@
-import { FeatureFlags } from '@pl-oss/domain';
+import { FeatureFlags } from '@pl-oss/core';
 import { InMemoryFeatureService } from './in-memory.feature-service';
 
 describe('InMemoryFeatureService', () => {

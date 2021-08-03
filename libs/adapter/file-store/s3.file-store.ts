@@ -1,6 +1,6 @@
 import {
   FileEntity, FileEntityHelper, FileStore, UnimplementedException,
-} from '@pl-oss/domain';
+} from '@pl-oss/core';
 import { S3 } from 'aws-sdk';
 
 export class S3FileStore implements FileStore {

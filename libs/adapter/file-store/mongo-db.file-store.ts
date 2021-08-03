@@ -1,4 +1,4 @@
-import { FileStore, FileEntity, IdShouldBeUniqueException } from '@pl-oss/domain';
+import { FileStore, FileEntity, IdShouldBeUniqueException } from '@pl-oss/core';
 import { Collection } from 'mongodb';
 
 export class MongoDBFileStore implements FileStore {
