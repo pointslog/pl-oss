@@ -20,7 +20,7 @@ jobs:
             ${{ runner.OS }}-node-
             ${{ runner.OS }}-
       - run: yarn --frozen-lockfile
-      - run: yarn nx run-many --all --target build
+      - run: yarn all build
       - run: for dir in dist/libs/*; do npm publish --access public "$dir"; done
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
