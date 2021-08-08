@@ -1,11 +1,9 @@
 import {
   Body, Controller, HttpCode, HttpStatus, Inject, Post,
 } from '@nestjs/common';
-import {
-  Command, Context, HandlerMap, Query,
-} from '@pl-oss/core';
+import { Command, Context, HandlerMap } from '@pl-oss/core';
 
-type Message = Command | Query;
+type Message = Command;
 
 @Controller()
 export class MessageController {

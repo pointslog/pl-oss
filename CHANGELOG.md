@@ -1,3 +1,8 @@
+## 0.0.60
+
+- refactor: remove `query` and `query-handler`
+- refactor: rename `domain` to `core`
+
 ## 0.0.59
 
 - fix: add `S3FileStore`

@@ -16,7 +16,7 @@ jobs:
             ${{ runner.OS }}-node-
             ${{ runner.OS }}-
       - run: yarn --frozen-lockfile
-      - run: yarn nx run-many --all --target lint
+      - run: yarn all lint
 
   test:
     runs-on: ubuntu-latest
@@ -31,4 +31,4 @@ jobs:
             ${{ runner.OS }}-node-
             ${{ runner.OS }}-
       - run: yarn --frozen-lockfile
-      - run: yarn nx run-many --all --target test
+      - run: yarn all test

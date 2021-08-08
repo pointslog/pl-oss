@@ -20,7 +20,5 @@ export * from './lib/graphql.service';
 export * from './lib/handler-map';
 export * from './lib/id-should-be-unique.exception';
 export * from './lib/logging-service';
-export * from './lib/query';
-export * from './lib/query-handler';
 export * from './lib/runtime';
 export * from './lib/unimplemented.exception';
