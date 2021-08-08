@@ -6,7 +6,7 @@ import {
   ResolvedEvent,
   START,
 } from '@eventstore/db-client';
-import { Event as DomainEvent } from '@pl-oss/domain';
+import { Event as DomainEvent } from '@pl-oss/core';
 import { EventStoreDBEventStore } from './event-store-db.event-store';
 
 jest.mock('@eventstore/db-client', () => ({

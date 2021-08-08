@@ -1,4 +1,4 @@
-import { EntityRepository, Entity } from '@pl-oss/domain';
+import { EntityRepository, Entity } from '@pl-oss/core';
 import { Collection } from 'mongodb';
 
 export class MongoDBRepository<T extends Entity> implements EntityRepository<T> {

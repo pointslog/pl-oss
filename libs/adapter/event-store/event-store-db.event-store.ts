@@ -7,7 +7,7 @@ import {
   ResolvedEvent,
   START,
 } from '@eventstore/db-client';
-import { EventStore, Event as DomainEvent } from '@pl-oss/domain';
+import { EventStore, Event as DomainEvent } from '@pl-oss/core';
 
 export class EventStoreDBEventStore implements EventStore {
   constructor(private readonly eventStoreDBClient: EventStoreDBClient) {}

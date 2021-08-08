@@ -1,5 +1,5 @@
 import { DynamicModule, Logger, Module } from '@nestjs/common';
-import { Context, HandlerMap } from '@pl-oss/domain';
+import { Context, HandlerMap } from '@pl-oss/core';
 import { MessageController } from './message.controller';
 
 @Module({ controllers: [MessageController], providers: [Logger] })

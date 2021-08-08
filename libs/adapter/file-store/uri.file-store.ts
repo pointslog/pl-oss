@@ -1,4 +1,4 @@
-import { FileEntity, FileStore, UnimplementedException } from '@pl-oss/domain';
+import { FileEntity, FileStore, UnimplementedException } from '@pl-oss/core';
 import fetch from 'node-fetch';
 import { NetworkException } from './network.exception';
 

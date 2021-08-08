@@ -21,8 +21,8 @@
       "@pl-oss/adapter": [
         "libs/adapter/index.ts"
       ],
-      "@pl-oss/domain": [
-        "libs/domain/index.ts"
+      "@pl-oss/core": [
+        "libs/core/index.ts"
       ],
       "@pl-oss/vue": [
         "libs/vue/index.ts"

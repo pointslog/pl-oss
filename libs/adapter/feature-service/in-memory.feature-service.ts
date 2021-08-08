@@ -3,7 +3,7 @@ import {
   FeatureFlags,
   FeatureService,
   Runtime,
-} from '@pl-oss/domain';
+} from '@pl-oss/core';
 
 export class InMemoryFeatureService implements FeatureService {
   constructor(

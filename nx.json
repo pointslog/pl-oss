@@ -27,7 +27,7 @@
     "adapter": {
       "tags": []
     },
-    "domain": {
+    "core": {
       "tags": []
     },
     "vue": {

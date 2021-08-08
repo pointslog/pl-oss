@@ -41,26 +41,26 @@
         }
       }
     },
-    "domain": {
-      "root": "libs/domain",
-      "sourceRoot": "libs/domain",
+    "core": {
+      "root": "libs/core",
+      "sourceRoot": "libs/core",
       "projectType": "library",
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/domain/**/*.ts"
+              "libs/core/**/*.ts"
             ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
           "outputs": [
-            "coverage/libs/domain"
+            "coverage/libs/core"
           ],
           "options": {
-            "jestConfig": "libs/domain/jest.config.js",
+            "jestConfig": "libs/core/jest.config.js",
             "passWithNoTests": true
           }
         },
@@ -70,12 +70,12 @@
             "{options.outputPath}"
           ],
           "options": {
-            "outputPath": "dist/libs/domain",
-            "tsConfig": "libs/domain/tsconfig.lib.json",
-            "packageJson": "libs/domain/package.json",
-            "main": "libs/domain/index.ts",
+            "outputPath": "dist/libs/core",
+            "tsConfig": "libs/core/tsconfig.lib.json",
+            "packageJson": "libs/core/package.json",
+            "main": "libs/core/index.ts",
             "assets": [
-              "libs/domain/*.md"
+              "libs/core/*.md"
             ]
           }
         }

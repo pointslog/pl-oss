@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'domain',
+  displayName: 'core',
   preset: '../../jest.preset.js',
   globals: {
     'ts-jest': {
@@ -10,5 +10,5 @@ module.exports = {
     '^.+\\.[tj]s?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'js'],
-  coverageDirectory: '../../coverage/libs/domain',
+  coverageDirectory: '../../coverage/libs/core',
 };

@@ -1,5 +1,5 @@
 import { Collection } from 'mongodb';
-import { LoggingService } from '@pl-oss/domain';
+import { LoggingService } from '@pl-oss/core';
 
 export class MongoDBLoggingService implements LoggingService {
   constructor(private readonly collection: Collection) {}
