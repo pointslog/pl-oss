@@ -5,7 +5,7 @@ import { GraphQLService } from './graphql.service';
 import { LoggingService } from './logging-service';
 
 export interface Context {
-  environment: Record<string, string>;
+  environment: Record<string, boolean | number | string>;
   eventStore?: EventStore;
   featureService?: FeatureService;
   fileStore?: FileStore;
