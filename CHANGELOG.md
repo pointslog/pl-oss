@@ -1,3 +1,7 @@
+## 0.0.63
+
+- refactor: set `environment` optional in `Context`
+
 ## 0.0.62
 
 - refactor: add `environment` method to `Context`
