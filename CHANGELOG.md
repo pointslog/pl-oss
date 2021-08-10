@@ -1,3 +1,7 @@
+## 0.0.61
+
+- refactor: add `determineExtension` method to `FileEntityHelper`
+
 ## 0.0.60
 
 - refactor: remove `query` and `query-handler`
