@@ -1,6 +1,6 @@
 export class UnimplementedException extends Error {
   constructor() {
-    super('unimplemented');
+    super('exception.unimplemented');
     this.name = 'UnimplementedException';
   }
 }

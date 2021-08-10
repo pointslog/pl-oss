@@ -1,6 +1,6 @@
 export class IdShouldBeUniqueException extends Error {
   constructor() {
-    super('id.should-be.unique');
+    super('exception.id.should-be.unique');
     this.name = 'IdShouldBeUniqueException';
   }
 }
