@@ -1,3 +1,7 @@
+## 0.0.62
+
+- refactor: add `environment` method to `Context`
+
 ## 0.0.61
 
 - refactor: add `determineExtension` method to `FileEntityHelper`
