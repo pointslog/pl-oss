@@ -2,13 +2,14 @@ import Vue from 'vue';
 import { VueConstructor } from 'vue/types/umd';
 
 interface MetamaskPluginOptions {
-  onFailure(error: Error): Promise<void>;
-  onSuccess(address: string): Promise<void>;
+  onFailure(payload: unknown): Promise<void>;
+  onSuccess(payload: unknown): Promise<void>;
 }
 
 interface MetamaskService extends Vue {
   isAuthenticated: boolean;
   loading: boolean;
+  login(targetUrl: string): void;
 }
 
 let instance: MetamaskService;
@@ -18,10 +19,7 @@ function useMetamask(options: MetamaskPluginOptions): MetamaskService {
 
   instance = new Vue({
     data() {
-      return {
-        address: null,
-        loading: false,
-      };
+      return { address: null };
     },
 
     computed: {
@@ -37,16 +35,13 @@ function useMetamask(options: MetamaskPluginOptions): MetamaskService {
         return ethereum;
       },
 
-      async login(): Promise<void> {
+      async login(targetUrl): Promise<void> {
         try {
-          this.loading = true;
           const ethereum = this.getEthereum();
           await this.setAddress(ethereum);
-          await options.onSuccess(this.address);
+          await options.onSuccess({ targetUrl });
         } catch (e) {
-          await options.onFailure(e);
-        } finally {
-          this.loading = false;
+          await options.onFailure({ targetUrl: '/', error: e });
         }
       },
 
