@@ -1,6 +1,6 @@
 ## 0.0.65
 
-- refactor: explicit login method for metamask plugin
+- refactor: metamask plugin and guard
 
 ## 0.0.64
 
