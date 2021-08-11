@@ -1,3 +1,7 @@
+## 0.0.65
+
+- refactor: explicit login method for metamask plugin
+
 ## 0.0.64
 
 - feat: extension from mime type preferred
