@@ -3,22 +3,17 @@ import { NavigationGuardNext, Route } from 'vue-router';
 import { getMetamaskService } from '../plugin/metamask.plugin';
 
 export function MetamaskGuard(
-  _to: Route,
-  _from: Route,
+  to: Route,
+  _: Route,
   next: NavigationGuardNext<Vue>,
 ): void {
   const metamaskService = getMetamaskService();
 
   const fn = (): void => {
     if (metamaskService.isAuthenticated) return next();
-    return next({ name: 'index' });
+    metamaskService.login(to.fullPath);
+    return undefined;
   };
 
-  metamaskService.$watch('loading', (loading) => {
-    if (!loading) fn();
-    return undefined;
-  });
-
-  if (!metamaskService.loading) return fn();
-  return undefined;
+  return fn();
 }

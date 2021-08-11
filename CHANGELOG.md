@@ -1,3 +1,7 @@
+## 0.0.65
+
+- refactor: metamask plugin and guard
+
 ## 0.0.64
 
 - feat: extension from mime type preferred
