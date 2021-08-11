@@ -1,3 +1,7 @@
+## 0.0.64
+
+- feat: extension from mime type preferred
+
 ## 0.0.63
 
 - refactor: set `environment` optional in `Context`

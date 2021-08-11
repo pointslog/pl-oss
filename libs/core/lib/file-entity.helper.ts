@@ -20,10 +20,10 @@ export class FileEntityHelper {
   constructor(private readonly fileEntity: FileEntity) {}
 
   get extension(): string {
-    const fromId = this.fileEntity.id.split('.').pop().toLowerCase();
-    if (isValidExtension(fromId)) return fromId;
     const fromFile = this.mimeType.split('/')[1];
     if (isValidExtension(fromFile)) return fromFile;
+    const fromId = this.fileEntity.id.split('.').pop().toLowerCase();
+    if (isValidExtension(fromId)) return fromId;
     throw new InvalidFileExtensionException();
   }
 
