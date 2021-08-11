@@ -30,24 +30,24 @@ function useMetamask(options: MetamaskPluginOptions): MetamaskService {
       },
     },
 
-    async created() {
-      try {
-        this.loading = true;
-        const ethereum = this.getEthereum();
-        await this.setAddress(ethereum);
-        await options.onSuccess(this.address);
-      } catch (e) {
-        await options.onFailure(e);
-      } finally {
-        this.loading = false;
-      }
-    },
-
     methods: {
       getEthereum(): unknown {
         const { ethereum } = window as never;
         if (!ethereum) throw new Error('metamask.does.not.exist');
         return ethereum;
+      },
+
+      async login(): Promise<void> {
+        try {
+          this.loading = true;
+          const ethereum = this.getEthereum();
+          await this.setAddress(ethereum);
+          await options.onSuccess(this.address);
+        } catch (e) {
+          await options.onFailure(e);
+        } finally {
+          this.loading = false;
+        }
       },
 
       async setAddress(ethereum): Promise<void> {
