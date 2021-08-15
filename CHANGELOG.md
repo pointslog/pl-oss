@@ -1,3 +1,8 @@
+## 0.0.67
+
+- fix: cheerio fetch import
+- refactor: ambiguous file naming
+
 ## 0.0.66
 
 - feat: add cheerio-service type and adapter
