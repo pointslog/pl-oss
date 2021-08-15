@@ -1,4 +1,9 @@
-## 0.0.66
+## 0.0.68
+
+- fix: cheerio fetch import
+- refactor: ambiguous file naming
+
+## 0.0.67
 
 - feat: add cheerio-service type and adapter
 - refactor: rename uri.file-store to url.file-store
