@@ -1,4 +1,5 @@
 import cheerio, { CheerioAPI } from 'cheerio';
+import fetch from 'node-fetch';
 import { CheerioService } from '@pl-oss/core';
 
 export const cheerioService: CheerioService = {
