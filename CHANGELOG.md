@@ -1,3 +1,8 @@
+## 0.0.66
+
+- feat: add cheerio-service type and adapter
+- refactor: rename uri.file-store to url.file-store
+
 ## 0.0.65
 
 - refactor: metamask plugin and guard
