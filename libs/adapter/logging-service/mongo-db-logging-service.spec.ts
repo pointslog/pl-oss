@@ -1,6 +1,6 @@
 import { mock } from 'jest-mock-extended';
 import { Collection } from 'mongodb';
-import { MongoDBLoggingService } from './mongo-db.logging-service';
+import { MongoDBLoggingService } from './mongo-db-logging-service';
 
 jest.mock('mongodb', () => ({
   Collection: { insertOne: jest.fn() },

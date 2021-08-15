@@ -1,5 +1,5 @@
-import { FileEntity } from './file.entity';
-import { InvalidFileExtensionException } from './invalid-file-extension.exception';
+import { FileEntity } from './file-entity';
+import { InvalidFileExtensionException } from './invalid-file-extension-exception';
 
 const ALLOWED_EXTENSIONS = [
   'gif',

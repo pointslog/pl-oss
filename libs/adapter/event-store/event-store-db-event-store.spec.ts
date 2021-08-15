@@ -7,7 +7,7 @@ import {
   START,
 } from '@eventstore/db-client';
 import { Event as DomainEvent } from '@pl-oss/core';
-import { EventStoreDBEventStore } from './event-store-db.event-store';
+import { EventStoreDBEventStore } from './event-store-db-event-store';
 
 jest.mock('@eventstore/db-client', () => ({
   ...jest.requireActual<Record<string, unknown>>('@eventstore/db-client'),

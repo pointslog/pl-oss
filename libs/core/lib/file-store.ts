@@ -1,4 +1,4 @@
-import { FileEntity } from './file.entity';
+import { FileEntity } from './file-entity';
 
 export interface FileStore {
   append(fileEntity: FileEntity): Promise<void>;

@@ -1,5 +1,5 @@
 import { MongoClient } from 'mongodb';
-import { MongoDBHelper } from './mongo-db.helper';
+import { MongoDBHelper } from './mongo-db-helper';
 
 const mongoClient = { connect: jest.fn() };
 

@@ -1,5 +1,5 @@
 import { Test } from '@nestjs/testing';
-import { MessageController } from './message.controller';
+import { MessageController } from './message-controller';
 
 describe('MessageController', () => {
   const handler = { handle: jest.fn() };

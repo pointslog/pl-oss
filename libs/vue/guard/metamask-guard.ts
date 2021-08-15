@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import { NavigationGuardNext, Route } from 'vue-router';
-import { getMetamaskService } from '../plugin/metamask.plugin';
+import { getMetamaskService } from '../plugin/metamask-plugin';
 
 export function MetamaskGuard(
   to: Route,
