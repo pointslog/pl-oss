@@ -1,6 +1,6 @@
 import { FileEntity, FileStore, UnimplementedException } from '@pl-oss/core';
 import fetch from 'node-fetch';
-import { NetworkException } from './network.exception';
+import { NetworkException } from './network-exception';
 
 export const urlFileStore: FileStore = {
   async append(): Promise<void> {

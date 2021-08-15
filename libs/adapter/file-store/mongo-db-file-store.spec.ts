@@ -1,6 +1,6 @@
 import { FileEntity } from '@pl-oss/core';
 import { Collection } from 'mongodb';
-import { MongoDBFileStore } from './mongo-db.file-store';
+import { MongoDBFileStore } from './mongo-db-file-store';
 
 jest.mock('mongodb', () => ({
   Collection: {

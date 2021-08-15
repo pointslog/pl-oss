@@ -1,6 +1,6 @@
 import { AllStreamSubscription, EventStoreDBClient, streamNameFilter } from '@eventstore/db-client';
 import { EventListener } from '@pl-oss/core';
-import { EventStoreDBEventSubscription } from './event-store-db.event-subscription';
+import { EventStoreDBEventSubscription } from './event-store-db-event-subscription';
 
 class TestEventListener extends EventListener {
   getStreamNamePrefixes(): string[] { return []; }

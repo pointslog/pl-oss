@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import { NavigationGuardNext, Route } from 'vue-router';
-import { getAuth0Service } from '../plugin/auth0.plugin';
+import { getAuth0Service } from '../plugin/auth0-plugin';
 
 export function Auth0Guard(
   to: Route,
