@@ -33,6 +33,7 @@
     "@eventstore/db-client": "^1.2.1",
     "@nestjs/common": "^7.6.18",
     "aws-sdk": "^2.958.0",
+    "cheerio": "^1.0.0-rc.10",
     "mongodb": "^3.6.8",
     "node-fetch": "^2.6.1",
     "reflect-metadata": "^0.1.13",
