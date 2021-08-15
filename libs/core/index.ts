@@ -1,5 +1,6 @@
 export * from './lib/aggregate-exception';
 export * from './lib/aggregate';
+export * from './lib/cheerio-service';
 export * from './lib/command';
 export * from './lib/command-handler';
 export * from './lib/constant';

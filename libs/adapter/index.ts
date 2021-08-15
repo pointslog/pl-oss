@@ -1,3 +1,5 @@
+export * from './cheerio/adapter.cheerio-service';
+
 export * from './entity-repository/in-memory.entity-repository';
 export * from './entity-repository/mongo-db.entity-repository';
 
