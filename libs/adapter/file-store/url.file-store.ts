@@ -2,8 +2,8 @@ import { FileEntity, FileStore, UnimplementedException } from '@pl-oss/core';
 import fetch from 'node-fetch';
 import { NetworkException } from './network.exception';
 
-export class URIFileStore implements FileStore {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars,class-methods-use-this
+export class URLFileStore implements FileStore {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, class-methods-use-this
   async append(fileEntity: FileEntity): Promise<void> {
     throw new UnimplementedException();
   }
