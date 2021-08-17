@@ -1,3 +1,7 @@
+## 0.0.68
+
+- feat: add auth-message-store
+
 ## 0.0.67
 
 - fix: cheerio fetch import
