@@ -1,3 +1,4 @@
+export * from './auth-message-store/in-memory-auth-message-store';
 export * from './cheerio/cheerio-service';
 
 export * from './entity-repository/in-memory-entity-repository';
