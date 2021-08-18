@@ -1,4 +1,3 @@
-export * from './auth-message-store/in-memory-auth-message-store';
 export * from './cheerio/cheerio-service';
 
 export * from './entity-repository/in-memory-entity-repository';
@@ -17,5 +16,8 @@ export * from './file-store/url-file-store';
 export * from './logging-service/mongo-db-logging-service';
 export * from './mongo-db/mongo-db-helper';
 
+export * from './nest/graphql/graphql-auth-guard';
 export * from './nest/message/message-controller';
 export * from './nest/message/message-module';
+
+export * from './public-key-challenge-store/in-memory-public-key-challenge-store';
