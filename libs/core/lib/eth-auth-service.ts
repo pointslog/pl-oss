@@ -7,9 +7,6 @@ export abstract class EthAuthService {
   recoverWalletAddress(signedMessage: string, unsignedMessage: string): string {
     const unsignedMessageBuffer = Buffer.from(unsignedMessage, 'utf8');
     const data = `0x${unsignedMessageBuffer.toString('hex')}`;
-    return recoverPersonalSignature({
-      data,
-      sig: signedMessage,
-    });
+    return recoverPersonalSignature({ data, sig: signedMessage });
   }
 }
