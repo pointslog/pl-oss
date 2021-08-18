@@ -4,16 +4,16 @@ import {
   PublicKeyChallengeMap,
   PublicKeyChallengeStore,
 } from '@pl-oss/core';
+import { ChallengeNotFoundException } from './challenge-not-found-exception';
 
 export class InMemoryPublicKeyChallengeStore implements PublicKeyChallengeStore {
   constructor(private publicKeyChallengeMap: PublicKeyChallengeMap = {}) {}
 
-  delete(publicKey: PublicKey): void {
+  pop(publicKey: PublicKey): Challenge {
+    const challenge = this.publicKeyChallengeMap[publicKey];
+    if (!challenge) throw new ChallengeNotFoundException();
     delete this.publicKeyChallengeMap[publicKey];
-  }
-
-  getById(publicKey: PublicKey): Challenge {
-    return this.publicKeyChallengeMap[publicKey];
+    return challenge;
   }
 
   save(publicKey: PublicKey, challenge: Challenge): void {
