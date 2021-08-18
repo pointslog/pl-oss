@@ -1,6 +1,8 @@
 ## 0.0.68
 
-- feat: add auth-message-store
+- feat: add public-key-challenge-store and types
+- feat: add graphql-auth-guard
+- feat: add eth-auth-service
 
 ## 0.0.67
 
