@@ -1,6 +1,6 @@
 ## 0.0.69
 
-- refactor: add public-key-challenge-store
+- refactor: public-key-challenge-store
 
 ## 0.0.68
 
