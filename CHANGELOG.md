@@ -1,3 +1,7 @@
+## 0.0.69
+
+- refactor: add public-key-challenge-store
+
 ## 0.0.68
 
 - feat: add public-key-challenge-store and types
