@@ -1,3 +1,9 @@
+## 0.0.68
+
+- feat: add public-key-challenge-store and types
+- feat: add graphql-jwt-auth-guard
+- feat: add eth-auth-service
+
 ## 0.0.67
 
 - fix: cheerio fetch import

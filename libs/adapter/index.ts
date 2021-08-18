@@ -16,5 +16,8 @@ export * from './file-store/url-file-store';
 export * from './logging-service/mongo-db-logging-service';
 export * from './mongo-db/mongo-db-helper';
 
+export * from './nest/graphql/graphql-jwt-auth-guard';
 export * from './nest/message/message-controller';
 export * from './nest/message/message-module';
+
+export * from './public-key-challenge-store/in-memory-public-key-challenge-store';
