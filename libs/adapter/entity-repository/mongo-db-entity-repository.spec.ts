@@ -1,5 +1,5 @@
 import { Collection } from 'mongodb';
-import { MongoDBRepository } from './mongo-db.entity-repository';
+import { MongoDBRepository } from './mongo-db-entity-repository';
 
 jest.mock('mongodb', () => ({
   Collection: {

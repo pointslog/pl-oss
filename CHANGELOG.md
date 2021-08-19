@@ -1,3 +1,44 @@
+## 0.0.69
+
+- refactor: public-key-challenge-store
+
+## 0.0.68
+
+- feat: add public-key-challenge-store and types
+- feat: add graphql-jwt-auth-guard
+- feat: add eth-auth-service
+
+## 0.0.67
+
+- fix: cheerio fetch import
+- refactor: ambiguous file naming
+
+## 0.0.66
+
+- feat: add cheerio-service type and adapter
+- refactor: rename uri.file-store to url.file-store
+- refactor: export uri.file-store instance
+
+## 0.0.65
+
+- refactor: metamask plugin and guard
+
+## 0.0.64
+
+- feat: extension from mime type preferred
+
+## 0.0.63
+
+- refactor: set `environment` optional in `Context`
+
+## 0.0.62
+
+- refactor: add `environment` method to `Context`
+
+## 0.0.61
+
+- refactor: add `determineExtension` method to `FileEntityHelper`
+
 ## 0.0.60
 
 - refactor: remove `query` and `query-handler`
