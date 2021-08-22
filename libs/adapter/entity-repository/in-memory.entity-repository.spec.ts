@@ -1,29 +1,33 @@
-import { InMemoryEntityRepository } from './in-memory.entity-repository';
-
-interface TestEntity { id: string }
+import { InMemoryEntityRepository } from './in-memory-entity-repository';
 
 describe('InMemoryEntityRepository', () => {
-  const id = 'id';
-  const testEntity: TestEntity = { id };
-
-  let entityMap: Record<string, TestEntity>;
-  let testEntityInMemoryRepository: InMemoryEntityRepository<TestEntity>;
+  let entityRepository: InMemoryEntityRepository<{ id: string }>;
 
   beforeEach(() => {
-    entityMap = { testEntity };
-    testEntityInMemoryRepository = new InMemoryEntityRepository<TestEntity>(entityMap);
+    entityRepository = new InMemoryEntityRepository({ id: { id: 'id' } });
   });
 
   afterEach(jest.clearAllMocks);
 
   describe('getAll', () => {
-    it('should call getAll', async () => {
-      // jest.spyOn().mockResolvedValue();
-      const entity = await testEntityInMemoryRepository.getAll();
+    it('should return all entities', async () => {
+      const result = await entityRepository.getAll();
+      expect(result).toStrictEqual([{ id: 'id' }]);
+    });
+  });
 
-      expect(entity).toMatchObject([testEntity]);
-      expect(entity.values).toHaveBeenCalledTimes(1);
-      expect(entity.values).toHaveBeenNthCalledWith(1);
+  describe('getById', () => {
+    it('should return entity by id', async () => {
+      const result = await entityRepository.getById('id');
+      expect(result).toStrictEqual({ id: 'id' });
+    });
+  });
+
+  describe('save', () => {
+    it('should save new value of entity', async () => {
+      await entityRepository.save({ id: 'id1' });
+      const result = await entityRepository.getById('id1');
+      expect(result).toStrictEqual({ id: 'id1' });
     });
   });
 });
