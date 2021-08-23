@@ -4,6 +4,7 @@
 - refactor: MetamaskService interface
 - refactor: remove nest logger
 - refactor: remove command and handler
+- refactor: remove message module
 
 ## 0.0.69
 
