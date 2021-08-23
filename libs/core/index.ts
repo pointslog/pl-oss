@@ -1,8 +1,5 @@
-export * from './lib/aggregate-exception';
 export * from './lib/aggregate';
 export * from './lib/cheerio-service';
-export * from './lib/command';
-export * from './lib/command-handler';
 export * from './lib/constant';
 export * from './lib/context';
 export * from './lib/entity-repository';
@@ -20,7 +17,6 @@ export * from './lib/file-entity-helper';
 export * from './lib/file-store';
 export * from './lib/file-entity';
 export * from './lib/graphql-service';
-export * from './lib/handler-map';
 export * from './lib/id-should-be-unique-exception';
 export * from './lib/invalid-file-extension-exception';
 export * from './lib/logging-service';

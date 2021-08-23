@@ -8,7 +8,6 @@ interface MetamaskPluginOptions {
 
 interface MetamaskService extends Vue {
   isAuthenticated: boolean;
-  loading: boolean;
   login(targetUrl: string): void;
 }
 
