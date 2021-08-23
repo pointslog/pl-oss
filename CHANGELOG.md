@@ -3,6 +3,7 @@
 - refactor: remove AggregateException
 - refactor: MetamaskService interface
 - refactor: remove nest logger
+- refactor: remove command and handler
 
 ## 0.0.69
 
