@@ -1,3 +1,9 @@
+## 0.0.70
+
+- refactor: remove AggregateException
+- refactor: MetamaskService interface
+- refactor: remove nest logger
+
 ## 0.0.69
 
 - refactor: public-key-challenge-store
