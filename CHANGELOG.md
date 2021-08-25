@@ -1,3 +1,10 @@
+## 0.0.72
+
+- feat: add eth-jwt strategy and guard
+- feat: add jimp utils
+- refactor: eth-graphql-jwt-guard
+- refactor: eth-graphql-auth-resolver
+
 ## 0.0.71
 
 - add: GraphQLAuthResolver

@@ -4,7 +4,7 @@ import { JwtService } from '@nestjs/jwt';
 import { Context, EthAuthService, PublicKeyChallengeStore } from '@pl-oss/core';
 import { GraphQLBaseConstant } from './graphql-base-constant';
 
-export class GraphQLAuthResolver {
+export class EthGraphQLAuthResolver {
   private readonly ethAuthService: EthAuthService;
   private readonly publicKeyChallengeStore: PublicKeyChallengeStore;
 
