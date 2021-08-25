@@ -44,6 +44,7 @@
       {
         "exceptMethods": [
           "getNewInstance",
+          "getRequest",
           "getStreamNamePrefixes",
           "getStreamNamePrefix"
         ]
@@ -67,6 +68,7 @@
         "exceptAfterSingleLine": true
       }
     ],
+    "max-len": "off",
     "no-empty-function": "off",
     "@typescript-eslint/no-empty-function": [
       "error"
