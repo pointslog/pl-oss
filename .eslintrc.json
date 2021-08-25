@@ -43,7 +43,9 @@
       "error",
       {
         "exceptMethods": [
+          "generateMessage",
           "getNewInstance",
+          "getRequest",
           "getStreamNamePrefixes",
           "getStreamNamePrefix"
         ]
@@ -67,13 +69,17 @@
         "exceptAfterSingleLine": true
       }
     ],
+    "max-len": "off",
     "no-empty-function": "off",
     "@typescript-eslint/no-empty-function": [
       "error"
     ],
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": [
-      "error"
+      "error",
+      {
+        "argsIgnorePattern": "^_"
+      }
     ],
     "no-useless-constructor": "off",
     "@typescript-eslint/no-useless-constructor": [

@@ -4,7 +4,6 @@ import { AuthGuard } from '@nestjs/passport';
 
 @Injectable()
 export class GraphQLJWTAuthGuard extends AuthGuard('jwt') {
-  // eslint-disable-next-line class-methods-use-this
   getRequest(context: ExecutionContext) {
     return GqlExecutionContext
       .create(context)
