@@ -47,7 +47,8 @@
           "getNewInstance",
           "getRequest",
           "getStreamNamePrefixes",
-          "getStreamNamePrefix"
+          "getStreamNamePrefix",
+          "validate"
         ]
       }
     ],
