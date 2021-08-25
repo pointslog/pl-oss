@@ -8,6 +8,7 @@ export * from './file-store/mongo-db-file-store';
 export * from './file-store/network-exception';
 export * from './file-store/s3-file-store';
 export * from './file-store/url-file-store';
+export * from './jimp/utils';
 export * from './logging-service/mongo-db-logging-service';
 export * from './mongo-db/mongo-db-helper';
 export * from './nest/eth-graphql-auth-resolver';
