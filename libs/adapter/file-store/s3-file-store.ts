@@ -16,8 +16,8 @@ export class S3FileStore implements FileStore {
       .promise();
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars, class-methods-use-this
-  async read(id: string): Promise<FileEntity> {
+  // eslint-disable-next-line class-methods-use-this
+  async read(_id: string): Promise<FileEntity> {
     throw new UnimplementedException();
   }
 
