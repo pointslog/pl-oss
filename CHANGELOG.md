@@ -1,3 +1,9 @@
+## 0.0.71
+
+- add: GraphQLAuthResolver
+- add: GraphQLBaseConstant
+- add: GraphQLAuthGuard
+
 ## 0.0.70
 
 - refactor: remove AggregateException
