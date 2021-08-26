@@ -1,3 +1,7 @@
+## 0.0.73
+
+- feat: add authorization for metamask
+
 ## 0.0.72
 
 - feat: add eth-jwt strategy and guard
