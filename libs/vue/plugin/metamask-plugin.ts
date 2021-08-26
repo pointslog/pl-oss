@@ -36,9 +36,13 @@ function useMetamask(options: MetamaskPluginOptions): MetamaskService {
 
     async created() {
       this.accessToken = localStorage.accessToken;
-      const { ethereum } = window as never;
-      if (!ethereum) throw new Error('metamask.does.not.exist');
-      this.ethereum = ethereum;
+      try {
+        const { ethereum } = window as never;
+        if (!ethereum) throw new Error('metamask.does.not.exist');
+        this.ethereum = ethereum;
+      } catch (e) {
+        await options.onFailure({ targetUrl: '/', error: e });
+      }
     },
 
     methods: {
