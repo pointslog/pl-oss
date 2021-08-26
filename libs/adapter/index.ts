@@ -1,6 +1,7 @@
 export * from './cheerio/cheerio-service';
 export * from './entity-repository/in-memory-entity-repository';
 export * from './entity-repository/mongo-db-entity-repository';
+export * from './eth/eth-graphql-auth-service';
 export * from './event-store/event-store-db-event-store';
 export * from './event-subscription/event-store-db-event-subscription';
 export * from './feature-service/in-memory-feature-service';

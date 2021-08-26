@@ -1,13 +1,16 @@
+import { EthGraphQLAuthService } from '@pl-oss/adapter';
 import Vue from 'vue';
 import { VueConstructor } from 'vue/types/umd';
 
 interface MetamaskPluginOptions {
+  ethAuthService: EthGraphQLAuthService;
   onFailure(payload: unknown): Promise<void>;
   onSuccess(payload: unknown): Promise<void>;
 }
 
 interface MetamaskService extends Vue {
   isAuthenticated: boolean;
+  authorize(): void;
   login(targetUrl: string): void;
 }
 
@@ -18,7 +21,11 @@ function useMetamask(options: MetamaskPluginOptions): MetamaskService {
 
   instance = new Vue({
     data() {
-      return { address: null };
+      return {
+        accessToken: null,
+        address: null,
+        ethereum: null,
+      };
     },
 
     computed: {
@@ -27,25 +34,45 @@ function useMetamask(options: MetamaskPluginOptions): MetamaskService {
       },
     },
 
+    async created() {
+      this.accessToken = localStorage.accessToken;
+      const { ethereum } = window as never;
+      if (!ethereum) throw new Error('metamask.does.not.exist');
+      this.ethereum = ethereum;
+    },
+
     methods: {
-      getEthereum(): unknown {
-        const { ethereum } = window as never;
-        if (!ethereum) throw new Error('metamask.does.not.exist');
-        return ethereum;
+      async authorize(): Promise<void> {
+        try {
+          const hexMessage = await options.ethAuthService.getHexMessage(this.address);
+          const signedMessage = await this.getSignedMessage(hexMessage);
+          const accessToken = await options.ethAuthService.getAccessToken(signedMessage, this.address);
+          this.accessToken = accessToken;
+          localStorage.accessToken = accessToken;
+        } catch (e) {
+          this.accessToken = null;
+          localStorage.removeItem('accessToken');
+        }
+      },
+
+      async getSignedMessage(message: string): Promise<string> {
+        return this.ethereum.request({
+          method: 'personal_sign',
+          params: [message, this.address],
+        });
       },
 
       async login(targetUrl): Promise<void> {
         try {
-          const ethereum = this.getEthereum();
-          await this.setAddress(ethereum);
+          await this.setAddress();
           await options.onSuccess({ targetUrl });
         } catch (e) {
           await options.onFailure({ targetUrl: '/', error: e });
         }
       },
 
-      async setAddress(ethereum): Promise<void> {
-        const addresses = await ethereum.request({ method: 'eth_requestAccounts' });
+      async setAddress(): Promise<void> {
+        const addresses = await this.ethereum.request({ method: 'eth_requestAccounts' });
         if (addresses.length > 1) throw new Error('metamask.multiple.addresses.not.supported');
         [this.address] = addresses;
       },
