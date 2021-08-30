@@ -10,6 +10,7 @@ const ALLOWED_EXTENSIONS = [
   'mp4',
   'pdf',
   'png',
+  'zip',
 ];
 
 function isValidExtension(extension: string): boolean {

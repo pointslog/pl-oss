@@ -1,3 +1,7 @@
+## 0.0.74
+
+- feat: add zip support
+
 ## 0.0.73
 
 - feat: add authorization for metamask
