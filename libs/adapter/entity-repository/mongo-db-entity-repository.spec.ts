@@ -42,9 +42,7 @@ describe('MongoDBEntityRepository', () => {
   describe('getById', () => {
     it('should call findOne with id', async () => {
       const filter = { _id: id };
-
       jest.spyOn(collection, 'findOne').mockResolvedValue(testEntity);
-
       const entity = await repository.getById(id);
 
       expect(entity).toMatchObject(testEntity);
@@ -59,7 +57,6 @@ describe('MongoDBEntityRepository', () => {
       const options = { upsert: true };
 
       jest.spyOn(collection, 'findOneAndReplace').mockResolvedValue(undefined);
-
       await repository.save(testEntity);
 
       expect(collection.findOneAndReplace).toHaveBeenCalledTimes(1);
