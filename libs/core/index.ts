@@ -8,6 +8,7 @@ export * from './lib/environment';
 export * from './lib/eth-auth-service';
 export * from './lib/event';
 export * from './lib/event-listener';
+export * from './lib/event-log';
 export * from './lib/event-store';
 export * from './lib/event-subscription';
 export * from './lib/feature-flags';
