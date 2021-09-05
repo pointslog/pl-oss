@@ -1,4 +1,5 @@
 export * from './lib/aggregate';
+export * from './lib/all-event-listener';
 export * from './lib/cheerio-service';
 export * from './lib/constant';
 export * from './lib/context';
