@@ -1,5 +1,5 @@
 import { Collection } from 'mongodb';
-import { MongoDBRepository } from './mongo-db-entity-repository';
+import { MongoDBEntityRepository } from './mongo-db-entity-repository';
 
 jest.mock('mongodb', () => ({
   Collection: {
@@ -11,16 +11,16 @@ jest.mock('mongodb', () => ({
 
 interface TestEntity { id: string }
 
-describe('MongoDBRepository', () => {
+describe('MongoDBEntityRepository', () => {
   const id = 'id';
   const testEntity: TestEntity = { id };
 
   let collection: Collection;
-  let testEntityMongoDBRepository: MongoDBRepository<TestEntity>;
+  let repository: MongoDBEntityRepository<TestEntity>;
 
   beforeEach(() => {
     collection = Collection;
-    testEntityMongoDBRepository = new MongoDBRepository<TestEntity>(collection);
+    repository = new MongoDBEntityRepository<TestEntity>(collection);
   });
 
   afterEach(jest.clearAllMocks);
@@ -31,7 +31,7 @@ describe('MongoDBRepository', () => {
       jest.spyOn(cursor, 'toArray').mockResolvedValue([testEntity]);
       jest.spyOn(collection, 'find').mockReturnValue(cursor);
 
-      const entity = await testEntityMongoDBRepository.getAll();
+      const entity = await repository.getAll();
 
       expect(entity).toMatchObject([testEntity]);
       expect(collection.find).toHaveBeenCalledTimes(1);
@@ -42,10 +42,8 @@ describe('MongoDBRepository', () => {
   describe('getById', () => {
     it('should call findOne with id', async () => {
       const filter = { _id: id };
-
       jest.spyOn(collection, 'findOne').mockResolvedValue(testEntity);
-
-      const entity = await testEntityMongoDBRepository.getById(id);
+      const entity = await repository.getById(id);
 
       expect(entity).toMatchObject(testEntity);
       expect(collection.findOne).toHaveBeenCalledTimes(1);
@@ -59,8 +57,7 @@ describe('MongoDBRepository', () => {
       const options = { upsert: true };
 
       jest.spyOn(collection, 'findOneAndReplace').mockResolvedValue(undefined);
-
-      await testEntityMongoDBRepository.save(testEntity);
+      await repository.save(testEntity);
 
       expect(collection.findOneAndReplace).toHaveBeenCalledTimes(1);
       expect(collection.findOneAndReplace)

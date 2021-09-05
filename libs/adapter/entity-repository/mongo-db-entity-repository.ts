@@ -1,7 +1,7 @@
 import { EntityRepository, Entity } from '@pl-oss/core';
 import { Collection } from 'mongodb';
 
-export class MongoDBRepository<T extends Entity> implements EntityRepository<T> {
+export class MongoDBEntityRepository<T extends Entity> implements EntityRepository<T> {
   constructor(private readonly collection: Collection) {}
 
   getAll(): Promise<T[]> {
