@@ -1,5 +1,9 @@
 ## 0.0.75
 
+- feat: add `AllEventListener`
+
+## 0.0.75
+
 - feat: add `MongoDBEventLog`
 
 ## 0.0.74
