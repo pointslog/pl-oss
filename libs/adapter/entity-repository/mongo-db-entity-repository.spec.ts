@@ -16,11 +16,11 @@ describe('MongoDBEntityRepository', () => {
   const testEntity: TestEntity = { id };
 
   let collection: Collection;
-  let testMongoDBEntityRepository: MongoDBEntityRepository<TestEntity>;
+  let repository: MongoDBEntityRepository<TestEntity>;
 
   beforeEach(() => {
     collection = Collection;
-    testMongoDBEntityRepository = new MongoDBEntityRepository<TestEntity>(collection);
+    repository = new MongoDBEntityRepository<TestEntity>(collection);
   });
 
   afterEach(jest.clearAllMocks);
@@ -31,7 +31,7 @@ describe('MongoDBEntityRepository', () => {
       jest.spyOn(cursor, 'toArray').mockResolvedValue([testEntity]);
       jest.spyOn(collection, 'find').mockReturnValue(cursor);
 
-      const entity = await testMongoDBEntityRepository.getAll();
+      const entity = await repository.getAll();
 
       expect(entity).toMatchObject([testEntity]);
       expect(collection.find).toHaveBeenCalledTimes(1);
@@ -45,7 +45,7 @@ describe('MongoDBEntityRepository', () => {
 
       jest.spyOn(collection, 'findOne').mockResolvedValue(testEntity);
 
-      const entity = await testMongoDBEntityRepository.getById(id);
+      const entity = await repository.getById(id);
 
       expect(entity).toMatchObject(testEntity);
       expect(collection.findOne).toHaveBeenCalledTimes(1);
@@ -60,7 +60,7 @@ describe('MongoDBEntityRepository', () => {
 
       jest.spyOn(collection, 'findOneAndReplace').mockResolvedValue(undefined);
 
-      await testMongoDBEntityRepository.save(testEntity);
+      await repository.save(testEntity);
 
       expect(collection.findOneAndReplace).toHaveBeenCalledTimes(1);
       expect(collection.findOneAndReplace)
