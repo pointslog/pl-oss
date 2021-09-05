@@ -1,3 +1,7 @@
+## 0.0.77
+
+- feat: add `IncorrectAggregateVersionException`
+
 ## 0.0.76
 
 - feat: add `AllEventListener`
