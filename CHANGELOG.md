@@ -1,5 +1,9 @@
 ## 0.0.80
 
+- refactor: move logic to handle bigint in eventstore
+
+## 0.0.80
+
 - fix: bigint in mongo
 
 ## 0.0.79
