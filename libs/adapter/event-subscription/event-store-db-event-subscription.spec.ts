@@ -27,7 +27,7 @@ describe('EventStoreDBEventSubscription', () => {
   beforeEach(() => {
     testEventListener = new TestEventListener();
     testEventStoreDBClient = EventStoreDBClient.connectionString('');
-    testEventStoreDBEventSubscription = new EventStoreDBEventSubscription(testEventStoreDBClient);
+    testEventStoreDBEventSubscription = new EventStoreDBEventSubscription(testEventStoreDBClient, 'start');
   });
 
   afterEach(jest.clearAllMocks);
