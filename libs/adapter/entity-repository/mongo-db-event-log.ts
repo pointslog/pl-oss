@@ -9,6 +9,8 @@ export class MongoDBEventLog implements EventLog {
   }
 
   async log(event: Event): Promise<void> {
-    await this.collection.insertOne(event);
+    const filter = { _id: event.id };
+    const options = { upsert: true };
+    await this.collection.findOneAndReplace(filter, event, options);
   }
 }

@@ -19,18 +19,18 @@ export class EthGraphQLAuthResolver {
   @Mutation(GraphQLBaseConstant.RETURN_STRING)
   async generateAccessToken(
     @Args('signedMessage') signedMessage: string,
-    @Args('walletAddress') walletAddress: string,
+    @Args('walletId') walletId: string,
   ): Promise<string> {
-    const unsignedMessage = this.publicKeyChallengeStore.pop(walletAddress);
-    const recoveredWalletAddress = this.ethAuthService.recoverWalletAddress(signedMessage, unsignedMessage);
-    if (recoveredWalletAddress === walletAddress) return this.jwtService.sign({ sub: walletAddress });
+    const unsignedMessage = this.publicKeyChallengeStore.pop(walletId);
+    const recoveredWalletId = this.ethAuthService.recoverWalletId(signedMessage, unsignedMessage);
+    if (recoveredWalletId === walletId) return this.jwtService.sign({ sub: walletId });
     throw new UnauthorizedException();
   }
 
   @Mutation(GraphQLBaseConstant.RETURN_STRING)
-  async generateAuthMessage(@Args('walletAddress') walletAddress: string): Promise<string> {
+  async generateAuthMessage(@Args('walletId') walletId: string): Promise<string> {
     const authMessage = this.ethAuthService.generateMessage();
-    this.publicKeyChallengeStore.save(walletAddress, authMessage);
+    this.publicKeyChallengeStore.save(walletId, authMessage);
     return authMessage;
   }
 }

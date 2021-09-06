@@ -4,9 +4,8 @@ export abstract class EthAuthService {
   abstract generateMessage(): string;
 
   // eslint-disable-next-line class-methods-use-this
-  recoverWalletAddress(signedMessage: string, unsignedMessage: string): string {
-    const unsignedMessageBuffer = Buffer.from(unsignedMessage, 'utf8');
-    const data = `0x${unsignedMessageBuffer.toString('hex')}`;
+  recoverWalletId(signedMessage: string, unsignedMessage: string): string {
+    const data = `0x${Buffer.from(unsignedMessage, 'utf8').toString('hex')}`;
     return recoverPersonalSignature({ data, sig: signedMessage });
   }
 }

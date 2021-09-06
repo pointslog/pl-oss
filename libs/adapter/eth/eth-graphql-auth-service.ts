@@ -4,24 +4,15 @@ export class EthGraphQLAuthService {
   constructor(private readonly url: string) {}
 
   async getHexMessage(address: string): Promise<string> {
-    const query = `mutation{ generateAuthMessage(walletAddress: "${address}") }`;
-    const { data } = await axios({
-      url: this.url,
-      method: 'post',
-      data: { query },
-    });
-    const unsignedMessageBuffer = Buffer.from(data.data.generateAuthMessage, 'utf8');
+    const query = `mutation { generateAuthMessage(walletId: "${address}") }`;
+    const response = await axios.post(this.url, { query });
+    const unsignedMessageBuffer = Buffer.from(response.data.data.generateAuthMessage, 'utf8');
     return `0x${unsignedMessageBuffer.toString('hex')}`;
   }
 
-  async getAccessToken(signedMessage: string, walletAddress: string): Promise<string> {
-    const query = `mutation{ generateAccessToken(signedMessage: "${signedMessage}", walletAddress: "${walletAddress}")}`;
-
-    const { data } = await axios({
-      url: this.url,
-      method: 'post',
-      data: { query },
-    });
-    return data.data.generateAccessToken;
+  async getAccessToken(signedMessage: string, walletId: string): Promise<string> {
+    const query = `mutation { generateAccessToken(signedMessage: "${signedMessage}" walletId: "${walletId}")}`;
+    const response = await axios.post(this.url, { query });
+    return response.data.data.generateAccessToken;
   }
 }

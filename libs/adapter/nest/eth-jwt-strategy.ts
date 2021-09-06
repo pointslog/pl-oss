@@ -23,6 +23,6 @@ export class EthJwtStrategy extends PassportStrategy(Strategy, 'eth-jwt') {
   }
 
   async validate(payload: JwtPayload) {
-    return { walletAddress: payload.sub };
+    return { walletId: payload.sub };
   }
 }
