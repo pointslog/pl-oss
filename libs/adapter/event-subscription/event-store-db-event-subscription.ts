@@ -10,8 +10,9 @@ export class EventStoreDBEventSubscription implements EventSubscription {
     const subscription = this.client.subscribeToAll({ filter });
 
     // eslint-disable-next-line no-restricted-syntax
-    for await (const { event } of subscription) {
-      await listener.on(event.data as unknown as Event);
+    for await (const payload of subscription) {
+      const { data, ...metadata } = payload.event;
+      await listener.on(data as unknown as Event, metadata);
     }
   }
 }
