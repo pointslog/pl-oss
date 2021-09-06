@@ -1,3 +1,8 @@
+## 0.0.78
+
+- fix: nest event in `MongoDBEventLog`
+- feat: add `id` in `Event`
+
 ## 0.0.77
 
 - feat: add `IncorrectAggregateVersionException`
