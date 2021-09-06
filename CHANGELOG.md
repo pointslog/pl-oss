@@ -1,3 +1,7 @@
+## 0.0.80
+
+- fix: bigint in mongo
+
 ## 0.0.79
 
 - feat: metadata support in `EventLog`
