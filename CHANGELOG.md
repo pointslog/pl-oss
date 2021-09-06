@@ -1,4 +1,4 @@
-## 0.0.80
+## 0.0.81
 
 - refactor: move logic to handle bigint in eventstore
 
