@@ -1,3 +1,7 @@
+## 0.0.82
+
+- fix: ES same id
+
 ## 0.0.81
 
 - refactor: move logic to handle bigint in eventstore
