@@ -11,8 +11,8 @@ export class AllEventListener extends EventListener {
     return [''];
   }
 
-  async on(event: Event): Promise<void> {
+  async on(event: Event, metadata: unknown): Promise<void> {
     if (!event.type) return;
-    await this.eventLog.log(event);
+    await this.eventLog.log(event, metadata);
   }
 }

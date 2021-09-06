@@ -1,3 +1,7 @@
+## 0.0.79
+
+- feat: metadata support in `EventLog`
+
 ## 0.0.78
 
 - fix: nest event in `MongoDBEventLog`

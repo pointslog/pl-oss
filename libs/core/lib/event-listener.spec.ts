@@ -18,7 +18,7 @@ describe('EventListener', () => {
       await testEventListener.on(event as Event);
 
       expect(testEventListener.onTestEvent).toHaveBeenCalledTimes(1);
-      expect(testEventListener.onTestEvent).toHaveBeenNthCalledWith(1, event);
+      expect(testEventListener.onTestEvent).toHaveBeenNthCalledWith(1, event, undefined);
     });
   });
 });

@@ -27,7 +27,7 @@ describe('EventStoreDBEventSubscription', () => {
   beforeEach(() => {
     testEventListener = new TestEventListener();
     testEventStoreDBClient = EventStoreDBClient.connectionString('');
-    testEventStoreDBEventSubscription = new EventStoreDBEventSubscription(testEventStoreDBClient);
+    testEventStoreDBEventSubscription = new EventStoreDBEventSubscription(testEventStoreDBClient, 'start');
   });
 
   afterEach(jest.clearAllMocks);
@@ -44,11 +44,11 @@ describe('EventStoreDBEventSubscription', () => {
       await testEventStoreDBEventSubscription.register(testEventListener);
 
       expect(testEventStoreDBClient.subscribeToAll).toHaveBeenCalledTimes(1);
-      expect(testEventStoreDBClient.subscribeToAll).toHaveBeenNthCalledWith(1, { filter });
+      expect(testEventStoreDBClient.subscribeToAll).toHaveBeenNthCalledWith(1, { filter, fromPosition: 'start' });
 
       expect(testEventListener.on).toHaveBeenCalledTimes(2);
-      expect(testEventListener.on).toHaveBeenNthCalledWith(1, 'first');
-      expect(testEventListener.on).toHaveBeenNthCalledWith(2, 'second');
+      expect(testEventListener.on).toHaveBeenNthCalledWith(1, 'first', {});
+      expect(testEventListener.on).toHaveBeenNthCalledWith(2, 'second', {});
     });
   });
 });
