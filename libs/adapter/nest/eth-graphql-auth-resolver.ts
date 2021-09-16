@@ -23,7 +23,7 @@ export class EthGraphQLAuthResolver {
   ): Promise<string> {
     const unsignedMessage = this.publicKeyChallengeStore.pop(walletId);
     const recoveredWalletId = this.ethAuthService.recoverWalletId(signedMessage, unsignedMessage);
-    if (recoveredWalletId === walletId) return this.jwtService.sign({ sub: walletId });
+    if (recoveredWalletId.toLowerCase() === walletId.toLowerCase()) return this.jwtService.sign({ sub: walletId });
     throw new UnauthorizedException();
   }
 
