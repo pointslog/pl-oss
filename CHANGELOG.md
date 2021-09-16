@@ -1,3 +1,8 @@
+## 0.0.83
+
+- refactor: eth graphQL auth service and related code
+- feat: add current-user nest decorator
+
 ## 0.0.82
 
 - fix: ES same id

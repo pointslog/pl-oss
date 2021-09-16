@@ -1,7 +1,11 @@
 import { recoverPersonalSignature } from 'eth-sig-util';
+import { v4 as uuid } from 'uuid';
 
-export abstract class EthAuthService {
-  abstract generateMessage(): string;
+export class EthAuthService {
+  generateMessage(): string {
+    const id = uuid();
+    return `Please sign this transaction to prove the authenticity of your request. Nonce: ${id}`;
+  }
 
   // eslint-disable-next-line class-methods-use-this
   recoverWalletId(signedMessage: string, unsignedMessage: string): string {
