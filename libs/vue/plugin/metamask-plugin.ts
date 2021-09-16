@@ -1,6 +1,6 @@
-import { EthGraphQLAuthService } from '@pl-oss/adapter';
 import Vue from 'vue';
 import { VueConstructor } from 'vue/types/umd';
+import { EthGraphQLAuthService } from '../service/eth-graphql-auth-service';
 
 interface MetamaskPluginOptions {
   ethAuthService: EthGraphQLAuthService;
