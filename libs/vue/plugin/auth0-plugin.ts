@@ -17,6 +17,7 @@ interface Auth0Service extends Vue {
   getAccessToken(): Promise<string>;
   isLoggedIn(): boolean;
   login(payload: unknown): void;
+  logout(payload: unknown): void;
 }
 let instance;
 
