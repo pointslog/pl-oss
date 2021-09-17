@@ -10,8 +10,8 @@ export function Auth0Guard(
   const authService = getAuth0Service();
 
   const fn = () => {
-    if (authService.isAuthenticated) return next();
-    authService.loginWithRedirect({ appState: { targetUrl: to.fullPath } });
+    if (authService.isLoggedIn()) return next();
+    authService.login({ appState: { targetUrl: to.fullPath } });
     return undefined;
   };
 

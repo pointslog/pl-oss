@@ -1,3 +1,7 @@
+## 0.0.84
+
+- refactor: eth graphql auth service import
+
 ## 0.0.83
 
 - refactor: eth graphQL auth service and related code

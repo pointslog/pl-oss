@@ -6,7 +6,7 @@ interface Auth0PluginOptions {
   clientId: string;
   domain: string;
   onFailure(error: Error): Promise<void>;
-  onRedirect(appState: unknown): void;
+  onSuccess(appState: unknown): void;
 }
 
 interface Auth0Service extends Vue {
@@ -14,12 +14,15 @@ interface Auth0Service extends Vue {
   isAuthenticated: boolean;
   loading: boolean;
   user: unknown;
-  loginWithRedirect(payload: unknown): void;
+  getAccessToken(): Promise<string>;
+  isLoggedIn(): boolean;
+  login(payload: unknown): void;
+  logout(payload: unknown): void;
 }
 let instance;
 
 function useAuth0({
-  clientId, domain, onRedirect, ...options
+  clientId, domain, onFailure, onSuccess, ...options
 }: Auth0PluginOptions): Auth0Service {
   if (instance) return instance;
 
@@ -27,8 +30,8 @@ function useAuth0({
     data() {
       return {
         auth0Client: null,
-        loading: true,
         isAuthenticated: false,
+        loading: true,
         user: {},
       };
     },
@@ -42,15 +45,13 @@ function useAuth0({
       });
 
       try {
-        if (
-          window.location.search.includes('code=')
-          && window.location.search.includes('state=')
-        ) {
+        const isAuth0CallbackURL = window.location.search.includes('code=') && window.location.search.includes('state=');
+        if (isAuth0CallbackURL) {
           const { appState } = await this.auth0Client.handleRedirectCallback();
-          onRedirect(appState);
+          onSuccess(appState);
         }
       } catch (e) {
-        await options.onFailure(e);
+        await onFailure(e);
       } finally {
         this.isAuthenticated = await this.auth0Client.isAuthenticated();
         this.user = await this.auth0Client.getUser();
@@ -59,6 +60,14 @@ function useAuth0({
     },
 
     methods: {
+      getAccessToken(o) {
+        return this.auth0Client.getTokenSilently(o);
+      },
+
+      isLoggedIn(): boolean {
+        return this.isAuthenticated;
+      },
+
       async handleRedirectCallback() {
         try {
           this.loading = true;
@@ -66,25 +75,13 @@ function useAuth0({
           this.user = await this.auth0Client.getUser();
           this.isAuthenticated = true;
         } catch (e) {
-          await options.onFailure(e);
+          await onFailure(e);
         } finally {
           this.loading = false;
         }
       },
 
-      getIdTokenClaims(o) {
-        return this.auth0Client.getIdTokenClaims(o);
-      },
-
-      getTokenSilently(o) {
-        return this.auth0Client.getTokenSilently(o);
-      },
-
-      getTokenWithPopup(o) {
-        return this.auth0Client.getTokenWithPopup(o);
-      },
-
-      loginWithRedirect(o) {
+      login(o) {
         return this.auth0Client.loginWithRedirect(o);
       },
 
