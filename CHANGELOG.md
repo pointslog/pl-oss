@@ -1,7 +1,3 @@
-## 0.0.85
-
-- refactor: clean auth0 guard
-
 ## 0.0.84
 
 - refactor: auth guards and plugins
