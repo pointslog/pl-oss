@@ -1,6 +1,10 @@
+## 0.0.85
+
+- refactor: clean auth0 guard
+
 ## 0.0.84
 
-- refactor: eth graphql auth service import
+- refactor: auth guards and plugins
 
 ## 0.0.83
 
