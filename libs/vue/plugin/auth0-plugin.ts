@@ -68,19 +68,6 @@ function useAuth0({
         return this.isAuthenticated;
       },
 
-      async handleRedirectCallback() {
-        try {
-          this.loading = true;
-          await this.auth0Client.handleRedirectCallback();
-          this.user = await this.auth0Client.getUser();
-          this.isAuthenticated = true;
-        } catch (e) {
-          await onFailure(e);
-        } finally {
-          this.loading = false;
-        }
-      },
-
       login(o) {
         return this.auth0Client.loginWithRedirect(o);
       },
