@@ -2,7 +2,7 @@ import { EntityRepository, Entity } from '@pl-oss/core';
 import { Collection } from 'mongodb';
 
 export class MongoDBEntityRepository<T extends Entity> implements EntityRepository<T> {
-  constructor(private readonly collection: Collection) {}
+  constructor(protected readonly collection: Collection) {}
 
   getAll(): Promise<T[]> {
     return this.collection.find().toArray();
