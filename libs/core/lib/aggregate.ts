@@ -5,15 +5,15 @@ export abstract class Aggregate {
   abstract readonly streamNamePrefix: string;
 
   revision: number;
-  uncommitedEvents: Event[];
+  uncommittedEvents: Event[];
 
   constructor(readonly id: string) {
     this.reset();
   }
 
   async commit(eventStore: EventStore): Promise<this> {
-    await eventStore.append(this.streamName, this.uncommitedEvents, this.expectedRevision);
-    this.resetUncommitedEvents();
+    await eventStore.append(this.streamName, this.uncommittedEvents, this.expectedRevision);
+    this.resetUncommittedEvents();
     return this;
   }
 
@@ -26,11 +26,11 @@ export abstract class Aggregate {
 
   protected raiseEvent(event: Event): void {
     this.applyEvent(event);
-    this.uncommitedEvents.push(event);
+    this.uncommittedEvents.push(event);
   }
 
   private get expectedRevision(): number {
-    return this.revision - this.uncommitedEvents.length;
+    return this.revision - this.uncommittedEvents.length;
   }
 
   private get streamName(): string {
@@ -43,12 +43,12 @@ export abstract class Aggregate {
     this.revision += 1;
   }
 
-  private resetUncommitedEvents(): void {
-    this.uncommitedEvents = [];
+  private resetUncommittedEvents(): void {
+    this.uncommittedEvents = [];
   }
 
   private reset(): void {
     this.revision = -1;
-    this.resetUncommitedEvents();
+    this.resetUncommittedEvents();
   }
 }

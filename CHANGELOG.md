@@ -1,6 +1,11 @@
+## 0.0.86
+
+- fix: spelling uncommited to uncommitted
+
 ## 0.0.85
 
 - feat: add `DomHelper`
+
 ## 0.0.84
 
 - refactor: auth guards and plugins
