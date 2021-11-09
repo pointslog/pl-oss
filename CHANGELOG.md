@@ -1,3 +1,7 @@
+## 0.0.87
+
+- feat: add cacheable-aggregate
+
 ## 0.0.86
 
 - fix: spelling uncommited to uncommitted
