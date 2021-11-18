@@ -1,4 +1,5 @@
-import { Aggregate, EventStore } from '@pl-oss/core';
+import { Aggregate } from './aggregate';
+import { EventStore } from './event-store';
 
 export abstract class CacheableAggregate extends Aggregate {
   private static cache: Record<string, CacheableAggregate> = {}
