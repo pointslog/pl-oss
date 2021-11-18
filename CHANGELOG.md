@@ -1,3 +1,7 @@
+## 0.0.88
+
+- fix: `cacheKey` in `CacheableAggregate`
+
 ## 0.0.87
 
 - feat: add cacheable-aggregate
