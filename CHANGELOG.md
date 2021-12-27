@@ -1,3 +1,7 @@
+## 0.0.90
+
+- fix: `big int` `json stringify` fixed
+
 ## 0.0.89
 
 - fix: `aggregate` error logging
