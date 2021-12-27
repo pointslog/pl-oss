@@ -1,3 +1,7 @@
+## 0.0.89
+
+- fix: `aggregate` error logging
+
 ## 0.0.88
 
 - fix: `cacheKey` in `CacheableAggregate`

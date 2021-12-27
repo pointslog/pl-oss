@@ -5,7 +5,13 @@ export class IncorrectAggregateVersionException extends Error {
     readonly streamName: string,
     readonly rawError: unknown,
   ) {
-    super('exception.incorrect-aggregate-version');
+    super(JSON.stringify({ 
+      actualVersion, 
+      expectedVersion, 
+      streamName, 
+      rawError, 
+      type: 'exception.incorrect-aggregate-version',
+    }));
     this.name = 'IncorrectAggregateVersionException';
   }
 }
