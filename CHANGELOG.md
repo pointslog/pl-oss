@@ -1,3 +1,15 @@
+## 0.0.90
+
+- fix: `big int` `json stringify` fixed
+
+## 0.0.89
+
+- fix: `aggregate` error logging
+
+## 0.0.88
+
+- fix: `cacheKey` in `CacheableAggregate`
+
 ## 0.0.87
 
 - feat: add cacheable-aggregate
