@@ -2,7 +2,8 @@ import { Aggregate } from './aggregate';
 import { EventStore } from './event-store';
 
 export abstract class CacheableAggregate extends Aggregate {
-  private static cache: Record<string, CacheableAggregate> = {}
+  // eslint-disable-next-line no-use-before-define
+  private static cache: Record<string, CacheableAggregate> = {};
 
   async commit(eventStore: EventStore): Promise<this> {
     try {
