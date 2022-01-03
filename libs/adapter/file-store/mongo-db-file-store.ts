@@ -4,7 +4,7 @@ import { Collection } from 'mongodb';
 export class MongoDBFileStore implements FileStore {
   constructor(private readonly collection: Collection) {}
 
-  async append(fileEntity: FileEntity): Promise<void> {
+  async save(fileEntity: FileEntity): Promise<void> {
     try {
       const withMongoId = { ...fileEntity, _id: fileEntity.id };
       await this.collection.insertOne(withMongoId);

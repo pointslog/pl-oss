@@ -9,7 +9,7 @@ export class S3FileStore implements FileStore {
     private readonly bucket: string,
   ) {}
 
-  async append(fileEntity: FileEntity): Promise<void> {
+  async save(fileEntity: FileEntity): Promise<void> {
     const params = this.getS3Params(fileEntity);
     await this.s3
       .upload(params)
