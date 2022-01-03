@@ -3,7 +3,7 @@ import fetch from 'node-fetch';
 import { NetworkException } from './network-exception';
 
 export const urlFileStore: FileStore = {
-  async append(): Promise<void> {
+  async save(): Promise<void> {
     throw new UnimplementedException();
   },
 

@@ -26,10 +26,10 @@ describe('MongoDBFileStore', () => {
 
   afterEach(jest.clearAllMocks);
 
-  describe('append', () => {
+  describe('save', () => {
     it('should call insertOne', async () => {
       jest.spyOn(collection, 'insertOne');
-      await mongoDBFileStore.append(entity);
+      await mongoDBFileStore.save(entity);
 
       expect(collection.insertOne).toHaveBeenCalledTimes(1);
       expect(collection.insertOne).toHaveBeenNthCalledWith(1, { ...entity, _id: 'id' });
