@@ -6,14 +6,16 @@ export class IncorrectAggregateVersionException extends Error {
     readonly rawError: unknown,
   ) {
     super(
-      JSON.stringify({
-        actualVersion,
-        expectedVersion,
-        streamName,
-        rawError,
-        type: 'exception.incorrect-aggregate-version',
-      },
-      (key, value) => (typeof value === 'bigint' ? value.toString() : value)),
+      JSON.stringify(
+        {
+          actualVersion,
+          expectedVersion,
+          streamName,
+          rawError,
+          type: 'exception.incorrect-aggregate-version',
+        },
+        (_, value) => (typeof value === 'bigint' ? value.toString() : value),
+      ),
     );
     this.name = 'IncorrectAggregateVersionException';
   }
