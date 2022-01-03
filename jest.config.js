@@ -1,7 +1,9 @@
+const { getJestProjects } = require("@nrwl/jest");
+
 module.exports = {
   projects: [
-    '<rootDir>/libs/adapter',
-    '<rootDir>/libs/core',
-    '<rootDir>/libs/vue',
+    ...getJestProjects(),
+    "<rootDir>/libs/adapter",
+    "<rootDir>/libs/core",
   ],
 };

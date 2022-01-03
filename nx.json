@@ -19,19 +19,20 @@
           "lint",
           "test",
           "e2e"
-        ]
+        ],
+        "parallel": 3
       }
     }
   },
-  "projects": {
-    "adapter": {
-      "tags": []
-    },
-    "core": {
-      "tags": []
-    },
-    "vue": {
-      "tags": []
-    }
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/workspace"
   }
 }

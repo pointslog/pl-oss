@@ -57,12 +57,12 @@
       "ignorePackages",
       {
         "js": "never",
-        "ts": "never",
-        "vue": "never"
+        "ts": "never"
       }
     ],
     "import/no-extraneous-dependencies": "off",
     "import/prefer-default-export": "off",
+    "linebreak-style": "off",
     "lines-between-class-members": [
       "error",
       "always",
@@ -71,10 +71,12 @@
       }
     ],
     "max-len": "off",
+    "no-await-in-loop": "off",
     "no-empty-function": "off",
     "@typescript-eslint/no-empty-function": [
       "error"
     ],
+    "no-restricted-syntax": "off",
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": [
       "error",

@@ -10,27 +10,14 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": [
-      "es2017",
-      "dom"
-    ],
+    "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@pl-oss/adapter": [
-        "libs/adapter/index.ts"
-      ],
-      "@pl-oss/core": [
-        "libs/core/index.ts"
-      ],
-      "@pl-oss/vue": [
-        "libs/vue/index.ts"
-      ]
+      "@pl-oss/adapter": ["libs/adapter/index.ts"],
+      "@pl-oss/core": ["libs/core/index.ts"]
     }
   },
-  "exclude": [
-    "node_modules",
-    "tmp"
-  ]
+  "exclude": ["node_modules", "tmp"]
 }
