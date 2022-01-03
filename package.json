@@ -23,13 +23,10 @@
     "format:check": "nx format:check",
     "update": "nx migrate latest",
     "workspace-generator": "nx workspace-generator",
-    "dep-graph": "nx dep-graph",
-    "help": "nx help",
-    "postinstall": "node node_modules/@nx-plus/vue/patch-nx-dep-graph.js"
+    "dep-graph": "nx dep-graph"
   },
   "private": true,
   "dependencies": {
-    "@auth0/auth0-spa-js": "^1.15.0",
     "@eventstore/db-client": "^1.2.1",
     "@nestjs/common": "^7.6.18",
     "@nestjs/graphql": "^8.0.2",
@@ -45,13 +42,7 @@
     "node-fetch": "^2.6.1",
     "passport-jwt": "^4.0.0",
     "reflect-metadata": "^0.1.13",
-    "tslib": "^2.0.0",
-    "vue": "^2.6.11",
-    "vue-class-component": "^7.2.6",
-    "vue-router": "^3.5.2",
-    "vuetify": "^2.5.1",
-    "web3": "^1.5.2",
-    "web3modal": "^1.9.4"
+    "tslib": "^2.0.0"
   },
   "devDependencies": {
     "@nestjs/core": "^7.6.18",
@@ -64,37 +55,24 @@
     "@nrwl/node": "^12.3.4",
     "@nrwl/tao": "12.3.4",
     "@nrwl/workspace": "12.3.4",
-    "@nx-plus/vue": "^11.0.1",
     "@types/jest": "26.0.8",
     "@types/node": "14.14.33",
     "@types/node-fetch": "^2.5.12",
     "@types/passport-jwt": "^3.0.6",
     "@typescript-eslint/eslint-plugin": "4.19.0",
     "@typescript-eslint/parser": "4.19.0",
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-typescript": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "@vue/eslint-config-typescript": "^5.0.2",
-    "@vue/test-utils": "^1.0.3",
-    "babel-core": "^7.0.0-bridge.0",
     "dotenv": "8.2.0",
     "eslint": "7.22.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "8.1.0",
     "eslint-import-resolver-typescript": "^2.4.0",
     "eslint-plugin-import": "^2.23.2",
-    "eslint-plugin-vue": "^7.8.0",
     "jest": "26.2.2",
     "jest-mock-extended": "^1.0.15",
-    "jest-serializer-vue": "^2.0.2",
     "jest-transform-stub": "^2.0.0",
     "prettier": "2.2.1",
-    "pug": "^3.0.2",
-    "pug-plain-loader": "^1.1.0",
     "ts-jest": "26.5.5",
     "ts-node": "~9.1.1",
-    "typescript": "~4.2.4",
-    "vue-jest": "^3.0.5",
-    "vue-template-compiler": "^2.6.11"
+    "typescript": "~4.2.4"
   }
 }
