@@ -1,3 +1,8 @@
+## 0.0.91
+
+- chore: remove `Vue`
+- chore: update dependencies
+
 ## 0.0.90
 
 - fix: `big int` `json stringify` fixed
