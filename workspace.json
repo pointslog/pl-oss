@@ -80,39 +80,6 @@
           }
         }
       }
-    },
-    "vue": {
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/vue/**/*.{ts,tsx,vue}"
-            ]
-          }
-        },
-        "build": {
-          "executor": "@nx-plus/vue:library",
-          "options": {
-            "dest": "dist/libs/vue",
-            "entry": "libs/vue/index.ts",
-            "tsConfig": "libs/vue/tsconfig.lib.json"
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/vue"
-          ],
-          "options": {
-            "jestConfig": "libs/vue/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "root": "libs/vue",
-      "sourceRoot": "libs/vue"
     }
   },
   "cli": {

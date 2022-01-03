@@ -57,8 +57,7 @@
       "ignorePackages",
       {
         "js": "never",
-        "ts": "never",
-        "vue": "never"
+        "ts": "never"
       }
     ],
     "import/no-extraneous-dependencies": "off",

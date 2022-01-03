@@ -23,9 +23,6 @@
       ],
       "@pl-oss/core": [
         "libs/core/index.ts"
-      ],
-      "@pl-oss/vue": [
-        "libs/vue/index.ts"
       ]
     }
   },
