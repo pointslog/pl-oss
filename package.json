@@ -44,6 +44,7 @@
     "passport": "0.4",
     "passport-jwt": "^4.0.0",
     "reflect-metadata": "^0.1.13",
+    "stripe": "^8.202.0",
     "tslib": "^2.0.0"
   },
   "devDependencies": {
