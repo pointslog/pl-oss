@@ -1,7 +1,7 @@
-import { CurrencyConversionFailedException, CurrencyConversionRepository } from '@pl-oss/core';
+import { CurrencyConversionFailedException, CurrencyConverter } from '@pl-oss/core';
 import axios from 'axios';
 
-export class CoinbaseCurrencyConversionRepository implements CurrencyConversionRepository {
+export class CoinbaseCurrencyConverter implements CurrencyConverter {
   private readonly baseUrl = 'https://api.coinbase.com/v2';
   private readonly unitCents = 100;
 

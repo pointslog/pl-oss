@@ -5,7 +5,7 @@ export * from './lib/cheerio-service';
 export * from './lib/constant';
 export * from './lib/context';
 export * from './lib/currency-conversion-failed-exception';
-export * from './lib/currency-conversion-repository';
+export * from './lib/currency-converter';
 export * from './lib/entity-repository';
 export * from './lib/entity';
 export * from './lib/environment';

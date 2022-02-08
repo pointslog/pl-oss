@@ -1,22 +1,22 @@
 import axios from 'axios';
-import { CoinbaseCurrencyConversionRepository } from './coinbase-currency-conversion-repository';
+import { CoinbaseCurrencyConverter } from './coinbase-currency-converter';
 
 jest.mock('axios');
 
-describe('CoinbaseCurrencyConversionRepository', () => {
+describe('CoinbaseCurrencyConverter', () => {
   let mockedAxios;
-  let repository: CoinbaseCurrencyConversionRepository;
+  let converter: CoinbaseCurrencyConverter;
 
   beforeEach(() => {
     mockedAxios = axios as jest.Mocked<typeof axios>;
-    repository = new CoinbaseCurrencyConversionRepository();
+    converter = new CoinbaseCurrencyConverter();
   });
 
   describe('fromEthToUsd', () => {
     it('should call fromEthToUsd', async () => {
       mockedAxios.get.mockResolvedValueOnce({ status: 200, data: { data: { amount: 2500 } } });
 
-      const result = await repository.fromEthToUsd(1);
+      const result = await converter.fromEthToUsd(1);
       expect(result).toStrictEqual(0.0000025);
     });
 
@@ -25,7 +25,7 @@ describe('CoinbaseCurrencyConversionRepository', () => {
 
       let error;
       try {
-        await repository.fromEthToUsd(1);
+        await converter.fromEthToUsd(1);
       } catch (e) {
         error = e;
       }
@@ -39,7 +39,7 @@ describe('CoinbaseCurrencyConversionRepository', () => {
 
   describe('fromUsdToCents', () => {
     it('should call fromUsdToCents', () => {
-      expect(repository.fromUsdToCents(1)).toStrictEqual(100);
+      expect(converter.fromUsdToCents(1)).toStrictEqual(100);
     });
   });
 });
