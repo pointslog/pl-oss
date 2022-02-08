@@ -14,7 +14,7 @@ function createBitpayClient({ bitpayMerchantId, bitpayPrivateKey, runtime }: Env
 }
 
 export class BitpayPaymentService implements PaymentService {
-  private client: Client;
+  private readonly client: Client;
 
   constructor(private readonly environment: Environment) {
     this.client = createBitpayClient(environment);
