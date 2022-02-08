@@ -19,3 +19,5 @@ export * from './nest/eth-jwt-guard';
 export * from './nest/eth-jwt-strategy';
 export * from './nest/graphql-base-constant';
 export * from './public-key-challenge-store/in-memory-public-key-challenge-store';
+export * from './payment-service/bitpay-payment-service';
+export * from './payment-service/stripe-payment-service';
