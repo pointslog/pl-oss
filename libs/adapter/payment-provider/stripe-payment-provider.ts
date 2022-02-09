@@ -2,11 +2,12 @@ import { PaymentProvider } from '@pl-oss/core';
 import Stripe from 'stripe';
 
 export class StripePaymentProvider implements PaymentProvider {
-  private readonly appClientUrl: string;
   private readonly stripe: Stripe;
 
-  constructor(appClientUrl: string, stripeSecretKey: string) {
-    this.appClientUrl = appClientUrl;
+  constructor(
+    private readonly appClientUrl: string,
+    private readonly stripeSecretKey: string,
+  ) {
     this.stripe = new Stripe(stripeSecretKey, { apiVersion: '2020-08-27' });
   }
 
