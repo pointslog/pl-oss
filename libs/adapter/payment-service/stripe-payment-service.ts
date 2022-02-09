@@ -14,7 +14,7 @@ export class StripePaymentService implements PaymentService {
     await this.stripe.checkout.sessions.expire(id);
   }
 
-  async generateUrl(orderId: string, unitAmount: number): Promise<{ id: string, raw: unknown, url: string }> {
+  async generatePayment(orderId: string, unitAmount: number): Promise<{ id: string, raw: unknown, url: string }> {
     const priceData = { currency: 'usd', product_data: { name: orderId }, unit_amount: unitAmount };
     const successUrl = `${this.appClientUrl}/stripe-payment?status=success&orderId=${orderId}`;
     const cancelUrl = `${this.appClientUrl}/stripe-payment?status=fail&orderId=${orderId}`;

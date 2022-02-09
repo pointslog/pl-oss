@@ -1,4 +1,10 @@
+type PaymentGenerated = {
+  id: string;
+  raw: unknown;
+  url: string;
+}
+
 export interface PaymentService {
   cancel(id: string): Promise<void>;
-  generateUrl(orderId: string, unitAmount: number): Promise<{ id: string, raw: unknown, url: string }>;
+  generatePayment(orderId: string, unitAmount: number): Promise<PaymentGenerated>;
 }

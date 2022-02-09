@@ -25,7 +25,7 @@ export class BitpayPaymentService implements PaymentService {
     // implementation is not available
   }
 
-  async generateUrl(orderId: string, unitAmount: number): Promise<{ id: string, raw: unknown, url: string }> {
+  async generatePayment(orderId: string, unitAmount: number): Promise<{ id: string, raw: unknown, url: string }> {
     const { appClientUrl, appServerUrl } = this.environment;
     const invoiceOptions = new Models.Invoice((unitAmount), Currency.USD);
     invoiceOptions.notificationURL = `${appServerUrl}/api/webhooks/bitpay`;
