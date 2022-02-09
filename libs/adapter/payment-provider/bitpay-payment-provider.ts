@@ -21,6 +21,8 @@ export class BitpayPaymentProvider implements PaymentProvider {
   private readonly client: Client;
 
   constructor(
+    private readonly appClientUrl: string,
+    private readonly appServerUrl: string,
     private readonly bitpayMerchantId: string,
     private readonly bitpayPrivateKey: string,
     private readonly runtime: string,
@@ -34,11 +36,10 @@ export class BitpayPaymentProvider implements PaymentProvider {
   }
 
   async generatePayment(orderId: string, unitAmount: number): Promise<{ id: string, raw: unknown, url: string }> {
-    const { appClientUrl, appServerUrl } = this.environment;
     const invoiceOptions = new Models.Invoice((unitAmount), Currency.USD);
-    invoiceOptions.notificationURL = `${appServerUrl}/api/webhooks/bitpay`;
+    invoiceOptions.notificationURL = `${this.appServerUrl}/api/webhooks/bitpay`;
     invoiceOptions.orderId = orderId;
-    invoiceOptions.redirectURL = `${appClientUrl}/wallet-assets`;
+    invoiceOptions.redirectURL = `${this.appClientUrl}/wallet-assets`;
     invoiceOptions.extendedNotifications = true;
     const invoiceResponse = await this.client.CreateInvoice(invoiceOptions);
     const { id, url } = invoiceResponse;
