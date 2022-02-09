@@ -1,4 +1,4 @@
-import { PaymentProvider } from '@pl-oss/core';
+import { GeneratedPayment, PaymentProvider } from '@pl-oss/core';
 import Stripe from 'stripe';
 
 export class StripePaymentProvider implements PaymentProvider {
@@ -15,7 +15,7 @@ export class StripePaymentProvider implements PaymentProvider {
     await this.stripe.checkout.sessions.expire(id);
   }
 
-  async generatePayment(orderId: string, unitAmount: number): Promise<{ id: string, raw: unknown, url: string }> {
+  async generatePayment(orderId: string, unitAmount: number): Promise<GeneratedPayment> {
     const priceData = { currency: 'usd', product_data: { name: orderId }, unit_amount: unitAmount };
     const successUrl = `${this.appClientUrl}/stripe-payment?status=success&orderId=${orderId}`;
     const cancelUrl = `${this.appClientUrl}/stripe-payment?status=fail&orderId=${orderId}`;

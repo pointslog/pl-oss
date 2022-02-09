@@ -1,4 +1,4 @@
-import { PaymentProvider } from '@pl-oss/core';
+import { GeneratedPayment, PaymentProvider } from '@pl-oss/core';
 import {
   Client, Currency, Env, Models, Tokens,
 } from 'bitpay-sdk';
@@ -35,14 +35,13 @@ export class BitpayPaymentProvider implements PaymentProvider {
     // implementation is not available
   }
 
-  async generatePayment(orderId: string, unitAmount: number): Promise<{ id: string, raw: unknown, url: string }> {
+  async generatePayment(orderId: string, unitAmount: number): Promise<GeneratedPayment> {
     const invoiceOptions = new Models.Invoice((unitAmount), Currency.USD);
     invoiceOptions.notificationURL = `${this.appServerUrl}/api/webhooks/bitpay`;
     invoiceOptions.orderId = orderId;
     invoiceOptions.redirectURL = `${this.appClientUrl}/wallet-assets`;
     invoiceOptions.extendedNotifications = true;
     const invoiceResponse = await this.client.CreateInvoice(invoiceOptions);
-    const { id, url } = invoiceResponse;
-    return { id, url, raw: invoiceResponse };
+    return { id: invoiceResponse.id, url: invoiceResponse.url, raw: invoiceResponse };
   }
 }
