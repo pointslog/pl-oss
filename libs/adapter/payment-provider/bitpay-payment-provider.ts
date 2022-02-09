@@ -1,9 +1,13 @@
-import { Environment, PaymentProvider } from '@pl-oss/core';
+import { PaymentProvider } from '@pl-oss/core';
 import {
   Client, Currency, Env, Models, Tokens,
 } from 'bitpay-sdk';
 
-function createBitpayClient({ bitpayMerchantId, bitpayPrivateKey, runtime }: Environment) {
+function createBitpayClient(
+  bitpayMerchantId: string,
+  bitpayPrivateKey: string,
+  runtime: string,
+) {
   Tokens.merchant = bitpayMerchantId;
   return new Client(
     null,
@@ -16,8 +20,12 @@ function createBitpayClient({ bitpayMerchantId, bitpayPrivateKey, runtime }: Env
 export class BitpayPaymentProvider implements PaymentProvider {
   private readonly client: Client;
 
-  constructor(private readonly environment: Environment) {
-    this.client = createBitpayClient(environment);
+  constructor(
+    private readonly bitpayMerchantId: string,
+    private readonly bitpayPrivateKey: string,
+    private readonly runtime: string,
+  ) {
+    this.client = createBitpayClient(bitpayMerchantId, bitpayPrivateKey, runtime);
   }
 
   // eslint-disable-next-line class-methods-use-this
