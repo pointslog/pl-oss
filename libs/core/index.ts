@@ -25,7 +25,7 @@ export * from './lib/graphql-service';
 export * from './lib/id-should-be-unique-exception';
 export * from './lib/invalid-file-extension-exception';
 export * from './lib/logging-service';
-export * from './lib/public-key-challenge-store';
 export * from './lib/payment-provider';
+export * from './lib/public-key-challenge-store';
 export * from './lib/runtime';
 export * from './lib/unimplemented-exception';
