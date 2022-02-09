@@ -1,13 +1,13 @@
-import { Environment, PaymentProvider } from '@pl-oss/core';
+import { PaymentProvider } from '@pl-oss/core';
 import Stripe from 'stripe';
 
 export class StripePaymentProvider implements PaymentProvider {
   private readonly appClientUrl: string;
   private readonly stripe: Stripe;
 
-  constructor(environment: Environment) {
-    this.appClientUrl = environment.appClientUrl.toString();
-    this.stripe = new Stripe(environment.stripeSecretKey.toString(), { apiVersion: '2020-08-27' });
+  constructor(appClientUrl: string, stripeSecretKey: string) {
+    this.appClientUrl = appClientUrl;
+    this.stripe = new Stripe(stripeSecretKey, { apiVersion: '2020-08-27' });
   }
 
   async cancel(id: string): Promise<void> {
