@@ -34,6 +34,7 @@
     "@nestjs/passport": "^8.0.1",
     "apollo-server-express": "2.x.x",
     "aws-sdk": "^2.958.0",
+    "bitpay-sdk": "^3.0.2202",
     "cheerio": "^1.0.0-rc.10",
     "class-validator": "0.13",
     "eth-sig-util": "^3.0.1",
@@ -44,6 +45,7 @@
     "passport": "0.4",
     "passport-jwt": "^4.0.0",
     "reflect-metadata": "^0.1.13",
+    "stripe": "^8.202.0",
     "tslib": "^2.0.0"
   },
   "devDependencies": {
