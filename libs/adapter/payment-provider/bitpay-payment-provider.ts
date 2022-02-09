@@ -1,4 +1,4 @@
-import { Environment, PaymentService } from '@pl-oss/core';
+import { Environment, PaymentProvider } from '@pl-oss/core';
 import {
   Client, Currency, Env, Models, Tokens,
 } from 'bitpay-sdk';
@@ -13,7 +13,7 @@ function createBitpayClient({ bitpayMerchantId, bitpayPrivateKey, runtime }: Env
   );
 }
 
-export class BitpayPaymentService implements PaymentService {
+export class BitpayPaymentProvider implements PaymentProvider {
   private readonly client: Client;
 
   constructor(private readonly environment: Environment) {

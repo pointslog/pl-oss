@@ -1,7 +1,7 @@
-import { Environment, PaymentService } from '@pl-oss/core';
+import { Environment, PaymentProvider } from '@pl-oss/core';
 import Stripe from 'stripe';
 
-export class StripePaymentService implements PaymentService {
+export class StripePaymentProvider implements PaymentProvider {
   private readonly appClientUrl: string;
   private readonly stripe: Stripe;
 

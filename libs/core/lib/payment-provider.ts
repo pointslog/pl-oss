@@ -4,7 +4,7 @@ type PaymentGenerated = {
   url: string;
 }
 
-export interface PaymentService {
+export interface PaymentProvider {
   cancel(id: string): Promise<void>;
   generatePayment(orderId: string, unitAmount: number): Promise<PaymentGenerated>;
 }
