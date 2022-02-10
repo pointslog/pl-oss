@@ -1,21 +1,6 @@
 import { GeneratedPayment, PaymentProvider } from '@pl-oss/core';
-import {
-  Client, Currency, Env, Models, Tokens,
-} from 'bitpay-sdk';
-
-function createBitpayClient(
-  bitpayMerchantId: string,
-  bitpayPrivateKey: string,
-  runtime: string,
-) {
-  Tokens.merchant = bitpayMerchantId;
-  return new Client(
-    null,
-    runtime === 'production' ? Env.Prod : Env.Test,
-    bitpayPrivateKey as string,
-    Tokens,
-  );
-}
+import { Client, Currency, Models } from 'bitpay-sdk';
+import { createBitpayClient } from './create-bitpay-payment-client';
 
 export class BitpayPaymentProvider implements PaymentProvider {
   private readonly client: Client;
