@@ -1,3 +1,7 @@
+## 0.0.93
+
+- feat: createBitpayClient
+
 ## 0.0.92
 
 - feat: PaymentProvider - BitpayPaymentProvider, StripePaymentProvider
