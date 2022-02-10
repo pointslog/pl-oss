@@ -1,3 +1,7 @@
+## 0.0.94
+
+- feat: QuantityManager
+
 ## 0.0.93
 
 - feat: createBitpayClient
