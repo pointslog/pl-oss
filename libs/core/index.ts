@@ -27,5 +27,6 @@ export * from './lib/invalid-file-extension-exception';
 export * from './lib/logging-service';
 export * from './lib/payment-provider';
 export * from './lib/public-key-challenge-store';
+export * from './lib/quantity-manager';
 export * from './lib/runtime';
 export * from './lib/unimplemented-exception';
