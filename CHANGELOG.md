@@ -1,3 +1,8 @@
+## 0.0.92
+
+- feat: PaymentProvider - BitpayPaymentProvider, StripePaymentProvider
+- feat: CurrencyConverter - CoinbaseCurrencyConverter
+
 ## 0.0.91
 
 - chore: remove `Vue`
