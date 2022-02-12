@@ -29,4 +29,9 @@ export class BitpayPaymentProvider implements PaymentProvider {
     const invoiceResponse = await this.client.CreateInvoice(invoiceOptions);
     return { id: invoiceResponse.id, url: invoiceResponse.url, raw: invoiceResponse };
   }
+
+  // eslint-disable-next-line class-methods-use-this
+  isPaid(_id: string): Promise<boolean> {
+    throw new Error('Method not allowed');
+  }
 }

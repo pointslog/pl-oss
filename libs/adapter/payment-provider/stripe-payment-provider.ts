@@ -29,4 +29,10 @@ export class StripePaymentProvider implements PaymentProvider {
     });
     return { id: session.id, raw: session, url: session.url };
   }
+
+  async isPaid(id: string): Promise<boolean> {
+    const session = await this.stripe.checkout.sessions.retrieve(id);
+    const paymentStatus = session.payment_status;
+    return paymentStatus === 'paid';
+  }
 }
