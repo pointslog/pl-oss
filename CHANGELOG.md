@@ -1,3 +1,11 @@
+## 0.0.96
+
+- feat: payment - isPaid
+
+## 0.0.95
+
+- fix: deployment
+
 ## 0.0.94
 
 - feat: QuantityManager
