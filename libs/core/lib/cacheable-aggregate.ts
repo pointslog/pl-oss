@@ -20,7 +20,7 @@ export abstract class CacheableAggregate extends Aggregate {
     if (!skipCache && cached) return cached as this;
 
     const result = await super.load(eventStore);
-    CacheableAggregate.cache[this.id] = result;
+    CacheableAggregate.cache[this.getCacheKey()] = result;
     return result;
   }
 
