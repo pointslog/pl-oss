@@ -1,5 +1,10 @@
 ## 0.0.96
 
+- feat: eventStoreDB - skipVersionCheck
+- fix: cacheableAggregate
+
+## 0.0.96
+
 - feat: payment - isPaid
 
 ## 0.0.95

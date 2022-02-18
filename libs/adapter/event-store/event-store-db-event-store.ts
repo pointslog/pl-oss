@@ -11,7 +11,10 @@ import { EventStore, Event as DomainEvent } from '@pl-oss/core';
 import { IncorrectAggregateVersionException } from './incorrect-aggregate-version-exception';
 
 export class EventStoreDBEventStore implements EventStore {
-  constructor(private readonly eventStoreDBClient: EventStoreDBClient) {}
+  constructor(
+    private readonly eventStoreDBClient: EventStoreDBClient,
+    private readonly skipVersionCheck: boolean = false,
+  ) {}
 
   static determineExpectedRevision(revision: number): typeof NO_STREAM | bigint {
     return revision === -1 ? NO_STREAM : BigInt(revision);
@@ -30,7 +33,7 @@ export class EventStoreDBEventStore implements EventStore {
   async append(stream: string, events: DomainEvent[], expectedRevision: number): Promise<void> {
     const jsonEvents = events.map(EventStoreDBEventStore.mapEventToJsonEvent);
     const determinedRevision = EventStoreDBEventStore.determineExpectedRevision(expectedRevision);
-    const options = { expectedRevision: determinedRevision };
+    const options = this.skipVersionCheck ? {} : { expectedRevision: determinedRevision };
     try {
       await this.eventStoreDBClient.appendToStream(stream, jsonEvents, options);
     } catch (e) {
