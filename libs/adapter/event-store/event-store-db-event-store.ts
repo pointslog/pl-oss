@@ -33,7 +33,7 @@ export class EventStoreDBEventStore implements EventStore {
   async append(stream: string, events: DomainEvent[], expectedRevision: number): Promise<void> {
     const jsonEvents = events.map(EventStoreDBEventStore.mapEventToJsonEvent);
     const determinedRevision = EventStoreDBEventStore.determineExpectedRevision(expectedRevision);
-    const options = this.skipVersionCheck ? { expectedRevision: determinedRevision } : {};
+    const options = this.skipVersionCheck ? {} : { expectedRevision: determinedRevision };
     try {
       await this.eventStoreDBClient.appendToStream(stream, jsonEvents, options);
     } catch (e) {
