@@ -102,6 +102,39 @@
         }
       },
       "tags": []
+    },
+    "stripe": {
+      "root": "libs/stripe",
+      "sourceRoot": "libs/stripe",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/stripe/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/stripe"],
+          "options": {
+            "jestConfig": "libs/stripe/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/core",
+            "tsConfig": "libs/stripe/tsconfig.lib.json",
+            "packageJson": "libs/stripe/package.json",
+            "main": "libs/stripe/index.ts",
+            "assets": ["libs/stripe/*.md"]
+          }
+      },
+      "tags": []
     }
   }
 }
