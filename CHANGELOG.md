@@ -1,3 +1,6 @@
+## 0.1.2
+- fix: mongodb module exports
+
 ## 0.1.1
 - feat: mongodb module separated
 
