@@ -103,6 +103,40 @@
       },
       "tags": []
     },
+    "event-store": {
+      "root": "libs/event-store",
+      "sourceRoot": "libs/event-store",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/event-store/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/event-store"],
+          "options": {
+            "jestConfig": "libs/event-store/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/event-store",
+            "tsConfig": "libs/event-store/tsconfig.lib.json",
+            "packageJson": "libs/event-store/package.json",
+            "main": "libs/event-store/index.ts",
+            "assets": ["libs/event-store/*.md"]
+          }
+        }
+      },
+      "tags": []
+    },
     "mongodb": {
       "root": "libs/mongodb",
       "sourceRoot": "libs/mongodb/src",
