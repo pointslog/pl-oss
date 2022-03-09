@@ -17,7 +17,8 @@
     "paths": {
       "@pl-oss/adapter": ["libs/adapter/index.ts"],
       "@pl-oss/bitpay": ["libs/bitpay/index.ts"],
-      "@pl-oss/core": ["libs/core/index.ts"]
+      "@pl-oss/core": ["libs/core/index.ts"],
+      "@pl-oss/stripe": ["libs/stripe/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
