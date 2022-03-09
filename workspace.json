@@ -9,19 +9,13 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/adapter/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/adapter/**/*.ts"]
           },
-          "outputs": [
-            "{options.outputFile}"
-          ]
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/adapter"
-          ],
+          "outputs": ["coverage/libs/adapter"],
           "options": {
             "jestConfig": "libs/adapter/jest.config.js",
             "passWithNoTests": true
@@ -29,17 +23,36 @@
         },
         "build": {
           "executor": "@nrwl/node:package",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/libs/adapter",
             "tsConfig": "libs/adapter/tsconfig.lib.json",
             "packageJson": "libs/adapter/package.json",
             "main": "libs/adapter/index.ts",
-            "assets": [
-              "libs/adapter/*.md"
-            ]
+            "assets": ["libs/adapter/*.md"]
+          }
+        }
+      },
+      "tags": []
+    },
+    "bitpay": {
+      "root": "libs/bitpay",
+      "sourceRoot": "libs/bitpay",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/bitpay/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/bitpay"],
+          "options": {
+            "jestConfig": "libs/bitpay/jest.config.js",
+            "passWithNoTests": true
           }
         }
       },
@@ -53,19 +66,13 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/core/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/core/**/*.ts"]
           },
-          "outputs": [
-            "{options.outputFile}"
-          ]
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/core"
-          ],
+          "outputs": ["coverage/libs/core"],
           "options": {
             "jestConfig": "libs/core/jest.config.js",
             "passWithNoTests": true
@@ -73,17 +80,13 @@
         },
         "build": {
           "executor": "@nrwl/node:package",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/libs/core",
             "tsConfig": "libs/core/tsconfig.lib.json",
             "packageJson": "libs/core/package.json",
             "main": "libs/core/index.ts",
-            "assets": [
-              "libs/core/*.md"
-            ]
+            "assets": ["libs/core/*.md"]
           }
         }
       },

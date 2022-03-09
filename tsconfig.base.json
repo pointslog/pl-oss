@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@pl-oss/adapter": ["libs/adapter/index.ts"],
+      "@pl-oss/bitpay": ["libs/bitpay/index.ts"],
       "@pl-oss/core": ["libs/core/index.ts"]
     }
   },
