@@ -27,7 +27,7 @@ export class StripePaymentProvider implements PaymentProvider {
       mode: 'payment',
       metadata: { orderId },
     });
-    return { id: session.id, raw: session, url: session.url };
+    return { id: session.id, raw: session, url: session.url as string };
   }
 
   async isPaid(id: string): Promise<boolean> {
