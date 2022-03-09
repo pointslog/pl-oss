@@ -1,3 +1,12 @@
+## 0.1.1
+- feat: mongodb module separated
+
+## 0.1.0
+- feat: stripe module separated
+
+## 0.0.99
+- feat: bitpay module separated
+
 ## 0.0.96
 
 - feat: eventStoreDB - skipVersionCheck
