@@ -1,5 +1,5 @@
 import { MongoClient } from 'mongodb';
-import { MongoDBHelper } from './mongo-db-helper';
+import { createAndGetClient } from './create-and-get-client';
 
 const mongoClient = { connect: jest.fn() };
 
@@ -7,17 +7,17 @@ jest.mock('mongodb', () => ({
   MongoClient: jest.fn().mockImplementation(() => mongoClient),
 }));
 
-describe('MongoDBHelper', () => {
+describe('createAndGetClient', () => {
   afterEach(jest.clearAllMocks);
 
-  describe('getClient', () => {
+  describe('createAndGetClient', () => {
     it('should instantiate mongoClient and call connect', async () => {
       const url = 'url';
       const useNewUrlParser = true;
       const useUnifiedTopology = true;
       const config = { useNewUrlParser, useUnifiedTopology };
 
-      const client = await MongoDBHelper.getClient(url);
+      const client = await createAndGetClient(url);
 
       expect(client).toMatchObject(mongoClient);
       expect(MongoClient).toHaveBeenCalledTimes(1);
