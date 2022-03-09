@@ -1,4 +1,7 @@
 ## 0.1.2
+- feat: eventstore module separated
+
+## 0.1.2
 - fix: mongodb module exports
 
 ## 0.1.1
