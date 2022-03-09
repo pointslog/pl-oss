@@ -8,7 +8,7 @@ import {
   START,
 } from '@eventstore/db-client';
 import { EventStore, Event as DomainEvent } from '@pl-oss/core';
-import { IncorrectAggregateVersionException } from './incorrect-aggregate-version-exception';
+import { IncorrectAggregateVersionException } from '../exception/incorrect-aggregate-version-exception';
 
 export class EventStoreDBEventStore implements EventStore {
   constructor(
