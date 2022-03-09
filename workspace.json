@@ -110,20 +110,14 @@
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
           "options": {
-            "lintFilePatterns": [
-              "libs/stripe/**/*.ts"
-            ]
-          }
+            "lintFilePatterns": ["libs/stripe/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/stripe"
-          ],
+          "outputs": ["coverage/libs/stripe"],
           "options": {
             "jestConfig": "libs/stripe/jest.config.js",
             "passWithNoTests": true
@@ -131,17 +125,13 @@
         },
         "build": {
           "executor": "@nrwl/node:package",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
-            "outputPath": "dist/libs/core",
+            "outputPath": "dist/libs/stripe",
             "tsConfig": "libs/stripe/tsconfig.lib.json",
             "packageJson": "libs/stripe/package.json",
             "main": "libs/stripe/index.ts",
-            "assets": [
-              "libs/stripe/*.md"
-            ]
+            "assets": ["libs/stripe/*.md"]
           }
         }
       },
