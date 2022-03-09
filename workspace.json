@@ -103,6 +103,29 @@
       },
       "tags": []
     },
+    "mongodb": {
+      "root": "libs/mongodb",
+      "sourceRoot": "libs/mongodb/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/mongodb/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/mongodb"],
+          "options": {
+            "jestConfig": "libs/mongodb/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
     "stripe": {
       "root": "libs/stripe",
       "sourceRoot": "libs/stripe",
