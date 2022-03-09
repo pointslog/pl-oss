@@ -1,2 +1,2 @@
-export * from './payment/bitpay-payment-provider';
-export * from './payment/create-bitpay-payment-client';
+export * from './helper/create-bitpay-payment-client';
+export * from './provider/bitpay-payment-provider';

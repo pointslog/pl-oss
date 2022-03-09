@@ -110,10 +110,10 @@
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
           "options": {
             "lintFilePatterns": ["libs/mongodb/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
@@ -121,6 +121,17 @@
           "options": {
             "jestConfig": "libs/mongodb/jest.config.js",
             "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/mongodb",
+            "tsConfig": "libs/mongodb/tsconfig.lib.json",
+            "packageJson": "libs/mongodb/package.json",
+            "main": "libs/mongodb/index.ts",
+            "assets": ["libs/mongodb/*.md"]
           }
         }
       },
