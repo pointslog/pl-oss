@@ -1,5 +1,5 @@
-import { ItemDoesNotExistException } from './item-does-not-exist-exception';
 import { InvalidItemQuantityException } from './invalid-item-quantity-exception';
+import { ItemDoesNotExistException } from './item-does-not-exist-exception';
 
 export class QuantityManager {
   protected items: Map<string, number> = new Map();
