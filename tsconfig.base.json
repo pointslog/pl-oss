@@ -19,7 +19,7 @@
       "@pl-oss/bitpay": ["libs/bitpay/index.ts"],
       "@pl-oss/core": ["libs/core/index.ts"],
       "@pl-oss/event-store": ["libs/event-store/index.ts"],
-      "@pl-oss/mongodb": ["libs/mongodb/src/index.ts"],
+      "@pl-oss/mongodb": ["libs/mongodb/index.ts"],
       "@pl-oss/stripe": ["libs/stripe/index.ts"]
     }
   },

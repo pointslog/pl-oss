@@ -10,4 +10,5 @@ module.exports = {
     '<rootDir>/libs/mongodb',
     '<rootDir>/libs/stripe',
   ],
+  modulesDirectories: ['node_modules', '<rootDir>'],
 };
