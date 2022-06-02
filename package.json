@@ -27,7 +27,7 @@
   },
   "private": true,
   "dependencies": {
-    "@eventstore/db-client": "^1.2.1",
+    "@eventstore/db-client": "^3.3.1",
     "@nestjs/common": "8.2",
     "@nestjs/graphql": "9",
     "@nestjs/jwt": "^8.0.0",

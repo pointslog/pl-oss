@@ -3,6 +3,7 @@ import {
   FORWARDS,
   jsonEvent,
   JSONEventData,
+  JSONEventType,
   NO_STREAM,
   ResolvedEvent,
   START,
@@ -49,10 +50,16 @@ export class EventStoreDBEventStore implements EventStore {
   }
 
   async read(stream: string): Promise<DomainEvent[]> {
+    const domainEvents:DomainEvent[] = [];
     const direction = FORWARDS;
     const fromRevision = START;
     const resolvedEvents = await this.eventStoreDBClient
-      .readStream(stream, { direction, fromRevision });
-    return resolvedEvents.map(EventStoreDBEventStore.mapResolvedEventToEvent);
+      .readStream<JSONEventType>(stream, { direction, fromRevision });
+
+    for await (const event of resolvedEvents) {
+      domainEvents.push(EventStoreDBEventStore.mapResolvedEventToEvent(event));
+    }
+
+    return domainEvents;
   }
 }
