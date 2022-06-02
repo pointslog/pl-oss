@@ -1,12 +1,12 @@
-import { FileStore, FileEntity, IdShouldBeUniqueException } from '@pl-oss/core';
-import { Collection } from 'mongodb';
+import { FileEntity, FileStore, IdShouldBeUniqueException } from '@pl-oss/core';
+import { Collection, ObjectId } from 'mongodb';
 
 export class MongoDBFileStore implements FileStore {
-  constructor(private readonly collection: Collection) {}
+  constructor(private readonly collection: Collection<FileEntity>) {}
 
   async save(fileEntity: FileEntity): Promise<void> {
     try {
-      const withMongoId = { ...fileEntity, _id: fileEntity.id };
+      const withMongoId = { ...fileEntity, _id: new ObjectId(fileEntity.id) };
       await this.collection.insertOne(withMongoId);
     } catch (e) {
       const DUPLICATE_KEY_ERROR_CODE = 11000;
@@ -15,7 +15,7 @@ export class MongoDBFileStore implements FileStore {
   }
 
   read(id: string): Promise<FileEntity> {
-    const filter = { _id: id };
+    const filter = { _id: new ObjectId(id) };
     return this.collection.findOne(filter);
   }
 }

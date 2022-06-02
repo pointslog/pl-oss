@@ -64,6 +64,7 @@
     "@types/passport-jwt": "^3.0.6",
     "@typescript-eslint/eslint-plugin": "5.27.0",
     "@typescript-eslint/parser": "5.27.0",
+    "add": "^2.0.6",
     "class-transformer": "0.5.1",
     "dotenv": "16.0.1",
     "eslint": "8.16.0",
@@ -78,6 +79,7 @@
     "rxjs": "7.5.5",
     "ts-jest": "28.0.3",
     "ts-node": "~10.8.0",
-    "typescript": "4.7.2"
+    "typescript": "4.7.2",
+    "yarn": "^1.22.18"
   }
 }
