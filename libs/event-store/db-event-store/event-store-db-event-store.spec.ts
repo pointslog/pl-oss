@@ -79,7 +79,7 @@ describe('EventStoreDBEventStore', () => {
       const direction = FORWARDS;
       const fromRevision = START;
 
-      jest.spyOn(testEventStoreDBClient, 'readStream').mockResolvedValue(resolvedEvents);
+      jest.spyOn(testEventStoreDBClient, 'readStream').mockResolvedValue(resolvedEvents as unknown as never);
 
       const events = await testEventStoreDBEventStore.read(stream);
 
