@@ -1,5 +1,8 @@
+## 0.1.4
+- fix: eventStoreDB client dependency upgraded
+
 ## 0.1.3
-- feat: eventstore module separated
+- feat: eventStoreDB module separated
 
 ## 0.1.2
 - fix: mongodb module exports
