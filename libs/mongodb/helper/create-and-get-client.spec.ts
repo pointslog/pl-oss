@@ -13,15 +13,11 @@ describe('createAndGetClient', () => {
   describe('createAndGetClient', () => {
     it('should instantiate mongoClient and call connect', async () => {
       const url = 'url';
-      const useNewUrlParser = true;
-      const useUnifiedTopology = true;
-      const config = { useNewUrlParser, useUnifiedTopology };
-
       const client = await createAndGetClient(url);
 
       expect(client).toMatchObject(mongoClient);
       expect(MongoClient).toHaveBeenCalledTimes(1);
-      expect(MongoClient).toHaveBeenNthCalledWith(1, url, config);
+      expect(MongoClient).toHaveBeenNthCalledWith(1, url);
       expect(mongoClient.connect).toHaveBeenCalledTimes(1);
       expect(mongoClient.connect).toHaveBeenNthCalledWith(1);
     });

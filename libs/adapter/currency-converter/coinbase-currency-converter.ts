@@ -1,11 +1,7 @@
 import { CurrencyConversionFailedException, CurrencyConverter } from '@pl-oss/core';
 import axios from 'axios';
 
-type CoinbaseResponse = {
-  data: {
-    amount: string;
-  };
-}
+type CoinbaseResponse = { data: { amount: string; }; }
 
 export class CoinbaseCurrencyConverter implements CurrencyConverter {
   private readonly baseUrl = 'https://api.coinbase.com/v2';

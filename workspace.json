@@ -139,7 +139,7 @@
     },
     "mongodb": {
       "root": "libs/mongodb",
-      "sourceRoot": "libs/mongodb/src",
+      "sourceRoot": "libs/mongodb",
       "projectType": "library",
       "targets": {
         "lint": {

@@ -20,7 +20,7 @@ describe('MongoDBLoggingService', () => {
   describe('log', () => {
     it('should call insertOne with message and payload', async () => {
       const date = new Date();
-      jest.useFakeTimers('modern');
+      jest.useFakeTimers();
       jest.setSystemTime(date);
 
       await service.log('message', {});

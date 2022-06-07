@@ -1,4 +1,5 @@
 export * from './cheerio/cheerio-service';
+export * from './currency-converter/coinbase-currency-converter';
 export * from './entity-repository/in-memory-entity-repository';
 export * from './feature-service/in-memory-feature-service';
 export * from './file-store/network-exception';

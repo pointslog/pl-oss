@@ -11,16 +11,16 @@ jest.mock('mongodb', () => ({
 
 describe('MongoDBFileStore', () => {
   let entity: FileEntity;
-  let collection: Collection;
+  let collection: Collection<FileEntity>;
   let mongoDBFileStore: MongoDBFileStore;
 
   beforeEach(() => {
-    collection = Collection;
+    collection = new Collection<FileEntity>();
     entity = new FileEntity('id', 'data');
     mongoDBFileStore = new MongoDBFileStore(collection);
 
     const date = new Date();
-    jest.useFakeTimers('modern');
+    jest.useFakeTimers();
     jest.setSystemTime(date);
   });
 
@@ -38,7 +38,7 @@ describe('MongoDBFileStore', () => {
 
   describe('read', () => {
     it('should call findOne', async () => {
-      jest.spyOn(collection, 'findOne').mockReturnValue(entity);
+      jest.spyOn(collection, 'findOne').mockResolvedValue(entity as unknown as never);
       const response = await mongoDBFileStore.read('id');
 
       expect(response).toMatchObject(entity);

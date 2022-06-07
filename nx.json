@@ -1,5 +1,5 @@
 {
-  "npmScope": "pl-oss",
+  "npmScope": "@pl-oss",
   "affected": {
     "defaultBase": "main"
   },
