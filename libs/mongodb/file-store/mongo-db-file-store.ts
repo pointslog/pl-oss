@@ -6,6 +6,8 @@ export class MongoDBFileStore implements FileStore {
 
   async save(fileEntity: FileEntity): Promise<void> {
     try {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       const withMongoId: WithId<FileEntity> = { ...fileEntity, _id: fileEntity.id };
       await this.collection.insertOne(withMongoId);
     } catch (e) {
